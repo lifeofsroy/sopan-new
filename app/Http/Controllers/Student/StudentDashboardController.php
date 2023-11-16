@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class StudentDashboardController extends Controller
 {
-    //
+    public function dashboardPage(){
+        return view('pages.student.dashboard');
+    }
 }
