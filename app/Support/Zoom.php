@@ -15,22 +15,28 @@ class Zoom
 
     public function __construct()
     {
-        // $setting = ZoomSetting::find(auth()->id());
-        $setting = ZoomSetting::find(1);
+        try {
+            $setting = ZoomSetting::find(auth()->id());
 
-        $this->client_id = $setting->client_key;
-        $this->client_secret = $setting->client_secret;
-        $this->account_id = $setting->account_id;
+            $this->client_id = $setting->client_key;
+            $this->client_secret = $setting->client_secret;
+            $this->account_id = $setting->account_id;
 
-        $this->accessToken = $this->getAccessToken();
+            $this->accessToken = $this->getAccessToken();
 
-        $this->client = new Client([
-            'base_uri' => env('ZOOM_BASE_URL'),
-            'headers' => [
-                'Authorization' => 'Bearer ' . $this->accessToken,
-                'Content-Type' => 'application/json',
-            ],
-        ]);
+            $this->client = new Client([
+                'base_uri' => env('ZOOM_BASE_URL'),
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $this->accessToken,
+                    'Content-Type' => 'application/json',
+                ],
+            ]);
+        } catch (\Throwable $th) {
+            return [
+                'status' => false,
+                'message' => $th->getMessage()
+            ];
+        }
     }
 
     protected function getAccessToken()
@@ -131,7 +137,7 @@ class Zoom
     {
         try {
             $response = $this->client->request('GET', 'users/me/meetings');
-            
+
             $meetings = json_decode($response->getBody(), true);
 
             $previousMeetings = [];
@@ -146,9 +152,8 @@ class Zoom
 
             return [
                 'status' => true,
-                'data' => ['meetings' => $previousMeetings]]
-            ;
-
+                'data' => ['meetings' => $previousMeetings]
+            ];
         } catch (\Throwable $th) {
             return [
                 'status' => false,
@@ -178,7 +183,6 @@ class Zoom
                 'message' => $th->getMessage(),
             ];
         }
-
     }
 
     public function showMeeting(string $id)
