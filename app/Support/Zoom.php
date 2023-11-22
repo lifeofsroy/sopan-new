@@ -16,7 +16,7 @@ class Zoom
     public function __construct()
     {
         try {
-            $setting = ZoomSetting::find(auth()->id());
+            $setting = request()->user()->zoomSetting;
 
             $this->client_id = $setting->client_key;
             $this->client_secret = $setting->client_secret;

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class TeacherLivewireController extends Controller
 {
-    public function allMeeting(){
-        
+    public function zoomSetting(){
+        return view('pages.teacher.setting.zoom');
     }
 }

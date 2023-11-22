@@ -8,11 +8,7 @@
 </head>
 
 <body>
-    @mobile
-        this is mobile view
-    @elsemobile
-        this is other views
-    @endmobile
+    home page
 </body>
 
 </html>
