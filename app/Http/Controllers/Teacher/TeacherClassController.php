@@ -27,7 +27,6 @@ class TeacherClassController extends Controller
 
     public function create(Request $request)
     {
-        dd($request->all());
         $request->validate([
             'meet_topic' => ['required'],
             'meet_agenda' => ['required'],
@@ -108,6 +107,30 @@ class TeacherClassController extends Controller
         ];
 
         $res = ZoomFacade::updateMeeting($id, $data);
+        return $res;
+    }
+
+    public function upcoming()
+    {
+        $meetings = ZoomFacade::getUpcomingMeeting();
+        return $meetings;
+    }
+
+    public function previous()
+    {
+        $meetings = ZoomFacade::getPreviousMeetings();
+        return $meetings;
+    }
+
+    public function end($id)
+    {
+        $res = ZoomFacade::endMeeting($id);
+        return $res;
+    }
+
+    public function recover($id)
+    {
+        $res = ZoomFacade::recoverMeeting($id);
         return $res;
     }
 }

@@ -25,7 +25,7 @@ class Zoom
             $this->accessToken = $this->getAccessToken();
 
             $this->client = new Client([
-                'base_uri' => env('ZOOM_BASE_URL'),
+                'base_uri' => 'https://api.zoom.us/v2/',
                 'headers' => [
                     'Authorization' => 'Bearer ' . $this->accessToken,
                     'Content-Type' => 'application/json',

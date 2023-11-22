@@ -41,6 +41,12 @@
         Sections
     </li>
 
+    <li class="sidebar-item {{ Route::is('teacher.class.index') ? 'active' : '' }}">
+        <a class='sidebar-link' href='{{ route('teacher.class.index') }}'>
+            <i class="align-middle" data-feather="book-open"></i> <span class="align-middle">Classes</span>
+        </a>
+    </li>
+
     <li class="sidebar-item {{Route::is('teacher.setting*') ? 'active':''}}">
         <a class="sidebar-link {{Route::is('teacher.setting*') ? '':'collapsed'}}" data-bs-target="#mainsetting" data-bs-toggle="collapse">
             <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Settings</span>
@@ -48,17 +54,6 @@
         <ul class="sidebar-dropdown list-unstyled {{Route::is('teacher.setting*') ? 'show':''}} collapse" id="mainsetting" data-bs-parent="#sidebar">
             <li class="sidebar-item {{Route::is('teacher.setting.zoom') ? 'active':''}}">
                 <a class='sidebar-link' href='{{route('teacher.setting.zoom')}}'>Zoom Settings</a>
-            </li>
-        </ul>
-    </li>
-
-    <li class="sidebar-item {{Route::is('teacher.class*') ? 'active':''}}">
-        <a class="sidebar-link {{Route::is('teacher.class*') ? '':'collapsed'}}" data-bs-target="#onlineClass" data-bs-toggle="collapse">
-            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Classes</span>
-        </a>
-        <ul class="sidebar-dropdown list-unstyled {{Route::is('teacher.class*') ? 'show':''}} collapse" id="onlineClass" data-bs-parent="#sidebar">
-            <li class="sidebar-item {{Route::is('teacher.class.index') ? 'active':''}}">
-                <a class='sidebar-link' href='{{route('teacher.class.index')}}'>All Classes</a>
             </li>
         </ul>
     </li>

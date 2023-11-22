@@ -9,6 +9,9 @@
                 </div>
 
                 <div class="mt-n1 col-auto ms-auto text-end">
+                    <a class="btn btn-dark" onclick="allClass()">All</a>
+                    <a class="btn btn-success" onclick="upcomingClass()">Upcoming</a>
+                    <a class="btn btn-secondary" onclick="previousClass()">Previous</a>
                     <a class="btn btn-primary" onclick="addClassShow()">New Class</a>
                 </div>
             </div>
@@ -23,6 +26,7 @@
                     </div>
                     <h6 class="card-subtitle text-success fw-bolder" id="message"></h6>
                 </div>
+
                 <table class="table-striped table-hover table">
                     <thead>
                         <tr>
@@ -146,7 +150,7 @@
 
 @push('teacher-script')
     <script>
-        var csrf_token = document.querySelector('[name="csrf_token"]')
+        let csrf_token = document.querySelector('[name="csrf_token"]')
         let tableBody = document.querySelector('#tableBody');
         let message = document.querySelector('#message');
         let loadingIcon = document.querySelector('#loadingIcon');
@@ -155,73 +159,6 @@
         let addEditModal = new bootstrap.Modal(document.querySelector('#addEditModal'), {});
         let newClassForm = document.querySelector('#newClassForm');
         let addLoding = newClassForm.querySelector('#addLodingIcon');
-
-        addLoding.style.display = 'none';
-
-        // get all meetings
-        function getAllMeetings() {
-            loadingIcon.style.display = 'block';
-            axios.get('{{ route('teacher.class.all') }}')
-                .then((res) => {
-                    // console.log(res.data.data.meetings);
-                    loadingIcon.style.display = 'none';
-
-                    tableBody.innerHTML = '';
-
-                    Array.from(res.data.data.meetings).forEach((meeting) => {
-                        let tr = document.createElement('tr');
-                        let serial = document.createElement('td');
-                        let topic = document.createElement('td');
-                        let agenda = document.createElement('td');
-                        let duration = document.createElement('td');
-                        let start = document.createElement('td');
-                        let url = document.createElement('td');
-                        let action = document.createElement('td');
-                        let show = document.createElement('a');
-                        let deleteBtn = document.createElement('a');
-                        let editBtn = document.createElement('a');
-
-                        action.className = 'table-action text-center';
-
-                        serial.innerText = meeting.id;
-                        topic.innerText = meeting.topic;
-                        agenda.innerText = meeting.agenda;
-                        duration.innerText = `${meeting.duration} min`;
-                        start.innerText = moment(meeting.start_time).format('YY-MM-DD hh:mm a');
-
-                        show.innerText = 'Details';
-                        show.className = 'text-info mx-2';
-                        show.setAttribute('onclick', `showMeeting(${meeting.id})`);
-
-                        deleteBtn.innerText = 'Delete';
-                        deleteBtn.className = 'text-danger mx-2';
-                        deleteBtn.setAttribute('onclick', `deleteMeeting(${meeting.id})`);
-
-                        editBtn.innerText = 'Edit';
-                        editBtn.className = 'text-primary mx-2';
-                        editBtn.setAttribute('onclick', `editMeeting(${meeting.id})`);
-
-                        tr.appendChild(serial);
-                        tr.appendChild(topic);
-                        tr.appendChild(agenda);
-                        tr.appendChild(duration);
-                        tr.appendChild(start);
-                        tr.appendChild(url);
-
-                        action.appendChild(show);
-                        action.appendChild(editBtn);
-                        action.appendChild(deleteBtn);
-
-                        tr.appendChild(action);
-
-                        tableBody.append(tr);
-                    })
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
-        }
-        getAllMeetings();
 
         // Show a meeting
         let showModal = new bootstrap.Modal(document.querySelector('#showModal'), {});
@@ -233,14 +170,119 @@
         let class_type = classDetail.querySelector('#class-type');
         let class_status = classDetail.querySelector('#class-status');
         let class_url = classDetail.querySelector('#class-url');
-        let join_url;
 
+        // form fields & error blocks
+        let meet_topic = newClassForm.querySelector('[name="meet_topic"]');
+        let topic_error = newClassForm.querySelector('#topic_error');
+        let meet_agenda = newClassForm.querySelector('[name="meet_agenda"]');
+        let agenda_error = newClassForm.querySelector('#agenda_error');
+        let meet_type = newClassForm.querySelector('[name="meet_type"]');
+        let type_error = newClassForm.querySelector('#type_error');
+        let meet_duration = newClassForm.querySelector('[name="meet_duration"]');
+        let duration_error = newClassForm.querySelector('#duration_error');
+        let meet_password = newClassForm.querySelector('[name="meet_password"]');
+        let password_error = newClassForm.querySelector('#password_error');
+        let meet_start = newClassForm.querySelector('[name="meet_start"]');
+        let start_error = newClassForm.querySelector('#start_error');
+
+        let clipMsz = document.querySelector('#clipMsz');
+        let join_url;
+        let classId;
+
+        addLoding.style.display = 'none';
+
+        // table  rows
+        function tableRow(data) {
+            Array.from(data).forEach((meeting) => {
+                let tr = document.createElement('tr');
+                let serial = document.createElement('td');
+                let topic = document.createElement('td');
+                let agenda = document.createElement('td');
+                let duration = document.createElement('td');
+                let start = document.createElement('td');
+                let action = document.createElement('td');
+                let div = document.createElement('div');
+                let button = document.createElement('button');
+                let innerdiv = document.createElement('div');
+                innerdiv.className = 'dropdown-menu';
+
+                let showBtn = document.createElement('a');
+                showBtn.className = 'dropdown-item text-info';
+                showBtn.innerText = 'Details';
+                showBtn.setAttribute('onclick', `showMeeting(${meeting.id})`);
+                innerdiv.appendChild(showBtn);
+
+                let editBtn = document.createElement('a');
+                editBtn.className = 'dropdown-item text-primary';
+                editBtn.innerText = 'Edit';
+                editBtn.setAttribute('onclick', `editMeeting(${meeting.id})`);
+                innerdiv.appendChild(editBtn);
+
+                let deleteBtn = document.createElement('a');
+                deleteBtn.className = 'dropdown-item text-danger';
+                deleteBtn.innerText = 'Delete';
+                deleteBtn.setAttribute('onclick', `deleteMeeting(${meeting.id})`);
+                innerdiv.appendChild(deleteBtn);
+
+                let endBtn = document.createElement('a');
+                endBtn.className = 'dropdown-item';
+                endBtn.innerText = 'End';
+                endBtn.setAttribute('onclick', `endMeeting(${meeting.id})`);
+                innerdiv.appendChild(endBtn);
+
+                div.className = 'btn-group';
+                button.className = 'btn btn-info dropdown-toggle';
+                button.setAttribute('data-bs-toggle', 'dropdown');
+                button.setAttribute('type', 'button');
+                button.setAttribute('aria-haspopup', 'true');
+                button.setAttribute('aria-expanded', 'false');
+                button.innerText = 'Action';
+
+                div.appendChild(button);
+                div.appendChild(innerdiv);
+                action.appendChild(div);
+
+                serial.innerText = meeting.id;
+                topic.innerText = meeting.topic;
+                agenda.innerText = meeting.agenda;
+                duration.innerText = `${meeting.duration} min`;
+                start.innerText = moment(meeting.start_time).format('YY-MM-DD hh:mm a');
+
+                tr.appendChild(serial);
+                tr.appendChild(topic);
+                tr.appendChild(agenda);
+                tr.appendChild(duration);
+                tr.appendChild(start);
+                tr.appendChild(action);
+
+                tableBody.append(tr);
+            })
+        }
+
+        // get all meetings
+        function getAllMeetings() {
+            loadingIcon.style.display = 'block';
+            axios.get('{{ route('teacher.class.all') }}')
+                .then((res) => {
+                    // console.log(res.data.data.meetings);
+                    loadingIcon.style.display = 'none';
+                    tableBody.innerHTML = '';
+                    tableRow(res.data.data.meetings);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
+
+        getAllMeetings();
+
+        // show a meeting
         function showMeeting(id) {
             loadingIcon.style.display = 'block';
 
             axios.get(`/teacher/class/show/${id}`)
                 .then((res) => {
-                    console.log(res.data.data);
+                    // console.log(res.data.data);
 
                     function classType() {
                         if (res.data.data.type == 1) {
@@ -271,28 +313,13 @@
         }
 
         // copy to clipboard
-        let clipMsz = document.querySelector('#clipMsz');
-        class_url.addEventListener('click', () => {
+        class_url.addEventListener('click', (e) => {
             navigator.clipboard.writeText(join_url);
             clipMsz.innerText = 'Copied to clipboard';
             setTimeout(() => {
                 clipMsz.style.display = 'none';
             }, 2000);
         })
-
-        // form fields & error blocks
-        let meet_topic = newClassForm.querySelector('[name="meet_topic"]');
-        let topic_error = newClassForm.querySelector('#topic_error');
-        let meet_agenda = newClassForm.querySelector('[name="meet_agenda"]');
-        let agenda_error = newClassForm.querySelector('#agenda_error');
-        let meet_type = newClassForm.querySelector('[name="meet_type"]');
-        let type_error = newClassForm.querySelector('#type_error');
-        let meet_duration = newClassForm.querySelector('[name="meet_duration"]');
-        let duration_error = newClassForm.querySelector('#duration_error');
-        let meet_password = newClassForm.querySelector('[name="meet_password"]');
-        let password_error = newClassForm.querySelector('#password_error');
-        let meet_start = newClassForm.querySelector('[name="meet_start"]');
-        let start_error = newClassForm.querySelector('#start_error');
 
         // reset fields
         function resetAll() {
@@ -369,27 +396,7 @@
                 })
         })
 
-        // delete class
-        function deleteMeeting(id) {
-            loadingIcon.style.display = 'block';
-            axios.get(`/teacher/class/delete/${id}`)
-                .then((res) => {
-                    if (res.data.status) {
-                        message.innerText = res.data.message;
-                        setTimeout(() => {
-                            message.style.display = 'none';
-                        }, 2000);
-                        loadingIcon.style.display = 'none';
-                        getAllMeetings();
-                    }
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
-        }
-
         // edit class
-        let classId;
         function editMeeting(id) {
             classId = id;
             loadingIcon.style.display = 'block';
@@ -471,5 +478,79 @@
                     }
                 })
         })
+
+        // delete class
+        function deleteMeeting(id) {
+            loadingIcon.style.display = 'block';
+            axios.get(`/teacher/class/delete/${id}`)
+                .then((res) => {
+                    if (res.data.status) {
+                        message.innerText = res.data.message;
+                        setTimeout(() => {
+                            message.style.display = 'none';
+                        }, 2000);
+                        loadingIcon.style.display = 'none';
+                        getAllMeetings();
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
+
+        // end class
+        function endMeeting(id) {
+            loadingIcon.style.display = 'block';
+            axios.get(`/teacher/class/end/${id}`)
+                .then((res) => {
+                    if (res.data.status) {
+                        message.innerText = res.data.message;
+                        setTimeout(() => {
+                            message.style.display = 'none';
+                        }, 2000);
+                        loadingIcon.style.display = 'none';
+                        getAllMeetings();
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
+
+        // All class
+        function allClass() {
+            loadingIcon.style.display = 'block';
+            getAllMeetings();
+        }
+
+        // upcoming class
+        function upcomingClass() {
+            loadingIcon.style.display = 'block';
+            axios.get('{{ route('teacher.class.upcoming') }}')
+                .then((res) => {
+                    // console.log(res);
+                    loadingIcon.style.display = 'none';
+                    tableBody.innerHTML = '';
+                    tableRow(res.data.data.meetings);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
+
+        // previous class
+        function previousClass() {
+            loadingIcon.style.display = 'block';
+            axios.get('{{ route('teacher.class.previous') }}')
+                .then((res) => {
+                    // console.log(res);
+                    loadingIcon.style.display = 'none';
+                    tableBody.innerHTML = '';
+                    tableRow(res.data.data.meetings);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
     </script>
 @endpush
