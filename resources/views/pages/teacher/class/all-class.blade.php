@@ -26,8 +26,9 @@
                 <table class="table-striped table-hover table">
                     <thead>
                         <tr>
-                            <th>S/N</th>
+                            <th>Class ID</th>
                             <th>Topic</th>
+                            <th>Agenda</th>
                             <th>Duration</th>
                             <th>Start At</th>
                             <th></th>
@@ -128,7 +129,8 @@
                                 </div>
 
                                 <div class="d-flex">
-                                    <button class="btn btn-primary" id="updateClass" type="submit">Add Class</button>
+                                    <button class="btn btn-primary" id="createClassBtn" type="submit">Add Class</button>
+                                    <button class="btn btn-primary" id="updateClassBtn" type="button">Update Class</button>
                                     <div class="spinner-border spinner-border-sm text-danger me-2 ms-2 mt-2" id="addLodingIcon" role="status">
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
@@ -148,6 +150,13 @@
         let tableBody = document.querySelector('#tableBody');
         let message = document.querySelector('#message');
         let loadingIcon = document.querySelector('#loadingIcon');
+        let createClassBtn = document.querySelector('#createClassBtn');
+        let updateClassBtn = document.querySelector('#updateClassBtn');
+        let addEditModal = new bootstrap.Modal(document.querySelector('#addEditModal'), {});
+        let newClassForm = document.querySelector('#newClassForm');
+        let addLoding = newClassForm.querySelector('#addLodingIcon');
+
+        addLoding.style.display = 'none';
 
         // get all meetings
         function getAllMeetings() {
@@ -163,6 +172,7 @@
                         let tr = document.createElement('tr');
                         let serial = document.createElement('td');
                         let topic = document.createElement('td');
+                        let agenda = document.createElement('td');
                         let duration = document.createElement('td');
                         let start = document.createElement('td');
                         let url = document.createElement('td');
@@ -175,6 +185,7 @@
 
                         serial.innerText = meeting.id;
                         topic.innerText = meeting.topic;
+                        agenda.innerText = meeting.agenda;
                         duration.innerText = `${meeting.duration} min`;
                         start.innerText = moment(meeting.start_time).format('YY-MM-DD hh:mm a');
 
@@ -192,6 +203,7 @@
 
                         tr.appendChild(serial);
                         tr.appendChild(topic);
+                        tr.appendChild(agenda);
                         tr.appendChild(duration);
                         tr.appendChild(start);
                         tr.appendChild(url);
@@ -268,15 +280,7 @@
             }, 2000);
         })
 
-        // new class modal
-        let addEditModal = new bootstrap.Modal(document.querySelector('#addEditModal'), {});
-
-        function addClassShow() {
-            addEditModal.show();
-        }
-
-        // create class
-        let newClassForm = document.querySelector('#newClassForm');
+        // form fields & error blocks
         let meet_topic = newClassForm.querySelector('[name="meet_topic"]');
         let topic_error = newClassForm.querySelector('#topic_error');
         let meet_agenda = newClassForm.querySelector('[name="meet_agenda"]');
@@ -290,9 +294,25 @@
         let meet_start = newClassForm.querySelector('[name="meet_start"]');
         let start_error = newClassForm.querySelector('#start_error');
 
-        let addLoding = newClassForm.querySelector('#addLodingIcon');
-        addLoding.style.display = 'none';
+        // reset fields
+        function resetAll() {
+            meet_topic.value = '';
+            meet_agenda.value = '';
+            meet_type.value = '';
+            meet_duration.value = '';
+            meet_password.value = '';
+            meet_start.value = '';
+        }
 
+        // show add modal
+        function addClassShow() {
+            createClassBtn.style.display = 'inline-block';
+            updateClassBtn.style.display = 'none';
+            resetAll();
+            addEditModal.show();
+        }
+
+        // create class
         newClassForm.addEventListener('submit', (e) => {
             e.preventDefault();
             addLoding.style.display = 'block';
@@ -310,9 +330,13 @@
                     meet_start: meet_start.value,
                 })
                 .then((res) => {
-                    // console.log(res);
+                    console.log(res);
                     if (res.data.status) {
-                        createModal.hide();
+                        addEditModal.hide();
+                        message.innerText = 'Created Successfully';
+                        setTimeout(() => {
+                            message.style.display = 'none';
+                        }, 2000);
                         getAllMeetings();
                         addLoding.style.display = 'none';
                     }
@@ -364,31 +388,24 @@
                 })
         }
 
-        let classId;
-
         // edit class
-        let updateClass = document.querySelector('#updateClass');
-
-        function startTime(time){
-            let d = new Date(time);
-            
-        }
-
+        let classId;
         function editMeeting(id) {
             classId = id;
             loadingIcon.style.display = 'block';
             axios.get(`/teacher/class/edit/${id}`)
                 .then((res) => {
-                    // console.log(res.data.data.start_time);
-
+                    // console.log(res.data.data);
                     document.querySelector('.modal-title').innerText = 'Edit Class';
-                    updateClass.innerText = 'Update Class';
+                    createClassBtn.style.display = 'none';
+                    updateClassBtn.style.display = 'inline-block';
+                    updateClassBtn.innerText = 'Update Class';
                     meet_topic.value = res.data.data.topic;
                     meet_agenda.value = res.data.data.agenda;
                     meet_type.value = res.data.data.type;
                     meet_duration.value = res.data.data.duration;
                     meet_password.value = res.data.data.password;
-                    meet_start.value = startTime(res.data.data.start_time);
+                    meet_start.value = moment(res.data.data.start_time).format('YYYY-MM-DDTHH:mm');
 
                     loadingIcon.style.display = 'none';
                     addEditModal.show();
@@ -399,8 +416,9 @@
         }
 
         // update class
-        updateClass.addEventListener('click', (e) => {
+        updateClassBtn.addEventListener('click', (e) => {
             e.preventDefault();
+            addLoding.style.display = 'block';
             axios.post(`/teacher/class/update/${classId}`, {
                     headers: {
                         'Content-Type': 'application/json',
@@ -415,10 +433,19 @@
                     meet_start: meet_start.value,
                 })
                 .then((res) => {
-                    console.log(res);
+                    // console.log(res);
+                    if (res.data.status) {
+                        addEditModal.hide();
+                        message.innerText = res.data.message;
+                        setTimeout(() => {
+                            message.style.display = 'none';
+                        }, 2000);
+                        getAllMeetings();
+                        addLoding.style.display = 'none';
+                    }
                 })
                 .catch((err) => {
-                    console.log(err);
+                    // console.log(err);
                     if (err.response.data.errors) {
                         err.response.data.errors.meet_topic == undefined ? topic_error.style.display = 'none' : topic_error.style.display =
                             'block';

@@ -27,7 +27,6 @@ Route::prefix('teacher')->name('teacher.')->group(function () {
 
     // Zoom
     Route::name('meeting.')->group(function () {
-        Route::get('update/{id}', [ZoomController::class, 'updateMeeting'])->name('update');
         Route::get('upcoming', [ZoomController::class, 'getUpcomingMeeting'])->name('upcoming');
         Route::get('previous', [ZoomController::class, 'getPreviousMeetings'])->name('previous');
         Route::get('show/{id}', [ZoomController::class, 'showMeeting'])->name('show');

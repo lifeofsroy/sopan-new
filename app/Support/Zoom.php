@@ -105,7 +105,7 @@ class Zoom
 
             return [
                 'status' => true,
-                'data' => 'Updated successfully',
+                'message' => 'Updated successfully',
             ];
         } catch (\Throwable $th) {
             return [

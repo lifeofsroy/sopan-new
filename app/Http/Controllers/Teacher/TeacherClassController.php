@@ -27,6 +27,7 @@ class TeacherClassController extends Controller
 
     public function create(Request $request)
     {
+        dd($request->all());
         $request->validate([
             'meet_topic' => ['required'],
             'meet_agenda' => ['required'],
