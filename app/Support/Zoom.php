@@ -16,6 +16,7 @@ class Zoom
     public function __construct()
     {
         try {
+            // $setting = ZoomSetting::first();
             $setting = request()->user()->zoomSetting;
 
             $this->client_id = $setting->client_key;
@@ -255,5 +256,36 @@ class Zoom
                 'message' => $th->getMessage(),
             ];
         }
+    }
+
+    // get users list
+    public function getUsers($data)
+    {
+        try {
+            $response = $this->client->request('GET', 'users', [
+                'query' => [
+                    'page_size' => @$data['page_size'] ?? 300,
+                    'status' => @$data['status'] ?? 'active',
+                    'page_number' => @$data['page_number'] ?? 1,
+                ],
+            ]);
+            $responseData = json_decode($response->getBody(), true);
+            $data = [];
+            $data['current_page'] = $responseData['page_number'];
+            $data['profile'] = $responseData['users'][0];
+            $data['last_page'] = $responseData['page_count'];
+            $data['per_page'] = $responseData['page_size'];
+            $data['total'] = $responseData['total_records'];
+            return [
+                'status' => true,
+                'data' => $data,
+            ];
+        } catch (\Throwable $th) {
+            return [
+                'status' => false,
+                'message' => $th->getMessage(),
+            ];
+        }
+
     }
 }

@@ -67,6 +67,8 @@
                                     <li class="list-group-item">Date: <span id="class-date"></span></li>
                                     <li class="list-group-item">Type: <span id="class-type"></span></li>
                                     <li class="list-group-item">Status: <span id="class-status"></span></li>
+                                    <li class="list-group-item">Approval: <span id="class-approve"></span></li>
+                                    <li class="list-group-item">Email: <span id="host-email"></span></li>
                                     <li class="list-group-item text-primary">
                                         <a id="class-url">Copy Joining URL</a>
                                     </li>
@@ -132,6 +134,19 @@
                                     </div>
                                 </div>
 
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label class="form-label" for="meet_approval">Approval Type</label>
+                                        <select class="form-control" name="meet_approval">
+                                            <option value="">Select</option>
+                                            <option value="0">Automatically Approve</option>
+                                            <option value="1">Manually Approve</option>
+                                            <option value="2">No Registration Required</option>
+                                        </select>
+                                        <small class="text-danger" id="approval_error"></small>
+                                    </div>
+                                </div>
+
                                 <div class="d-flex">
                                     <button class="btn btn-primary" id="createClassBtn" type="submit">Add Class</button>
                                     <button class="btn btn-primary" id="updateClassBtn" type="button">Update Class</button>
@@ -170,6 +185,8 @@
         let class_type = classDetail.querySelector('#class-type');
         let class_status = classDetail.querySelector('#class-status');
         let class_url = classDetail.querySelector('#class-url');
+        let class_approve = classDetail.querySelector('#class-approve');
+        let host_email = classDetail.querySelector('#host-email');
 
         // form fields & error blocks
         let meet_topic = newClassForm.querySelector('[name="meet_topic"]');
@@ -184,6 +201,8 @@
         let password_error = newClassForm.querySelector('#password_error');
         let meet_start = newClassForm.querySelector('[name="meet_start"]');
         let start_error = newClassForm.querySelector('#start_error');
+        let meet_approval = newClassForm.querySelector('[name="meet_approval"]');
+        let approval_error = newClassForm.querySelector('#approval_error');
 
         let clipMsz = document.querySelector('#clipMsz');
         let join_url;
@@ -246,7 +265,7 @@
                 topic.innerText = meeting.topic;
                 agenda.innerText = meeting.agenda;
                 duration.innerText = `${meeting.duration} min`;
-                start.innerText = moment(meeting.start_time).format('YY-MM-DD hh:mm a');
+                start.innerText = moment.utc(meeting.start_time).format('Do MMM, YYYY - hh:mm a');
 
                 tr.appendChild(serial);
                 tr.appendChild(topic);
@@ -265,9 +284,9 @@
             axios.get('{{ route('teacher.class.all') }}')
                 .then((res) => {
                     // console.log(res.data.data.meetings);
-                    loadingIcon.style.display = 'none';
                     tableBody.innerHTML = '';
                     tableRow(res.data.data.meetings);
+                    loadingIcon.style.display = 'none';
                 })
                 .catch((err) => {
                     console.log(err);
@@ -276,36 +295,49 @@
 
         getAllMeetings();
 
+        function approvalType(data) {
+            if (data == 0) {
+                return 'Automatically'
+            } else if (data == 1) {
+                return 'Manually';
+            } else {
+                return 'No Registration Required';
+            }
+        }
+
+        function classType(data) {
+            if (data == 1) {
+                return 'instant';
+            } else if (data == 2) {
+                return 'scheduled';
+            } else if (data == 3) {
+                return 'recurring with no fixed time';
+            } else {
+                return 'recurring with fixed time';
+            }
+        }
+
         // show a meeting
         function showMeeting(id) {
             loadingIcon.style.display = 'block';
 
             axios.get(`/teacher/class/show/${id}`)
                 .then((res) => {
-                    // console.log(res.data.data);
+                    console.log(res);
+                    if (res.data.status) {
+                        class_topic.innerText = res.data.data.topic;
+                        class_date.innerText = moment.utc(res.data.data.start_time).format('Do MMM, YYYY - hh:mm a');
+                        class_agenda.innerText = res.data.data.agenda;
+                        class_url.setAttribute('href', res.data.data.start_url);
+                        class_status.innerText = res.data.data.status;
+                        host_email.innerText = res.data.data.host_email;
+                        class_type.innerText = classType(res.data.data.type);
+                        class_approve.innerText = approvalType(res.data.data.settings.approval_type);
+                        join_url = res.data.data.join_url;
 
-                    function classType() {
-                        if (res.data.data.type == 1) {
-                            return 'instant';
-                        } else if (res.data.data.type == 2) {
-                            return 'scheduled';
-                        } else if (res.data.data.type == 3) {
-                            return 'recurring with no fixed time';
-                        } else {
-                            return 'recurring with fixed time';
-                        }
+                        showModal.show()
+                        loadingIcon.style.display = 'none';
                     }
-
-                    class_topic.innerText = res.data.data.topic;
-                    class_date.innerText = moment(res.data.data.start_time).format('YY-MM-DD hh:mm a');
-                    class_agenda.innerText = res.data.data.agenda;
-                    class_start.setAttribute('href', res.data.data.start_url);
-                    class_status.innerText = res.data.data.status;
-                    class_type.innerText = classType();
-                    join_url = res.data.data.join_url;
-
-                    showModal.show()
-                    loadingIcon.style.display = 'none';
                 })
                 .catch((err) => {
                     console.log(err);
@@ -329,6 +361,7 @@
             meet_duration.value = '';
             meet_password.value = '';
             meet_start.value = '';
+            meet_approval.value = '';
         }
 
         // show add modal
@@ -355,6 +388,7 @@
                     meet_duration: meet_duration.value,
                     meet_password: meet_password.value,
                     meet_start: meet_start.value,
+                    meet_approval: meet_approval.value,
                 })
                 .then((res) => {
                     console.log(res);
@@ -385,6 +419,9 @@
                             'block';
                         err.response.data.errors.meet_start == undefined ? start_error.style.display = 'none' : start_error.style.display =
                             'block';
+                        err.response.data.errors.meet_approval == undefined ? approval_error.style.display = 'none' : approval_error.style
+                            .display =
+                            'block';
 
                         topic_error.innerText = err.response.data.errors.meet_topic;
                         agenda_error.innerText = err.response.data.errors.meet_agenda;
@@ -392,6 +429,7 @@
                         duration_error.innerText = err.response.data.errors.meet_duration;
                         password_error.innerText = err.response.data.errors.meet_password;
                         start_error.innerText = err.response.data.errors.meet_start;
+                        approval_error.innerText = err.response.data.errors.meet_approval;
                     }
                 })
         })
@@ -402,7 +440,7 @@
             loadingIcon.style.display = 'block';
             axios.get(`/teacher/class/edit/${id}`)
                 .then((res) => {
-                    // console.log(res.data.data);
+                    console.log(res.data.data);
                     document.querySelector('.modal-title').innerText = 'Edit Class';
                     createClassBtn.style.display = 'none';
                     updateClassBtn.style.display = 'inline-block';
@@ -412,10 +450,11 @@
                     meet_type.value = res.data.data.type;
                     meet_duration.value = res.data.data.duration;
                     meet_password.value = res.data.data.password;
-                    meet_start.value = moment(res.data.data.start_time).format('YYYY-MM-DDTHH:mm');
+                    meet_approval.value = res.data.data.settings.approval_type;
+                    meet_start.value = moment.utc(res.data.data.start_time).format('YYYY-MM-DDTHH:mm');
 
-                    loadingIcon.style.display = 'none';
                     addEditModal.show();
+                    loadingIcon.style.display = 'none';
                 })
                 .catch((err) => {
                     console.log(err);
@@ -438,6 +477,7 @@
                     meet_duration: meet_duration.value,
                     meet_password: meet_password.value,
                     meet_start: meet_start.value,
+                    meet_approval: meet_approval.value,
                 })
                 .then((res) => {
                     // console.log(res);
@@ -453,6 +493,7 @@
                 })
                 .catch((err) => {
                     // console.log(err);
+                    addLoding.style.display = 'none';
                     if (err.response.data.errors) {
                         err.response.data.errors.meet_topic == undefined ? topic_error.style.display = 'none' : topic_error.style.display =
                             'block';
@@ -468,6 +509,10 @@
                             'block';
                         err.response.data.errors.meet_start == undefined ? start_error.style.display = 'none' : start_error.style.display =
                             'block';
+                        err.response.data.errors.meet_approval == undefined ? approval_error.style.display = 'none' : approval_error.style
+                            .display =
+                            'block';
+
 
                         topic_error.innerText = err.response.data.errors.meet_topic;
                         agenda_error.innerText = err.response.data.errors.meet_agenda;
@@ -475,6 +520,7 @@
                         duration_error.innerText = err.response.data.errors.meet_duration;
                         password_error.innerText = err.response.data.errors.meet_password;
                         start_error.innerText = err.response.data.errors.meet_start;
+                        approval_error.innerText = err.response.data.errors.meet_approval;
                     }
                 })
         })
@@ -489,8 +535,8 @@
                         setTimeout(() => {
                             message.style.display = 'none';
                         }, 2000);
-                        loadingIcon.style.display = 'none';
                         getAllMeetings();
+                        loadingIcon.style.display = 'none';
                     }
                 })
                 .catch((err) => {
@@ -508,8 +554,8 @@
                         setTimeout(() => {
                             message.style.display = 'none';
                         }, 2000);
-                        loadingIcon.style.display = 'none';
                         getAllMeetings();
+                        loadingIcon.style.display = 'none';
                     }
                 })
                 .catch((err) => {
@@ -519,7 +565,6 @@
 
         // All class
         function allClass() {
-            loadingIcon.style.display = 'block';
             getAllMeetings();
         }
 
@@ -529,9 +574,9 @@
             axios.get('{{ route('teacher.class.upcoming') }}')
                 .then((res) => {
                     // console.log(res);
-                    loadingIcon.style.display = 'none';
                     tableBody.innerHTML = '';
                     tableRow(res.data.data.meetings);
+                    loadingIcon.style.display = 'none';
                 })
                 .catch((err) => {
                     console.log(err);
@@ -544,9 +589,9 @@
             axios.get('{{ route('teacher.class.previous') }}')
                 .then((res) => {
                     // console.log(res);
-                    loadingIcon.style.display = 'none';
                     tableBody.innerHTML = '';
                     tableRow(res.data.data.meetings);
+                    loadingIcon.style.display = 'none';
                 })
                 .catch((err) => {
                     console.log(err);

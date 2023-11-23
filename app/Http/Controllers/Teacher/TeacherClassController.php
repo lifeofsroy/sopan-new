@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Teacher;
 use App\Support\ZoomFacade;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ZoomClass;
 
 class TeacherClassController extends Controller
 {
@@ -25,6 +26,26 @@ class TeacherClassController extends Controller
         return $meeting;
     }
 
+    public function updateOrCreateClass($data)
+    {
+        ZoomClass::updateOrCreate([
+            'meeting_id' => $data['id'],
+        ], [
+            'user_id' => auth()->id(),
+            'host_id' => $data['host_id'],
+            'topic' => $data['topic'],
+            'agenda' => $data['agenda'],
+            'status' => $data['status'],
+            'start_at' => $data['start_time'],
+            'duration' => $data['duration'],
+            'type' => $data['type'],
+            'password' => $data['password'],
+            'email' => $data['host_email'],
+            'join_url' => $data['join_url'],
+            'approval' => ($data['settings'])['approval_type']
+        ]);
+    }
+
     public function create(Request $request)
     {
         $request->validate([
@@ -33,7 +54,8 @@ class TeacherClassController extends Controller
             'meet_type' => ['required'],
             'meet_duration' => ['required'],
             'meet_password' => ['required'],
-            'meet_start' => ['required'],
+            'meet_start' => ['required', 'after_or_equal:today'],
+            'meet_approval' => ['required'],
         ]);
 
         $data = [
@@ -41,9 +63,9 @@ class TeacherClassController extends Controller
             "topic" => $request->meet_topic,
             "type" => $request->meet_type,
             "duration" => $request->meet_duration,
-            "timezone" => 'Asia/Calcutta',
+            "timezone" => 'Asia/Kolkata',
             "password" => $request->meet_password,
-            "start_time" => $request->meet_start,
+            "start_time" => date('Y-m-d\TH:i:s\Z', strtotime($request->meet_start)),
             "pre_schedule" => false,
             "settings" => [
                 'join_before_host' => false,
@@ -53,11 +75,16 @@ class TeacherClassController extends Controller
                 'waiting_room' => false,
                 'audio' => 'both',
                 'auto_recording' => 'none',
-                'approval_type' => 0,
+                'approval_type' => (int)$request->meet_approval,
             ]
         ];
 
         $meeting = ZoomFacade::createMeeting($data);
+
+        if ($meeting['status']) {
+            $this->updateOrCreateClass(($meeting['data']));
+        }
+
 
         return $meeting;
     }
@@ -65,6 +92,8 @@ class TeacherClassController extends Controller
     public function delete($id)
     {
         $res = ZoomFacade::deleteMeeting($id);
+
+        ZoomClass::where('meeting_id', $id)->where('user_id', auth()->id())->first()->delete();
         return $res;
     }
 
@@ -82,7 +111,8 @@ class TeacherClassController extends Controller
             'meet_type' => ['required'],
             'meet_duration' => ['required'],
             'meet_password' => ['required'],
-            'meet_start' => ['required'],
+            'meet_start' => ['required', 'after_or_equal:today'],
+            'meet_approval' => ['required'],
         ]);
 
         $data = [
@@ -90,9 +120,9 @@ class TeacherClassController extends Controller
             "topic" => $request->meet_topic,
             "type" => $request->meet_type,
             "duration" => $request->meet_duration,
-            "timezone" => 'Asia/Calcutta',
+            "timezone" => 'Asia/Kolkata',
             "password" => $request->meet_password,
-            "start_time" => $request->meet_start,
+            "start_time" => date('Y-m-d\TH:i:s\Z', strtotime($request->meet_start)),
             "pre_schedule" => false,
             "settings" => [
                 'join_before_host' => false,
@@ -102,11 +132,27 @@ class TeacherClassController extends Controller
                 'waiting_room' => false,
                 'audio' => 'both',
                 'auto_recording' => 'none',
-                'approval_type' => 0,
+                'approval_type' => (int)$request->meet_approval,
             ]
         ];
 
         $res = ZoomFacade::updateMeeting($id, $data);
+
+        if ($res['status']) {
+            ZoomClass::updateOrCreate([
+                'meeting_id' => $id,
+            ], [
+                'user_id' => auth()->id(),
+                'topic' => $request->meet_topic,
+                'agenda' => $request->meet_agenda,
+                'start_at' => date('Y-m-d\TH:i:s\Z', strtotime($request->meet_start)),
+                'duration' => $request->meet_duration,
+                'type' => $request->meet_type,
+                'password' => $request->meet_password,
+                'approval' => (int)$request->meet_approval
+            ]);
+        }
+
         return $res;
     }
 
@@ -132,5 +178,11 @@ class TeacherClassController extends Controller
     {
         $res = ZoomFacade::recoverMeeting($id);
         return $res;
+    }
+
+    public function users()
+    {
+        $users = ZoomFacade::getUsers(['status' => 'active']);
+        return $users;
     }
 }
