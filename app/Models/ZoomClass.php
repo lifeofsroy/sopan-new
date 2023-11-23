@@ -24,4 +24,8 @@ class ZoomClass extends Model
         'password',
         'approval',
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    } 
 }

@@ -41,6 +41,12 @@
         Sections
     </li>
 
+    <li class="sidebar-item {{ Route::is('student.class') ? 'active' : '' }}">
+        <a class='sidebar-link' href='{{ route('student.class') }}'>
+            <i class="align-middle" data-feather="codesandbox"></i> <span class="align-middle">Classes</span>
+        </a>
+    </li>
+
     <li class="sidebar-item">
         <a class="sidebar-link collapsed" data-bs-target="#multi" data-bs-toggle="collapse">
             <i class="align-middle" data-feather="corner-right-down"></i> <span class="align-middle">Multi Level</span>
