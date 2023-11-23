@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="mb-3 text-center">
-            Already have an account? <a href='{{ route('login') }}' wire:navigate>Sign in</a>
+            Already have an account? <a href='{{ route('login') }}'>Sign in</a>
         </div>
     </div>
 

@@ -18,6 +18,7 @@
             opacity: 0;
         }
     </style>
+
 </head>
 
 <body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-layout="default">

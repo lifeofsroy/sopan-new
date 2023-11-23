@@ -37,7 +37,7 @@
                         <button class="btn btn-primary btn-lg mt-3" type="submit">Sign in</button>
 
                         <div class="mt-3">
-                            <a href='{{ route('password.request') }}' wire:navigate>Forgot password?</a>
+                            <a href='{{ route('password.request') }}'>Forgot password?</a>
                         </div>
 
                     </form>
@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="mb-3 text-center">
-            Don't have an account? <a href='{{ route('register') }}' wire:navigate>Sign up</a>
+            Don't have an account? <a href='{{ route('register') }}'>Sign up</a>
         </div>
     </div>
 
