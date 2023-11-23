@@ -14,8 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', 'login');
-
-Route::get('test-zoom', function(){
-    return ZoomFacade::test();
-});
+Route::redirect('/', 'login')->name('home');
