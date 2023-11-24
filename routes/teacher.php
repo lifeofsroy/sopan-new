@@ -6,7 +6,7 @@ use App\Http\Controllers\Teacher\TeacherLivewireController;
 use App\Http\Controllers\Teacher\TeacherDashboardController;
 use App\Support\ZoomFacade;
 
-Route::prefix('teacher')->name('teacher.')->group(function () {
+Route::prefix('teacher')->name('teacher.')->middleware('auth', 'isactive')->group(function () {
     // dashboard
     Route::get('dashboard', [TeacherDashboardController::class, 'dashboardPage'])->name('dashboard');
 
@@ -33,7 +33,7 @@ Route::prefix('teacher')->name('teacher.')->group(function () {
 });
 
 Route::get('test', function(){
-    
+
     $data = [
         "agenda" => 'this is my agenda',
         "topic" => 'this is my topic',
