@@ -1,38 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf_token" content="{{ csrf_token() }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.gstatic.com/" rel="preconnect">
-    <link href="{{ asset('assets/admin/img/icons/icon-48x48.png') }}" rel="shortcut icon" />
+    @stack('auth-title')
 
-    <title>{{ config('app.name') }}</title>
-
-    <link href="{{ asset('assets/admin/css/light.css') }}" rel="stylesheet">
-    <style>
-        body {
-            opacity: 0;
-        }
-    </style>
-
+    <link type="image/icon" href="{{asset('assets/auth/images/favicon-16x16.html')}}" rel="shortcut icon" />
+    <link href="{{asset('assets/auth/css/login3-style.css')}}" rel="stylesheet">
 </head>
 
-<body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-layout="default">
-    <main class="d-flex w-100 h-100">
-        <div class="d-flex flex-column container">
-            <div class="row vh-100">
-                <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 d-table h-100 mx-auto">
-                    @yield('auth-section')
-                </div>
-            </div>
-        </div>
-    </main>
+<body>
+    <!-- Preloader -->
+    <div id="preload-block">
+        <div class="square-block"></div>
+    </div>
 
-    <script src="{{ asset('assets/admin/js/app.js') }}"></script>
+    <div class="container-fluid">
+        <div class="row">
+            @yield('auth-section')
+        </div>
+    </div>
+
+    <script src="{{asset('assets/auth/js/jquery-2.2.4.min.js')}}"></script>
+    <script src="{{asset('assets/auth/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/auth/js/custom.js')}}"></script>
     <script src="{{ asset('assets/admin/js/axios.min.js') }}"></script>
     @stack('auth-script')
 </body>
