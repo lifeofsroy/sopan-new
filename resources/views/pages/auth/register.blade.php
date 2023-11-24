@@ -38,7 +38,7 @@
                 <div class="authfy-panel panel-login active text-center">
                     <div class="authfy-heading" style="margin-bottom: 0;">
                         <h3 class="auth-title">Sign up for free!</h3>
-                        <p>Already have an account? <a href="{{route('login')}}">Login Here</a></p>
+                        <p>Already have an account? <a href="{{ route('login') }}">Login Here</a></p>
                     </div>
 
                     <div style="margin-bottom: 20px;">
@@ -59,6 +59,13 @@
 
                                 <x-auth.form-input-password name="password_confirmation" type="password" placeholder="Confirm Password"
                                     error="cpassword_error" />
+
+                                <select class="form-control mb-3">
+                                    <option value="">Select Your Role</option>
+                                    <option value="teacher">Teacher</option>
+                                    <option value="student">Student</option>
+                                    <option value="user">None</option>
+                                </select>
 
                                 <div class="form-group">
                                     <p class="term-policy text-muted small">I agree to the

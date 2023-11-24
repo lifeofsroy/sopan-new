@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->enum('gender', ['male', 'female', 'other']);
-            $table->string('avatar')->nullable;
             $table->timestamps();
         });
     }

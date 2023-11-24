@@ -4,9 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Teacher\TeacherClassController;
 use App\Http\Controllers\Teacher\TeacherLivewireController;
 use App\Http\Controllers\Teacher\TeacherDashboardController;
-use App\Support\ZoomFacade;
 
-Route::prefix('teacher')->name('teacher.')->middleware('auth', 'isactive')->group(function () {
+Route::prefix('teacher')->name('teacher.')->middleware('auth', 'isactive', 'verified')->group(function () {
     // dashboard
     Route::get('dashboard', [TeacherDashboardController::class, 'dashboardPage'])->name('dashboard');
 
@@ -31,31 +30,3 @@ Route::prefix('teacher')->name('teacher.')->middleware('auth', 'isactive')->grou
         Route::get('users', [TeacherClassController::class, 'users'])->name('users');
     });
 });
-
-Route::get('test', function(){
-
-    $data = [
-        "agenda" => 'this is my agenda',
-        "topic" => 'this is my topic',
-        "type" => 2,
-        "duration" => 45,
-        "timezone" => 'Asia/Kolkata',
-        "password" => 'password',
-        "start_time" => date('Y-m-d\TH:i:s\Z', strtotime(now()->addHours(4))),
-        "pre_schedule" => false,
-        "settings" => [
-            'join_before_host' => false,
-            'host_video' => false,
-            'participant_video' => false,
-            'mute_upon_entry' => false,
-            'waiting_room' => false,
-            'audio' => 'both',
-            'auto_recording' => 'none',
-            'approval_type' => 2,
-        ]
-    ];
-
-    $meeting = ZoomFacade::createMeeting($data);
-    dd((($meeting['data'])['settings'])['approval_type']);
-});
-

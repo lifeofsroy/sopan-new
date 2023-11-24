@@ -23,7 +23,7 @@
                             </a>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-12">
-                            <a class="btn btn-block btn-google" href="{{route('google.login')}}">
+                            <a class="btn btn-block btn-google" href="{{ route('google.login') }}">
                                 <i class="fa fa-google-plus"></i> <span class="hidden-xs hidden-sm">Signin with google</span>
                             </a>
                         </div>
@@ -94,6 +94,13 @@
 
                                 <x-auth.form-input-password name="password_confirmation" type="password" placeholder="Confirm Password"
                                     error="cpassword_error" />
+
+                                <select class="form-control mb-3">
+                                    <option value="">Select Your Role</option>
+                                    <option value="teacher">Teacher</option>
+                                    <option value="student">Student</option>
+                                    <option value="user">None</option>
+                                </select>
 
                                 <div class="form-group">
                                     <p class="term-policy text-muted small">I agree to the

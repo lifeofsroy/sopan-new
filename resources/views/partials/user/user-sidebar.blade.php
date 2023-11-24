@@ -31,26 +31,14 @@
 </div>
 
 <ul class="sidebar-nav">
-    <li class="sidebar-item {{ Route::is('student.dashboard') ? 'active' : '' }}">
-        <a class='sidebar-link' href='{{ route('student.dashboard') }}'>
+    <li class="sidebar-item {{ Route::is('user.dashboard') ? 'active' : '' }}">
+        <a class='sidebar-link' href='{{ route('user.dashboard') }}'>
             <i class="align-middle" data-feather="codesandbox"></i> <span class="align-middle">Dasboard</span>
-        </a>
-    </li>
-
-    <li class="sidebar-item {{ Route::is('student.profile.index') ? 'active' : '' }}">
-        <a class='sidebar-link' href='{{ route('student.profile.index') }}'>
-            <i class="align-middle" data-feather="codesandbox"></i> <span class="align-middle">Profile</span>
         </a>
     </li>
 
     <li class="sidebar-header">
         Sections
-    </li>
-
-    <li class="sidebar-item {{ Route::is('student.class') ? 'active' : '' }}">
-        <a class='sidebar-link' href='{{ route('student.class') }}'>
-            <i class="align-middle" data-feather="codesandbox"></i> <span class="align-middle">Classes</span>
-        </a>
     </li>
 
     <li class="sidebar-item">

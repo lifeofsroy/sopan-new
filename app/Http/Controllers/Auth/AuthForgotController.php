@@ -13,11 +13,6 @@ use Illuminate\Validation\Rules\Password as Custom;
 
 class AuthForgotController extends Controller
 {
-    public function forgotPage()
-    {
-        return view('pages.auth.forgot');
-    }
-
     public function forgotPost(Request $request)
     {
         $request->validate([

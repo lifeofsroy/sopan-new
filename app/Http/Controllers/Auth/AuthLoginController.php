@@ -42,11 +42,6 @@ class AuthLoginController extends Controller
         }
     }
 
-    public function registerPage()
-    {
-        return view('pages.auth.register');
-    }
-
     public function registerPost(Request $request)
     {
         $credentials = $request->validate([
@@ -54,6 +49,7 @@ class AuthLoginController extends Controller
             'lname' => ['required'],
             'email' => ['required', 'email', 'unique:users,email'],
             'password' => ['required', 'confirmed', Password::defaults()],
+            'type' => ['required'],
         ]);
 
         $user = User::create($credentials);
