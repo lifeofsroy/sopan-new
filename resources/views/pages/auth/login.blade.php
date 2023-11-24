@@ -23,7 +23,7 @@
                             </a>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-12">
-                            <a class="btn btn-block btn-google" href="#">
+                            <a class="btn btn-block btn-google" href="{{route('google.login')}}">
                                 <i class="fa fa-google-plus"></i> <span class="hidden-xs hidden-sm">Signin with google</span>
                             </a>
                         </div>
@@ -49,16 +49,9 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12">
                             <form class="loginForm" id="loginForm">
-                                <x-auth.form-input type="email" name="email" placeholder="Email address" error="email_error"/>
+                                <x-auth.form-input name="email" type="email" placeholder="Email" error="email_error" />
 
-                                <div class="form-group" style="margin-bottom: 0;">
-                                    <div class="pwdMask">
-                                        <input class="form-control password" name="password" type="password" style="margin-bottom: 0;"
-                                            placeholder="Password">
-                                        <span class="fa fa-eye-slash pwd-toggle"></span>
-                                    </div>
-                                </div>
-                                <strong class="checkbox text-danger text-left" id="password_error" style="margin-top: 0;"></strong>
+                                <x-auth.form-input-password name="password" type="password" placeholder="Password" error="password_error" />
 
                                 <div class="row remember-row">
                                     <div class="col-xs-6 col-sm-6">
@@ -90,29 +83,17 @@
                             <div class="authfy-heading">
                                 <h3 class="auth-title">Sign up for free!</h3>
                             </div>
-                            <form class="registerForm">
-                                <x-auth.form-input type="text" name="fname" placeholder="First Name" error="fname_error"/>
+                            <form id="registerForm">
+                                <x-auth.form-input name="fname" type="text" placeholder="First Name" error="fname_error" />
 
-                                <x-auth.form-input type="text" name="lname" placeholder="Last Name" error="lname_error"/>
+                                <x-auth.form-input name="lname" type="text" placeholder="Last Name" error="lname_error" />
 
-                                <x-auth.form-input type="email" name="email" placeholder="Email address" error="email_error"/>
+                                <x-auth.form-input name="email" type="email" placeholder="Email address" error="email_error" />
 
-                                <div class="form-group" style="margin-bottom: 0;">
-                                    <div class="pwdMask">
-                                        <input class="form-control password" name="password" type="password" style="margin-bottom: 0;"
-                                            placeholder="New Password">
-                                        <span class="fa fa-eye-slash pwd-toggle"></span>
-                                    </div>
-                                </div>
-                                <strong class="checkbox text-danger text-left" id="password_error" style="margin-top: 0;"></strong>
+                                <x-auth.form-input-password name="password" type="password" placeholder="New Password" error="password_error" />
 
-                                <div class="form-group" style="margin-bottom: 0;">
-                                    <div class="pwdMask">
-                                        <input class="form-control password" name="cpassword" type="password" style="margin-bottom: 0;"
-                                            placeholder="Confirm Password">
-                                        <span class="fa fa-eye-slash pwd-toggle"></span>
-                                    </div>
-                                </div>
+                                <x-auth.form-input-password name="password_confirmation" type="password" placeholder="Confirm Password"
+                                    error="cpassword_error" />
 
                                 <div class="form-group">
                                     <p class="term-policy text-muted small">I agree to the
@@ -138,18 +119,19 @@
                                 <h3 class="auth-title">Recover your password</h3>
                                 <p>Fill in your e-mail address below and we will send you an email with further instructions.</p>
                             </div>
-                            <form class="forgetForm" name="forgetForm" action="#" method="POST">
-                                <div class="form-group">
-                                    <input class="form-control" name="username" type="email" placeholder="Email address">
-                                </div>
+                            <form id="forgotPassForm">
+                                <x-auth.form-input name="email" type="email" placeholder="Email address" error="email_error" />
+
                                 <div class="form-group">
                                     <button class="btn btn-lg btn-primary btn-block" type="submit">Recover your password</button>
                                 </div>
+
                                 <div class="form-group">
                                     <a class="lnk-toggler" data-panel=".panel-login" href="#">Already have an account?</a>
                                 </div>
+
                                 <div class="form-group">
-                                    <a class="lnk-toggler" data-panel=".panel-signup" href="#">Don’t have an account?</a>
+                                    <a class="lnk-toggler" data-panel=".panel-signup" href="#">Don't have an account?</a>
                                 </div>
                             </form>
                         </div>
@@ -163,19 +145,38 @@
 @push('auth-script')
     <script>
         var csrf_token = document.querySelector('[name="csrf_token"]');
+        // message
         var success = document.querySelector('#success-message');
         var error = document.querySelector('#error-message');
 
         // login
         var loginForm = document.querySelector('#loginForm');
+        var login_email_input = loginForm.querySelector('[name="email"]');
+        var login_password_input = loginForm.querySelector('[name="password"]');
+        var login_remember_input = loginForm.querySelector('[name="remember"]');
+        var login_email_error = loginForm.querySelector('#email_error');
+        var login_password_error = loginForm.querySelector('#password_error');
 
-        var login_email_input = document.querySelector('[name="email"]');
-        var login_password_input = document.querySelector('[name="password"]');
-        var login_remember_input = document.querySelector('[name="remember"]');
+        // registration
+        var registerForm = document.querySelector('#registerForm');
+        var reg_fname_input = registerForm.querySelector('[name="fname"]');
+        var reg_lname_input = registerForm.querySelector('[name="lname"]');
+        var reg_email_input = registerForm.querySelector('[name="email"]');
+        var reg_password_input = registerForm.querySelector('[name="password"]');
+        var reg_cpassword_input = registerForm.querySelector('[name="password_confirmation"]');
+        var reg_fname_error = registerForm.querySelector('#fname_error');
+        var reg_lname_error = registerForm.querySelector('#lname_error');
+        var reg_email_error = registerForm.querySelector('#email_error');
+        var reg_password_error = registerForm.querySelector('#password_error');
+        var reg_button = registerForm.querySelector('[type="submit"]');
 
-        var login_email_error = document.querySelector('#email_error');
-        var login_password_error = document.querySelector('#password_error');
+        // forgot password
+        var forgotPassForm = document.querySelector('#forgotPassForm');
+        var forgot_email_input = forgotPassForm.querySelector('[name="email"]');
+        var forgot_email_error = forgotPassForm.querySelector('#email_error');
+    </script>
 
+    <script>
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -186,8 +187,8 @@
                         'X-CSRF-TOKEN': csrf_token.content,
                     },
                     email: login_email_input.value,
-                    password: password_input.value,
-                    remember: remember_input.checked
+                    password: login_password_input.value,
+                    remember: login_remember_input.checked
                 })
                 .then(function(res) {
                     login_email_error.style.display = 'none';
@@ -227,22 +228,6 @@
 
                 })
         });
-
-        // registration
-        var registerForm = document.querySelector('#registerForm');
-
-        var reg_fname_input = document.querySelector('[name="fname"]');
-        var reg_lname_input = document.querySelector('[name="lname"]');
-        var reg_email_input = document.querySelector('[name="email"]');
-        var reg_password_input = document.querySelector('[name="password"]');
-        var reg_cpassword_input = document.querySelector('[name="password_confirmation"]');
-
-        var reg_fname_error = document.querySelector('#fname_error');
-        var reg_lname_error = document.querySelector('#lname_error');
-        var reg_email_error = document.querySelector('#email_error');
-        var reg_password_error = document.querySelector('#password_error');
-
-        var reg_button = registerForm.querySelector('[type="submit"]');
 
         registerForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -295,6 +280,53 @@
                         reg_lname_error.innerText = error.response.data.errors.lname;
                         reg_email_error.innerText = error.response.data.errors.email;
                         reg_password_error.innerText = error.response.data.errors.password;
+                    }
+
+                })
+        });
+
+        forgotPassForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            success.style.display = 'block';
+            success.innerText = 'Please Wait...';
+
+            axios.post('{{ route('password.email') }}', {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'X-CSRF-TOKEN': csrf_token.content,
+                    },
+                    email: forgot_email_input.value,
+                })
+                .then(function(res) {
+                    success.style.display = 'none';
+                    forgot_email_error.style.display = 'none';
+
+                    if (res.data.status) {
+                        if (res.data.status == 'passwords.sent') {
+                            success.style.display = 'block';
+                            success.innerText = 'A link sent to your email to reset password';
+                        } else if (res.data.status == 'passwords.throttled') {
+                            error.style.display = 'block';
+                            error.innerText = 'Too many attempts, try after some time';
+                        } else if (res.data.status == 'passwords.user') {
+                            error.style.display = 'block';
+                            error.innerText = 'User Not Found';
+                        }
+
+                        setTimeout(() => {
+                            success.style.display = 'none';
+                            error.style.display = 'none';
+                        }, 2000);
+                    }
+                })
+                .catch(function(error) {
+                    if (error.response.data.errors) {
+                        error.response.data.errors.email == undefined ? forgot_email_error.style.display = 'none' : forgot_email_error.style
+                            .display =
+                            'block';
+
+                        forgot_email_error.innerText = error.response.data.errors.email;
                     }
 
                 })

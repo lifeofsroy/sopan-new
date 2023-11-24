@@ -1,89 +1,123 @@
 @extends('layouts.auth')
 @section('auth-section')
-    <div class="d-table-cell align-middle">
+    <div class="authfy-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+        <div class="col-sm-5 authfy-panel-left">
+            <div class="brand-col">
+                <!-- social login -->
+                <div class="headline">
+                    <!-- brand-logo -->
+                    <div class="brand-logo">
+                        {{-- <img src="{{asset('assets/auth/images/brand-logo-white.png')}}" alt="brand-logo" width="150"> --}}
+                    </div>
 
-        <div class="mt-4 text-center">
-            <h1 class="h2">Forgot password</h1>
-            <p class="lead">
-                Enter your email to reset your password.
-            </p>
-            <p class="text-primary fw-bold text-center" id="message"></p>
-            <h6 class="text-warning fw-bold d-none text-center" id="waitMessage">Please Wait...</h6>
-        </div>
+                    <p>Try Login or Registration</p>
+                    <div class="row social-buttons">
+                        <div class="col-xs-4 col-sm-4 col-md-12">
+                            <a class="btn btn-block btn-twitter" href="{{route('login')}}">
+                                Already have an account?
+                            </a>
+                        </div>
 
-        <div class="card">
-            <div class="card-body">
-                <div class="m-sm-3">
-                    <form id="forgotPassForm">
-                        <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input class="form-control form-control-lg" name="email" type="email" placeholder="Enter your email" />
-                            <small class="text-danger" id="email_error"></small>
+                        <div class="col-xs-4 col-sm-4 col-md-12">
+                            <a class="btn btn-block btn-google" href="{{route('register')}}">
+                                Don't have an account?
+                            </a>
                         </div>
-                        <div class="d-grid mt-3 gap-2">
-                            <button class='btn btn-lg btn-primary' type="submit">Reset password</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="mb-3 text-center">
-            Remember Password? <a href="{{ route('login') }}">Sign in</a>
+
+        <div class="col-sm-7 authfy-panel-right">
+            <div class="authfy-login">
+                <!-- login -->
+                <div class="authfy-panel panel-login active text-center">
+                    <div class="authfy-heading" style="margin-bottom: 0;">
+                        <h3 class="auth-title">Recover Your Password!</h3>
+                        <p>We will sent a link to verify your email</p>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <strong class="checkbox text-success" id="success-message"></strong>
+                        <strong class="checkbox text-danger" id="error-message"></strong>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            <form id="forgotPassForm">
+                                <x-auth.form-input name="email" type="email" placeholder="Email address" error="email_error" />
+
+                                <div class="form-group">
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit">Recover your password</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-    @push('auth-script')
-        <script>
-            var forgotPassForm = document.querySelector('#forgotPassForm');
-            var email_input = document.querySelector('[name="email"]');
-            var email_error = document.querySelector('#email_error');
-            var csrf_token = document.querySelector('[name="csrf_token"]')
-            var message = document.querySelector('#message');
-            var waitMessage = document.querySelector('#waitMessage');
-
-            forgotPassForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                waitMessage.classList.remove("d-none");
-
-                axios.post('{{ route('password.email') }}', {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-Requested-With': 'XMLHttpRequest',
-                            'X-CSRF-TOKEN': csrf_token.content,
-                        },
-                        email: email_input.value,
-                    })
-                    .then(function(res) {
-                        waitMessage.classList.add("d-none");
-                        email_error.style.display = 'none';
-                        message.style.display = 'block';
-
-
-                        if (res.data.status) {
-                            if (res.data.status == 'passwords.sent') {
-                                message.innerText = 'A link sent to your email to reset password';
-                            } else if (res.data.status == 'passwords.throttled') {
-                                message.innerText = 'Too many attempts, try after some time';
-                            } else if (res.data.status == 'passwords.user') {
-                                message.innerText = 'User Not Found';
-                            }
-
-                            setTimeout(() => {
-                                message.style.display = 'none';
-                            }, 2500);
-                        }
-                    })
-                    .catch(function(error) {
-                        waitMessage.classList.add("d-none");
-                        if (error.response.data.errors) {
-                            error.response.data.errors.email == undefined ? email_error.style.display = 'none' : email_error.style.display =
-                                'block';
-
-                            email_error.innerText = error.response.data.errors.email;
-                        }
-
-                    })
-            });
-        </script>
-    @endpush
 @endsection
+
+@push('auth-script')
+    <script>
+        var csrf_token = document.querySelector('[name="csrf_token"]');
+        // message
+        var success = document.querySelector('#success-message');
+        var error = document.querySelector('#error-message');
+
+        // forgot password
+        var forgotPassForm = document.querySelector('#forgotPassForm');
+        var forgot_email_input = forgotPassForm.querySelector('[name="email"]');
+        var forgot_email_error = forgotPassForm.querySelector('#email_error');
+    </script>
+
+    <script>
+        forgotPassForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            success.style.display = 'block';
+            success.innerText = 'Please Wait...';
+
+            axios.post('{{ route('password.email') }}', {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'X-CSRF-TOKEN': csrf_token.content,
+                    },
+                    email: forgot_email_input.value,
+                })
+                .then(function(res) {
+                    success.style.display = 'none';
+                    forgot_email_error.style.display = 'none';
+
+                    if (res.data.status) {
+                        if (res.data.status == 'passwords.sent') {
+                            success.style.display = 'block';
+                            success.innerText = 'A link sent to your email to reset password';
+                        } else if (res.data.status == 'passwords.throttled') {
+                            error.style.display = 'block';
+                            error.innerText = 'Too many attempts, try after some time';
+                        } else if (res.data.status == 'passwords.user') {
+                            error.style.display = 'block';
+                            error.innerText = 'User Not Found';
+                        }
+
+                        setTimeout(() => {
+                            success.style.display = 'none';
+                            error.style.display = 'none';
+                        }, 2000);
+                    }
+                })
+                .catch(function(error) {
+                    if (error.response.data.errors) {
+                        error.response.data.errors.email == undefined ? forgot_email_error.style.display = 'none' : forgot_email_error.style
+                            .display =
+                            'block';
+
+                        forgot_email_error.innerText = error.response.data.errors.email;
+                    }
+
+                })
+        });
+    </script>
+@endpush
