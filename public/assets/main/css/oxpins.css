@@ -5692,7 +5692,7 @@ body.locked .page-wrapper {
   position: relative;
   display: block;
   padding: 120px 0 120px;
-  background-color: var(--oxpins-extra);
+  /* background-color: var(--oxpins-extra); */
   z-index: 1;
 }
 

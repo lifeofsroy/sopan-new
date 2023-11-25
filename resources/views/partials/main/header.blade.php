@@ -93,12 +93,10 @@
                         </div>
                         <div class="main-menu__main-menu-content-box">
                             <div class="main-menu__search-cat-btn-box">
-                                <div class="main-menu__search-box">
+                                <div class="main-menu__search-box me-4">
                                     <a class="main-menu__search search-toggler icon-magnifying-glass" href="#"></a>
                                 </div>
-                                <div class="main-menu__cat-box">
-                                    <a class="main-menu__cart icon-shopping-cart" href="cart.html"></a>
-                                </div>
+                                
                                 <div class="main-menu__btn-box">
                                     <a class="main-menu__btn" href="{{route('donate')}}"> <span class="fa fa-heart"></span> Donate
                                         now</a>

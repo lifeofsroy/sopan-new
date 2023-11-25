@@ -132,6 +132,8 @@
         })
     </script>
 
+    @livewireScripts
+
     @stack('main-script')
 
 </body>
