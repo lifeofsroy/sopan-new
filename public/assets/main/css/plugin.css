@@ -1,0 +1,33 @@
+.dark_app {
+    width: 50px;
+    height: 50px;
+    bottom: 240px;
+    right: 14px;
+    color: #14ef05;
+}
+
+.btn-link {
+    position: fixed;
+    text-align: center;
+    font-size: 42px;
+    z-index: 100;
+}
+
+.ph-float {
+    width: 40px;
+    height: 40px;
+    bottom: 180px;
+    right: 20px;
+}
+
+.wh-float {
+    width: 50px;
+    height: 50px;
+    bottom: 110px;
+    right: 14px;
+    color: #14ef05;
+}
+
+.btn-image {
+    margin-top: 12px;
+}

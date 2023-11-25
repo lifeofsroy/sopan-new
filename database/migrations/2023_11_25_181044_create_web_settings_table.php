@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('web_settings', function (Blueprint $table) {
             $table->id();
+            $table->string('app_name');
+            $table->string('slogan');
+            $table->string('app_desc');
+            $table->string('app_keyw');
+            $table->boolean('is_dark')->default(false);
+            $table->string('logo');
+            $table->string('favicon');
+            $table->string('preloader');
             $table->timestamps();
         });
     }
