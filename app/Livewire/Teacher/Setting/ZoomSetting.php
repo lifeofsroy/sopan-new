@@ -19,7 +19,8 @@ class ZoomSetting extends Component
         }
     }
 
-    public function updateSetting(){
+    public function updateSetting()
+    {
         $this->validate([
             'account_id' => ['required'],
             'client_key' => ['required'],
@@ -28,14 +29,20 @@ class ZoomSetting extends Component
 
         $setting = request()->user()->zoomSetting;
 
-        $setting->update([
+        ModelsZoomSetting::updateOrCreate([
+            'user_id' => request()->user()->id,
+        ], [
             'account_id' => $this->account_id,
             'client_key' => $this->client_key,
             'client_secret' => $this->client_secret,
         ]);
 
-        $this->dispatch('session-message');
-        return back()->with('success', 'Setting Updated');
+        if (!$setting) {
+            return redirect()->route('teacher.class.create.page');
+        } else {
+            $this->dispatch('session-message');
+            return back()->with('success', 'Setting Updated');
+        }
     }
 
     public function render()

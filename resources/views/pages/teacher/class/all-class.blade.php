@@ -89,7 +89,7 @@
                         <div class="modal-body m-3">
                             <form id="newClassForm">
                                 <div class="mb-3">
-                                    <label class="form-label">Topic</label>
+                                    <label class="form-label">Subject</label>
                                     <input class="form-control" name="meet_topic" type="text">
                                     <small class="text-danger" id="topic_error"></small>
                                 </div>
@@ -165,7 +165,7 @@
 
 @push('teacher-script')
     <script>
-        let csrf_token = document.querySelector('[name="csrf_token"]')
+        let csrf_token = document.querySelector('[name="csrf_token"]');
         let tableBody = document.querySelector('#tableBody');
         let message = document.querySelector('#message');
         let loadingIcon = document.querySelector('#loadingIcon');
@@ -205,10 +205,13 @@
         let approval_error = newClassForm.querySelector('#approval_error');
 
         let clipMsz = document.querySelector('#clipMsz');
+    </script>
+
+    <script>
+        addLoding.style.display = 'none';
+
         let join_url;
         let classId;
-
-        addLoding.style.display = 'none';
 
         // table  rows
         function tableRow(data) {
@@ -283,7 +286,7 @@
             loadingIcon.style.display = 'block';
             axios.get('{{ route('teacher.class.all') }}')
                 .then((res) => {
-                    // console.log(res.data.data.meetings);
+                    // console.log(res);
                     tableBody.innerHTML = '';
                     tableRow(res.data.data.meetings);
                     loadingIcon.style.display = 'none';
@@ -317,7 +320,7 @@
             }
         }
 
-        // show a meeting
+        // meeting details
         function showMeeting(id) {
             loadingIcon.style.display = 'block';
 
@@ -328,12 +331,12 @@
                         class_topic.innerText = res.data.data.topic;
                         class_date.innerText = moment.utc(res.data.data.start_time).format('Do MMM, YYYY - hh:mm a');
                         class_agenda.innerText = res.data.data.agenda;
-                        class_url.setAttribute('href', res.data.data.start_url);
                         class_status.innerText = res.data.data.status;
                         host_email.innerText = res.data.data.host_email;
                         class_type.innerText = classType(res.data.data.type);
                         class_approve.innerText = approvalType(res.data.data.settings.approval_type);
                         join_url = res.data.data.join_url;
+                        class_start.setAttribute('href', res.data.data.start_url);
 
                         showModal.show()
                         loadingIcon.style.display = 'none';
@@ -391,7 +394,7 @@
                     meet_approval: meet_approval.value,
                 })
                 .then((res) => {
-                    console.log(res);
+                    // console.log(res);
                     if (res.data.status) {
                         addEditModal.hide();
                         message.innerText = 'Created Successfully';
@@ -530,8 +533,15 @@
             loadingIcon.style.display = 'block';
             axios.get(`/teacher/class/delete/${id}`)
                 .then((res) => {
+                    // console.log(res);
                     if (res.data.status) {
                         message.innerText = res.data.message;
+                        if (res.data.classcount == 0) {
+                            setTimeout(() => {
+                                window.location.replace('{{ route('teacher.class.create.page') }}')
+                            }, 1000);
+                        }
+
                         setTimeout(() => {
                             message.style.display = 'none';
                         }, 2000);

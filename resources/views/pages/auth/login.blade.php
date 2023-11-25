@@ -10,7 +10,7 @@
                         {{-- <img src="{{asset('assets/auth/images/brand-logo-white.png')}}" alt="brand-logo" width="150"> --}}
                     </div>
 
-                    <p>Login using social media to get quick access</p>
+                    <p class="text-center">Login using social media</p>
                     <div class="row social-buttons">
                         <div class="col-xs-4 col-sm-4 col-md-12">
                             <a class="btn btn-block btn-facebook" href="#">
@@ -38,13 +38,10 @@
                 <div class="authfy-panel panel-login active text-center">
                     <div class="authfy-heading" style="margin-bottom: 0;">
                         <h3 class="auth-title">Login to your account</h3>
-                        <p>Don't have an account? <a class="lnk-toggler" data-panel=".panel-signup" href="#">Sign Up Free!</a></p>
+                        <p>Don't have an account? <a class="lnk-toggler" data-panel=".panel-signup" href="#">Sign Up Free</a></p>
                     </div>
 
-                    <div style="margin-bottom: 20px;">
-                        <strong class="checkbox text-success" id="success-message"></strong>
-                        <strong class="checkbox text-danger" id="error-message"></strong>
-                    </div>
+                    <strong class="checkbox text-success" id="message"></strong>
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-12">
@@ -79,9 +76,10 @@
                 <!-- register -->
                 <div class="authfy-panel panel-signup text-center">
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12">
-                            <div class="authfy-heading">
+                        <div class="col-xs-12 col-sm-12" style="height: 440px; overflow-y: scroll;">
+                            <div class="authfy-heading" style="margin-bottom: 0;">
                                 <h3 class="auth-title">Sign up for free!</h3>
+                                <p>Already have an account? <a class="lnk-toggler" data-panel=".panel-login" href="#">Let's Login</a></p>
                             </div>
                             <form id="registerForm">
                                 <x-auth.form-input name="fname" type="text" placeholder="First Name" error="fname_error" />
@@ -95,12 +93,13 @@
                                 <x-auth.form-input-password name="password_confirmation" type="password" placeholder="Confirm Password"
                                     error="cpassword_error" />
 
-                                <select class="form-control mb-3">
-                                    <option value="">Select Your Role</option>
+                                <select class="form-control mb-3" name="type" style="padding: 5px 11px; height: 40px; margin-bottom: 0;">
+                                    <option>Select Your Role</option>
                                     <option value="teacher">Teacher</option>
                                     <option value="student">Student</option>
                                     <option value="user">None</option>
                                 </select>
+                                <small class="checkbox text-danger text-left" id="type_error" style="margin-top: 0;"></small>
 
                                 <div class="form-group">
                                     <p class="term-policy text-muted small">I agree to the
@@ -112,8 +111,6 @@
                                     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up with email</button>
                                 </div>
                             </form>
-
-                            <a class="lnk-toggler" data-panel=".panel-login" href="#">Already have an account?</a>
                         </div>
                     </div>
                 </div>
@@ -175,6 +172,7 @@
         var reg_lname_error = registerForm.querySelector('#lname_error');
         var reg_email_error = registerForm.querySelector('#email_error');
         var reg_password_error = registerForm.querySelector('#password_error');
+        var reg_type_error = registerForm.querySelector('#type_error');
         var reg_button = registerForm.querySelector('[type="submit"]');
 
         // forgot password
@@ -250,6 +248,7 @@
                     email: reg_email_input.value,
                     password: reg_password_input.value,
                     password_confirmation: reg_cpassword_input.value,
+                    type: reg_type_error.value
                 })
                 .then(function(res) {
                     reg_button.innerText = 'Sign Up';
@@ -257,6 +256,7 @@
                     reg_lname_error.style.display = 'none';
                     reg_email_error.style.display = 'none';
                     reg_password_error.style.display = 'none';
+                    reg_type_error.style.display = 'none';
                     success.style.display = 'block';
                     success.innerText = res.data.success;
                     setTimeout(() => {
@@ -283,10 +283,15 @@
                             .style
                             .display = 'block';
 
+                        error.response.data.errors.type == undefined ? reg_type_error.style.display = 'none' : reg_type_error
+                            .style
+                            .display = 'block';
+
                         reg_fname_error.innerText = error.response.data.errors.fname;
                         reg_lname_error.innerText = error.response.data.errors.lname;
                         reg_email_error.innerText = error.response.data.errors.email;
                         reg_password_error.innerText = error.response.data.errors.password;
+                        reg_type_error.innerText = error.response.data.errors.type;
                     }
 
                 })

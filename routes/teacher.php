@@ -17,6 +17,7 @@ Route::prefix('teacher')->name('teacher.')->middleware('auth', 'isactive', 'veri
     // class
     Route::prefix('class')->name('class.')->group(function () {
         Route::get('/', [TeacherClassController::class, 'index'])->name('index');
+        Route::get('create-class', [TeacherClassController::class, 'createPage'])->name('create.page');
         Route::get('all', [TeacherClassController::class, 'all'])->name('all');
         Route::get('show/{id}', [TeacherClassController::class, 'show'])->name('show');
         Route::post('create', [TeacherClassController::class, 'create'])->name('create');

@@ -14,6 +14,11 @@ class TeacherClassController extends Controller
         return view('pages.teacher.class.all-class');
     }
 
+    public function createPage()
+    {
+        return view('pages.teacher.class.create-class');
+    }
+
     public function all()
     {
         $mettings = ZoomFacade::getAllMeeting();
@@ -93,7 +98,9 @@ class TeacherClassController extends Controller
     {
         $res = ZoomFacade::deleteMeeting($id);
 
-        ZoomClass::where('meeting_id', $id)->where('user_id', auth()->id())->first()->delete();
+        $class = ZoomClass::where('meeting_id', $id)->where('user_id', auth()->id())->first();
+        $class->delete();
+
         return $res;
     }
 

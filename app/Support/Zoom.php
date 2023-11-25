@@ -3,6 +3,7 @@
 namespace App\Support;
 
 use GuzzleHttp\Client;
+use App\Models\ZoomClass;
 use App\Models\ZoomSetting;
 
 class Zoom
@@ -16,7 +17,6 @@ class Zoom
     public function __construct()
     {
         try {
-            // $setting = ZoomSetting::first();
             $setting = request()->user()->zoomSetting;
 
             $this->client_id = $setting->client_key;
@@ -167,10 +167,15 @@ class Zoom
     {
         try {
             $response = $this->client->request('DELETE', 'meetings/' . $id);
+
+            $res = $this->client->request('GET', 'users/me/meetings');
+            $data = json_decode($res->getBody(), true);
+
             if ($response->getStatusCode() === 204) {
                 return [
                     'status' => true,
                     'message' => 'Meeting Deleted Successfully',
+                    'classcount' => count($data['meetings']),
                 ];
             } else {
                 return [
@@ -286,6 +291,5 @@ class Zoom
                 'message' => $th->getMessage(),
             ];
         }
-
     }
 }

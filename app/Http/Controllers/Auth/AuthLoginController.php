@@ -24,6 +24,9 @@ class AuthLoginController extends Controller
         $credentials = $request->validate([
             'email' => ['required'],
             'password' => ['required'],
+        ],[
+            'email.required' => 'Email is required',
+            'password.required' => 'Password is required',
         ]);
 
         if (Auth::attempt($credentials, $request->remember)) {
@@ -50,7 +53,15 @@ class AuthLoginController extends Controller
             'email' => ['required', 'email', 'unique:users,email'],
             'password' => ['required', 'confirmed', Password::defaults()],
             'type' => ['required'],
-        ]);
+        ],[
+            'fname.required' => 'First Name is required',
+            'lname.required' => 'Last Name is required',
+            'email.required' => 'Email is required',
+            'password.required' => 'Password is required',
+            'password.confirmed' => 'Confirm your Password',
+            'type.required' => 'Role is required',
+        ]
+    );
 
         $user = User::create($credentials);
         Auth::login($user);

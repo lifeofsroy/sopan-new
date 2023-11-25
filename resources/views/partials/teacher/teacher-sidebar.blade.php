@@ -41,19 +41,30 @@
         Sections
     </li>
 
-    <li class="sidebar-item {{ Route::is('teacher.class.index') ? 'active' : '' }}">
-        <a class='sidebar-link' href='{{ route('teacher.class.index') }}'>
-            <i class="align-middle" data-feather="book-open"></i> <span class="align-middle">Classes</span>
-        </a>
-    </li>
+    @if (count(request()->user()->classes))
+        <li class="sidebar-item {{ Route::is('teacher.class.index') ? 'active' : '' }}">
+            <a class='sidebar-link' href='{{ route('teacher.class.index') }}'>
+                <i class="align-middle" data-feather="book-open"></i> <span class="align-middle">Classes</span>
+            </a>
+        </li>
+    @endif
 
-    <li class="sidebar-item {{Route::is('teacher.setting*') ? 'active':''}}">
-        <a class="sidebar-link {{Route::is('teacher.setting*') ? '':'collapsed'}}" data-bs-target="#mainsetting" data-bs-toggle="collapse">
+    @if ((!count(request()->user()->classes) && (!is_null(request()->user()->zoomSetting))))
+        <li class="sidebar-item {{ Route::is('teacher.class.create.page') ? 'active' : '' }}">
+            <a class='sidebar-link' href='{{ route('teacher.class.create.page') }}'>
+                <i class="align-middle" data-feather="book-open"></i> <span class="align-middle">New Class</span>
+            </a>
+        </li>
+    @endif
+
+    <li class="sidebar-item {{ Route::is('teacher.setting*') ? 'active' : '' }}">
+        <a class="sidebar-link {{ Route::is('teacher.setting*') ? '' : 'collapsed' }}" data-bs-target="#mainsetting" data-bs-toggle="collapse">
             <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Settings</span>
         </a>
-        <ul class="sidebar-dropdown list-unstyled {{Route::is('teacher.setting*') ? 'show':''}} collapse" id="mainsetting" data-bs-parent="#sidebar">
-            <li class="sidebar-item {{Route::is('teacher.setting.zoom') ? 'active':''}}">
-                <a class='sidebar-link' href='{{route('teacher.setting.zoom')}}'>Zoom Settings</a>
+        <ul class="sidebar-dropdown list-unstyled {{ Route::is('teacher.setting*') ? 'show' : '' }} collapse" id="mainsetting"
+            data-bs-parent="#sidebar">
+            <li class="sidebar-item {{ Route::is('teacher.setting.zoom') ? 'active' : '' }}">
+                <a class='sidebar-link' href='{{ route('teacher.setting.zoom') }}'>Zoom Settings</a>
             </li>
         </ul>
     </li>
