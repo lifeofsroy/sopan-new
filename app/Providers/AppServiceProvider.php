@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\ContactInfo;
 use App\Support\Zoom;
 use App\Models\WebSetting;
 use App\Models\MailSetting;
@@ -32,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
         $mail_setting = MailSetting::first();
         $plugin_setting = PluginSetting::first();
         $social_links = SocialLink::all();
+        $contact_info = ContactInfo::first();
 
         Config::set([
             'app.name' => $web_setting->app_name,
@@ -49,5 +51,6 @@ class AppServiceProvider extends ServiceProvider
         View::share('plugin', $plugin_setting);
         View::share('setting', $web_setting);
         View::share('socials', $social_links);
+        View::share('contact', $contact_info);
     }
 }

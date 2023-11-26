@@ -4,7 +4,7 @@
             <div class="main-menu__wrapper-inner">
                 <div class="main-menu__left">
                     <div class="main-menu__logo">
-                        <a href="index.html"><img src="{{ asset('storage') }}/{{ $setting->logo }}" alt=""></a>
+                        <a href="index.html"><img src="{{ asset('storage') }}/{{ $setting->logo }}" alt="{{ $setting->app_name }}"></a>
                     </div>
                     <div class="main-menu__shape-1 float-bob-x">
                         <img src="{{ asset('assets/main/images/shapes/main-menu-shape-1.png') }}" alt="">
@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="content">
                                             <p>Helpline</p>
-                                            <h5><a href="tel:980009630">+ 98 (000) - 9630</a></h5>
+                                            <h5><a href="tel:{{ explode(',', $contact->phone)[0] }}">{{ explode(',', $contact->phone)[0] }}</a></h5>
                                         </div>
                                     </li>
                                     <li>
@@ -41,7 +41,8 @@
                                         </div>
                                         <div class="content">
                                             <p>Send email</p>
-                                            <h5><a href="mailto:needhelp@company.com">needhelp@company.com</a>
+                                            <h5>
+                                                <a href="mailto:{{ explode(',', $contact->email)[0] }}">{{ explode(',', $contact->email)[0] }}</a>
                                             </h5>
                                         </div>
                                     </li>
@@ -50,17 +51,16 @@
                                             <span class="icon-location"></span>
                                         </div>
                                         <div class="content">
-                                            <p>380 St Kilda Road</p>
-                                            <h5>Melbourne, Australia</h5>
+                                            <p>Meet Us at</p>
+                                            <h5>{{ $contact->address }}</h5>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
                             <div class="main-menu__right-top-social">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-facebook"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                @foreach ($socials as $social)
+                                    <a href="{{ $social->url }}" target="_blank"><i class="{{ $social->icon }}"></i></a>
+                                @endforeach
                             </div>
                         </div>
                     </div>

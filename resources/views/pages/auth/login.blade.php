@@ -82,6 +82,10 @@
                                 <h3 class="auth-title">Sign up for free!</h3>
                                 <p>Already have an account? <a class="lnk-toggler" data-panel=".panel-login" href="#">Let's Login</a></p>
                             </div>
+
+                            <strong class="checkbox text-success" id="register_success_message"></strong>
+                            <strong class="checkbox text-danger" id="register_error_message"></strong>
+
                             <form id="registerForm">
                                 <x-auth.form-input name="fname" type="text" placeholder="First Name" error="fname_error" />
 
@@ -104,7 +108,8 @@
 
                                 <div class="form-group">
                                     <p class="term-policy text-muted small">I agree to the
-                                        <a href="#">privacy policy</a> and <a href="#">terms of service</a>.
+                                        <a href="{{ route('policy.privacy') }}" target="_blank">privacy policy</a> and <a href="{{ route('term') }}"
+                                            target="_blank">terms of service</a>.
                                     </p>
                                 </div>
 

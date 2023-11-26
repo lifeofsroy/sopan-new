@@ -9,8 +9,10 @@ use App\Http\Controllers\Main\MainDonateController;
 use App\Http\Controllers\Main\MainContactController;
 use App\Http\Controllers\Main\MainFaqController;
 use App\Http\Controllers\Main\MainGalleryController;
+use App\Http\Controllers\Main\MainPolicyController;
 use App\Http\Controllers\Main\MainProductController;
 use App\Http\Controllers\Main\MainProjectController;
+use App\Http\Controllers\Main\MainTermsController;
 use App\Http\Controllers\Main\MainVolunteerController;
 
 
@@ -36,6 +38,9 @@ Route::get('volunteer', [MainVolunteerController::class, 'index'])->name('volunt
 Route::get('donate', [MainDonateController::class, 'index'])->name('donate');
 Route::get('faq', [MainFaqController::class, 'index'])->name('faq');
 Route::get('gallery', [MainGalleryController::class, 'index'])->name('gallery');
+Route::get('terms-and-conditions', [MainTermsController::class, 'index'])->name('term');
+Route::get('privacy-policy', [MainPolicyController::class, 'privacy'])->name('policy.privacy');
+Route::get('cookie-policy', [MainPolicyController::class, 'cookie'])->name('policy.cookie');
 
 
 
