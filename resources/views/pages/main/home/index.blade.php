@@ -623,11 +623,18 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
                     <div class="faq-one__left">
-                        
-                        <x-main.notice-board />
+                        <div class="section-title text-left">
+                            <span class="section-title__tagline">Recently asked questions</span>
+                            <h2 class="section-title__title">People are frequently asking some questions from us
+                            </h2>
+                        </div>
+                        <p class="faq-one__text-1">Proactively procrastinate cross-platform results via extensive
+                            ideas distinctively underwhelm enterprise. Compellingly plagiarize value-added sources
+                            with inexpensive schemas.</p>
+                        <a class="thm-btn faq-one__btn" href="faq.html">Learn how to get help</a>
                     </div>
                 </div>
-                
+
                 <div class="col-xl-6 col-lg-6">
                     <div class="faq-one__right">
                         <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
@@ -689,34 +696,15 @@
                 <div class="counter-one-bg" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
                     style="background-image: url({{ asset('assets/main/images/backgrounds/counter-one-bg.jpg') }});"></div>
                 <ul class="list-unstyled counter-one__list">
-                    <li class="counter-one__single">
-                        <div class="counter-one__count-box">
-                            <h3 class="odometer" data-count="70">00</h3>
-                            <span class="counter-one__letter">m</span>
-                        </div>
-                        <p class="counter-one__text">Total donation</p>
-                    </li>
-                    <li class="counter-one__single">
-                        <div class="counter-one__count-box">
-                            <h3 class="odometer" data-count="48">00</h3>
-                            <span class="counter-one__letter">k</span>
-                        </div>
-                        <p class="counter-one__text">Projects funded</p>
-                    </li>
-                    <li class="counter-one__single">
-                        <div class="counter-one__count-box">
-                            <h3 class="odometer" data-count="38">00</h3>
-                            <span class="counter-one__letter">%</span>
-                        </div>
-                        <p class="counter-one__text">Kids need help</p>
-                    </li>
-                    <li class="counter-one__single">
-                        <div class="counter-one__count-box">
-                            <h3 class="odometer" data-count="230">00</h3>
-                            <span class="counter-one__letter"></span>
-                        </div>
-                        <p class="counter-one__text">Our volunteers</p>
-                    </li>
+                    @foreach ($counters as $counter)
+                        <li class="counter-one__single">
+                            <div class="counter-one__count-box">
+                                <h3 class="odometer" data-count="{{ $counter->value }}">00</h3>
+                                <span class="counter-one__letter">{{ $counter->unit }}</span>
+                            </div>
+                            <p class="counter-one__text">{{ $counter->title }}</p>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -854,42 +842,11 @@
                         }
                     }}'>
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="{{ asset('assets/main/images/brand/brand-1-1.png') }}" alt="">
-                    </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img src="{{ asset('assets/main/images/brand/brand-1-2.png') }}" alt="">
-                    </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img src="{{ asset('assets/main/images/brand/brand-1-3.png') }}" alt="">
-                    </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img src="{{ asset('assets/main/images/brand/brand-1-4.png') }}" alt="">
-                    </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img src="{{ asset('assets/main/images/brand/brand-1-5.png') }}" alt="">
-                    </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img src="{{ asset('assets/main/images/brand/brand-1-6.png') }}" alt="">
-                    </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img src="{{ asset('assets/main/images/brand/brand-1-1.png') }}" alt="">
-                    </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img src="{{ asset('assets/main/images/brand/brand-1-2.png') }}" alt="">
-                    </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img src="{{ asset('assets/main/images/brand/brand-1-3.png') }}" alt="">
-                    </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img src="{{ asset('assets/main/images/brand/brand-1-4.png') }}" alt="">
-                    </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img src="{{ asset('assets/main/images/brand/brand-1-5.png') }}" alt="">
-                    </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img src="{{ asset('assets/main/images/brand/brand-1-6.png') }}" alt="">
-                    </div><!-- /.swiper-slide -->
+                    @foreach ($brands as $brand)
+                        <div class="swiper-slide">
+                            <img src="{{ asset('storage') }}/{{ $brand->image }}" alt="{{ $brand->name }}">
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

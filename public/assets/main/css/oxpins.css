@@ -6963,7 +6963,7 @@ body.locked .page-wrapper {
 # Brand Two
 --------------------------------------------------------------*/
 .brand-two {
-  background-color: var(--oxpins-extra);
+  /* background-color: var(--oxpins-extra); */
   border-top: 0;
   z-index: 1;
 }
@@ -10302,7 +10302,7 @@ body.locked .page-wrapper {
   border: 1px solid var(--oxpins-bdr-color);
   border-top-right-radius: var(--oxpins-bdr-radius);
   border-bottom-right-radius: var(--oxpins-bdr-radius);
-  padding: 60px 60px 60px;
+  padding: 60px 30px 60px;
 }
 
 .become-volunteer-page__form {
@@ -10812,7 +10812,7 @@ body.locked .page-wrapper {
 .contact-three {
   position: relative;
   display: block;
-  background-color: var(--oxpins-extra);
+  background-color: #e9e8e5;
   padding: 120px 0 180px;
   z-index: 1;
 }

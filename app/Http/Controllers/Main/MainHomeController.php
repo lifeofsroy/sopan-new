@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\Counter;
 use App\Models\HomeFeature;
 use App\Models\HomeParallax;
 use App\Models\HomeSlider;
@@ -19,6 +21,8 @@ class MainHomeController extends Controller
         $parallax = HomeParallax::first();
         $features = HomeFeature::get();
         $testimonials = Testimonial::get();
+        $counters = Counter::get();
+        $brands = Brand::get();
 
         return view('pages.main.home.index', [
             'sliders' => $sliders,
@@ -26,6 +30,8 @@ class MainHomeController extends Controller
             'parallax' => $parallax,
             'features' => $features,
             'testimonials' => $testimonials,
+            'counters' => $counters,
+            'brands' => $brands,
         ]);
     }
 

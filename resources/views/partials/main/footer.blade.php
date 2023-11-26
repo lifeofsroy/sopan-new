@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
                     <div class="footer-widget__column footer-widget__links clearfix">
-                        <h3 class="footer-widget__title">Links</h3>
+                        <h3 class="footer-widget__title">Pages</h3>
                         <ul class="footer-widget__links-list list-unstyled clearfix">
                             <li>
                                 <a href="{{ route('home') }}" style="{{ Route::is('home') ? 'color: #fff;' : '' }}">Home</a>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
                     <div class="footer-widget__column footer-widget__non-profit clearfix">
-                        <h3 class="footer-widget__title">Non profit</h3>
+                        <h3 class="footer-widget__title">Useful Links</h3>
                         <ul class="footer-widget__non-profit-list list-unstyled clearfix">
                             <li>
                                 <a href="{{ route('volunteer') }}" style="{{ Route::is('volunteer') ? 'color: #fff;' : '' }}">Join Us</a>
@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
                     <div class="footer-widget__column footer-widget__contact">
-                        <h3 class="footer-widget__title">Contact</h3>
+                        <h3 class="footer-widget__title">Contact Us</h3>
                         <p class="footer-widget__contact-text">{{ $contact->address }}
                         </p>
                         <ul class="list-unstyled footer-widget__contact-list">
