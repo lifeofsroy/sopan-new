@@ -51,8 +51,8 @@
     </div>
 
     <script src="{{asset('assets/admin/js/app.js')}}"></script>
-    <script src="{{ asset('assets/admin/js/axios.min.js') }}"></script>
-    <script src="{{ asset('assets/admin/js/moment.js') }}"></script>
+    <script src="{{ asset('assets/js/axios.min.js') }}"></script>
+    <script src="{{ asset('assets/js/moment.js') }}"></script>
     @stack('teacher-script')
 </body>
 

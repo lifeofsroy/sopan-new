@@ -8,6 +8,7 @@ use App\Http\Controllers\Main\MainEventController;
 use App\Http\Controllers\Main\MainDonateController;
 use App\Http\Controllers\Main\MainContactController;
 use App\Http\Controllers\Main\MainFaqController;
+use App\Http\Controllers\Main\MainGalleryController;
 use App\Http\Controllers\Main\MainProductController;
 use App\Http\Controllers\Main\MainProjectController;
 use App\Http\Controllers\Main\MainVolunteerController;
@@ -34,6 +35,7 @@ Route::get('contact', [MainContactController::class, 'index'])->name('contact');
 Route::get('volunteer', [MainVolunteerController::class, 'index'])->name('volunteer');
 Route::get('donate', [MainDonateController::class, 'index'])->name('donate');
 Route::get('faq', [MainFaqController::class, 'index'])->name('faq');
+Route::get('gallery', [MainGalleryController::class, 'index'])->name('gallery');
 
 
 

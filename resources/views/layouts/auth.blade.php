@@ -28,7 +28,7 @@
     <script src="{{asset('assets/auth/js/jquery-2.2.4.min.js')}}"></script>
     <script src="{{asset('assets/auth/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/auth/js/custom.js')}}"></script>
-    <script src="{{ asset('assets/admin/js/axios.min.js') }}"></script>
+    <script src="{{ asset('assets/js/axios.min.js') }}"></script>
     @stack('auth-script')
 </body>
 

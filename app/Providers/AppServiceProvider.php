@@ -6,6 +6,7 @@ use App\Support\Zoom;
 use App\Models\WebSetting;
 use App\Models\MailSetting;
 use App\Models\PluginSetting;
+use App\Models\SocialLink;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
@@ -30,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
         $web_setting = WebSetting::first();
         $mail_setting = MailSetting::first();
         $plugin_setting = PluginSetting::first();
+        $social_links = SocialLink::all();
 
         Config::set([
             'app.name' => $web_setting->app_name,
@@ -46,5 +48,6 @@ class AppServiceProvider extends ServiceProvider
 
         View::share('plugin', $plugin_setting);
         View::share('setting', $web_setting);
+        View::share('socials', $social_links);
     }
 }

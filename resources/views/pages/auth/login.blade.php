@@ -10,7 +10,7 @@
                         {{-- <img src="{{asset('assets/auth/images/brand-logo-white.png')}}" alt="brand-logo" width="150"> --}}
                     </div>
 
-                    <p class="text-center">Login using social media</p>
+                    <p class="text-center">Login using social media 66666</p>
                     <div class="row social-buttons">
                         <div class="col-xs-4 col-sm-4 col-md-12">
                             <a class="btn btn-block btn-facebook" href="#">
@@ -41,11 +41,12 @@
                         <p>Don't have an account? <a class="lnk-toggler" data-panel=".panel-signup" href="#">Sign Up Free</a></p>
                     </div>
 
-                    <strong class="checkbox text-success" id="message"></strong>
+                    <strong class="checkbox text-success" id="login_success_message"></strong>
+                    <strong class="checkbox text-danger" id="login_error_message"></strong>
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-12">
-                            <form class="loginForm" id="loginForm">
+                            <form id="loginForm">
                                 <x-auth.form-input name="email" type="email" placeholder="Email" error="email_error" />
 
                                 <x-auth.form-input-password name="password" type="password" placeholder="Password" error="password_error" />
@@ -148,37 +149,37 @@
 
 @push('auth-script')
     <script>
-        var csrf_token = document.querySelector('[name="csrf_token"]');
+        let csrf_token = document.querySelector('[name="csrf_token"]');
         // message
-        var success = document.querySelector('#success-message');
-        var error = document.querySelector('#error-message');
+        let login_success_message = document.querySelector('#login_success_message');
+        let login_error_message = document.querySelector('#login_error_message');
 
         // login
-        var loginForm = document.querySelector('#loginForm');
-        var login_email_input = loginForm.querySelector('[name="email"]');
-        var login_password_input = loginForm.querySelector('[name="password"]');
-        var login_remember_input = loginForm.querySelector('[name="remember"]');
-        var login_email_error = loginForm.querySelector('#email_error');
-        var login_password_error = loginForm.querySelector('#password_error');
+        let loginForm = document.querySelector('#loginForm');
+        let login_email_input = loginForm.querySelector('[name="email"]');
+        let login_password_input = loginForm.querySelector('[name="password"]');
+        let login_remember_input = loginForm.querySelector('[name="remember"]');
+        let login_email_error = loginForm.querySelector('#email_error');
+        let login_password_error = loginForm.querySelector('#password_error');
 
         // registration
-        var registerForm = document.querySelector('#registerForm');
-        var reg_fname_input = registerForm.querySelector('[name="fname"]');
-        var reg_lname_input = registerForm.querySelector('[name="lname"]');
-        var reg_email_input = registerForm.querySelector('[name="email"]');
-        var reg_password_input = registerForm.querySelector('[name="password"]');
-        var reg_cpassword_input = registerForm.querySelector('[name="password_confirmation"]');
-        var reg_fname_error = registerForm.querySelector('#fname_error');
-        var reg_lname_error = registerForm.querySelector('#lname_error');
-        var reg_email_error = registerForm.querySelector('#email_error');
-        var reg_password_error = registerForm.querySelector('#password_error');
-        var reg_type_error = registerForm.querySelector('#type_error');
-        var reg_button = registerForm.querySelector('[type="submit"]');
+        let registerForm = document.querySelector('#registerForm');
+        let reg_fname_input = registerForm.querySelector('[name="fname"]');
+        let reg_lname_input = registerForm.querySelector('[name="lname"]');
+        let reg_email_input = registerForm.querySelector('[name="email"]');
+        let reg_password_input = registerForm.querySelector('[name="password"]');
+        let reg_cpassword_input = registerForm.querySelector('[name="password_confirmation"]');
+        let reg_fname_error = registerForm.querySelector('#fname_error');
+        let reg_lname_error = registerForm.querySelector('#lname_error');
+        let reg_email_error = registerForm.querySelector('#email_error');
+        let reg_password_error = registerForm.querySelector('#password_error');
+        let reg_type_error = registerForm.querySelector('#type_error');
+        let reg_button = registerForm.querySelector('[type="submit"]');
 
         // forgot password
-        var forgotPassForm = document.querySelector('#forgotPassForm');
-        var forgot_email_input = forgotPassForm.querySelector('[name="email"]');
-        var forgot_email_error = forgotPassForm.querySelector('#email_error');
+        let forgotPassForm = document.querySelector('#forgotPassForm');
+        let forgot_email_input = forgotPassForm.querySelector('[name="email"]');
+        let forgot_email_error = forgotPassForm.querySelector('#email_error');
     </script>
 
     <script>
@@ -196,20 +197,22 @@
                     remember: login_remember_input.checked
                 })
                 .then(function(res) {
+                    // console.log(res);
+
                     login_email_error.style.display = 'none';
                     login_password_error.style.display = 'none';
 
                     if (res.data.success) {
-                        success.style.display = 'block';
-                        success.innerText = res.data.success;
+                        login_success_message.style.display = 'block';
+                        login_success_message.innerText = res.data.success;
                     }
                     if (res.data.error) {
-                        error.style.display = 'block';
-                        error.innerText = res.data.error;
+                        login_error_message.style.display = 'block';
+                        login_error_message.innerText = res.data.error;
                     }
                     setTimeout(() => {
                         if (res.data.error) {
-                            error.style.display = 'none';
+                            login_error_message.style.display = 'none';
                         }
 
                         if (res.data.url) {
@@ -218,19 +221,17 @@
                     }, 2000);
                 })
                 .catch(function(err) {
+                    console.log(err);
+
                     if (err.response.data.errors) {
-                        err.response.data.errors.email == undefined ? login_email_error.style.display = 'none' : login_email_error.style
-                            .display =
-                            'block';
+                        err.response.data.errors.email == undefined ?
+                            login_email_error.style.display = 'none' : login_email_error.style.display = 'block';
                         login_email_error.innerText = err.response.data.errors.email;
 
-                        err.response.data.errors.password == undefined ? login_password_error.style.display = 'none' : login_password_error
-                            .style
-                            .display =
-                            'block';
+                        err.response.data.errors.password == undefined ?
+                            login_password_error.style.display = 'none' : login_password_error.style.display = 'block';
                         login_password_error.innerText = err.response.data.errors.password;
                     }
-
                 })
         });
 

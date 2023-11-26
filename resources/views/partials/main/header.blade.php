@@ -18,8 +18,8 @@
                                     <img src="{{ asset('assets/main/images/icon/main-menu-heart-icon.png') }}" alt="">
                                 </div>
                                 <div class="main-menu__volunteers-text-box">
-                                    <p class="main-menu__volunteers-text"><a href="{{route('product')}}">Our
-                                             <span class="text-primary">Products</span></a></p>
+                                    <p class="main-menu__volunteers-text"><a href="{{ route('product') }}">Our
+                                            <span class="text-primary">Products</span></a></p>
                                 </div>
                             </div>
                         </div>
@@ -68,27 +68,48 @@
                         <div class="main-menu__main-menu-box">
                             <a class="mobile-nav__toggler" href="#"><i class="fa fa-bars"></i></a>
                             <ul class="main-menu__list">
-                                <li class="{{Route::is('home') ? 'current' : ''}}">
+                                <li class="{{ Route::is('home') ? 'current' : '' }}">
                                     <a href="{{ route('home') }}">Home</a>
                                 </li>
-                                <li class="{{Route::is('about') ? 'current' : ''}}">
+                                <li class="{{ Route::is('about') ? 'current' : '' }}">
                                     <a href="{{ route('about') }}">About Us</a>
                                 </li>
-                                <li class="{{Route::is('project') ? 'current' : ''}}">
+                                <li class="{{ Route::is('project') ? 'current' : '' }}">
                                     <a href="{{ route('project') }}">Projects</a>
                                 </li>
-                                <li class="{{Route::is('event') ? 'current' : ''}}">
+                                <li class="{{ Route::is('event') ? 'current' : '' }}">
                                     <a href="{{ route('event') }}">Events</a>
                                 </li>
-                                <li class="{{Route::is('news') ? 'current' : ''}}">
+                                <li class="{{ Route::is('news') ? 'current' : '' }}">
                                     <a href="{{ route('news') }}">News</a>
                                 </li>
-                                <li class="{{Route::is('contact') ? 'current' : ''}}">
+                                <li class="{{ Route::is('contact') ? 'current' : '' }}">
                                     <a href="{{ route('contact') }}">Contact</a>
                                 </li>
-                                <li>
-                                    <a href="{{route('login')}}" style="color: aquamarine">My Account</a>
-                                </li>
+                                @auth
+                                    @if (request()->user()->type == 'admin')
+                                        <li>
+                                            <a href="{{ route('admin.dashboard') }}" style="color: aquamarine">My Account</a>
+                                        </li>
+                                    @elseif(request()->user()->type == 'teacher')
+                                        <li>
+                                            <a href="{{ route('teacher.dashboard') }}" style="color: aquamarine">My Account</a>
+                                        </li>
+                                    @elseif(request()->user()->type == 'student')
+                                        <li>
+                                            <a href="{{ route('student.dashboard') }}" style="color: aquamarine">My Account</a>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <a href="{{ route('user.dashboard') }}" style="color: aquamarine">My Account</a>
+                                        </li>
+                                    @endif
+                                @else
+                                    <li>
+                                        <a href="{{ route('login') }}" style="color: aquamarine">My Account</a>
+                                    </li>
+                                @endauth
+
                             </ul>
                         </div>
                         <div class="main-menu__main-menu-content-box">
@@ -96,9 +117,9 @@
                                 <div class="main-menu__search-box me-4">
                                     <a class="main-menu__search search-toggler icon-magnifying-glass" href="#"></a>
                                 </div>
-                                
+
                                 <div class="main-menu__btn-box">
-                                    <a class="main-menu__btn" href="{{route('donate')}}"> <span class="fa fa-heart"></span> Donate
+                                    <a class="main-menu__btn" href="{{ route('donate') }}"> <span class="fa fa-heart"></span> Donate
                                         now</a>
                                 </div>
                             </div>

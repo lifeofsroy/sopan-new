@@ -16,12 +16,20 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="resourcesDropdown" data-bs-toggle="dropdown" href="#" role="button"
                 aria-haspopup="true" aria-expanded="false">
-                Pages
+                Preview
             </a>
             <div class="dropdown-menu" aria-labelledby="resourcesDropdown">
-                <a class="dropdown-item" href="#" target="_blank"><i class="me-1 align-middle"
-                        data-feather="home"></i>
-                    Homepage</a>
+                <a class="dropdown-item" href="{{route('home')}}" target="_blank">Home</a>
+                <a class="dropdown-item" href="{{route('about')}}" target="_blank">About</a>
+                <a class="dropdown-item" href="{{route('project')}}" target="_blank">Projects</a>
+                <a class="dropdown-item" href="{{route('event')}}" target="_blank">Events</a>
+                <a class="dropdown-item" href="{{route('news')}}" target="_blank">News</a>
+                <a class="dropdown-item" href="{{route('contact')}}" target="_blank">Contact</a>
+                <a class="dropdown-item" href="{{route('volunteer')}}" target="_blank">Volunteer</a>
+                <a class="dropdown-item" href="{{route('donate')}}" target="_blank">Donate</a>
+                <a class="dropdown-item" href="{{route('faq')}}" target="_blank">FAQs</a>
+                <a class="dropdown-item" href="{{route('gallery')}}" target="_blank">Gallery</a>
+                <a class="dropdown-item" href="{{route('product')}}" target="_blank">Products</a>
             </div>
         </li>
     </ul>
