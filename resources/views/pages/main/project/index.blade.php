@@ -6,7 +6,7 @@
 @section('main-section')
     <!--Page Header Start-->
     <section class="page-header">
-        <div class="page-header-bg" style="background-image: url({{asset('assets/main/images/backgrounds/page-header-bg.jpg')}})">
+        <div class="page-header-bg" style="background-image: url({{ asset('assets/main/images/backgrounds/page-header-bg.jpg') }})">
         </div>
         <div class="container">
             <div class="page-header__inner">
@@ -30,7 +30,7 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-6">
                             <div class="donations-list__img">
-                                <img src="{{asset('assets/main/images/resources/donations-list-img-1.jpg')}}" alt="">
+                                <img src="{{ asset('assets/main/images/resources/donations-list-img-1.jpg') }}" alt="">
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6">
@@ -47,7 +47,7 @@
                                         platea.</p>
                                     <div class="donations-list__progress">
                                         <div class="donations-list__progress-shape"
-                                            style="background-image: url({{asset('assets/main/images/shapes/donations-list-progress-shape-1.png')}});">
+                                            style="background-image: url({{ asset('assets/main/images/shapes/donations-list-progress-shape-1.png') }});">
                                         </div>
                                         <div class="bar">
                                             <div class="bar-inner count-bar" data-percent="36%">
@@ -70,7 +70,7 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-6">
                             <div class="donations-list__img">
-                                <img src="{{asset('assets/main/images/resources/donations-list-img-2.jpg')}}" alt="">
+                                <img src="{{ asset('assets/main/images/resources/donations-list-img-2.jpg') }}" alt="">
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6">
@@ -88,7 +88,7 @@
                                         platea.</p>
                                     <div class="donations-list__progress">
                                         <div class="donations-list__progress-shape"
-                                            style="background-image: url({{asset('assets/main/images/shapes/donations-list-progress-shape-1.png')}});">
+                                            style="background-image: url({{ asset('assets/main/images/shapes/donations-list-progress-shape-1.png') }});">
                                         </div>
                                         <div class="bar">
                                             <div class="bar-inner count-bar" data-percent="36%">
@@ -111,7 +111,7 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-6">
                             <div class="donations-list__img">
-                                <img src="{{asset('assets/main/images/resources/donations-list-img-3.jpg')}}" alt="">
+                                <img src="{{ asset('assets/main/images/resources/donations-list-img-3.jpg') }}" alt="">
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6">
@@ -129,7 +129,7 @@
                                         platea.</p>
                                     <div class="donations-list__progress">
                                         <div class="donations-list__progress-shape"
-                                            style="background-image: url({{asset('assets/main/images/shapes/donations-list-progress-shape-1.png')}});">
+                                            style="background-image: url({{ asset('assets/main/images/shapes/donations-list-progress-shape-1.png') }});">
                                         </div>
                                         <div class="bar">
                                             <div class="bar-inner count-bar" data-percent="36%">
@@ -152,7 +152,7 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-6">
                             <div class="donations-list__img">
-                                <img src="{{asset('assets/main/images/resources/donations-list-img-4.jpg')}}" alt="">
+                                <img src="{{ asset('assets/main/images/resources/donations-list-img-4.jpg') }}" alt="">
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6">
@@ -170,7 +170,7 @@
                                         platea.</p>
                                     <div class="donations-list__progress">
                                         <div class="donations-list__progress-shape"
-                                            style="background-image: url({{asset('assets/main/images/shapes/donations-list-progress-shape-1.png')}});">
+                                            style="background-image: url({{ asset('assets/main/images/shapes/donations-list-progress-shape-1.png') }});">
                                         </div>
                                         <div class="bar">
                                             <div class="bar-inner count-bar" data-percent="36%">
@@ -193,7 +193,7 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-6">
                             <div class="donations-list__img">
-                                <img src="{{asset('assets/main/images/resources/donations-list-img-5.jpg')}}" alt="">
+                                <img src="{{ asset('assets/main/images/resources/donations-list-img-5.jpg') }}" alt="">
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6">
@@ -210,7 +210,7 @@
                                         platea.</p>
                                     <div class="donations-list__progress">
                                         <div class="donations-list__progress-shape"
-                                            style="background-image: url({{asset('assets/main/images/shapes/donations-list-progress-shape-1.png')}});">
+                                            style="background-image: url({{ asset('assets/main/images/shapes/donations-list-progress-shape-1.png') }});">
                                         </div>
                                         <div class="bar">
                                             <div class="bar-inner count-bar" data-percent="36%">

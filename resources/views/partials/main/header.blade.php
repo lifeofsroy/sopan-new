@@ -18,8 +18,8 @@
                                     <img src="{{ asset('assets/main/images/icon/main-menu-heart-icon.png') }}" alt="">
                                 </div>
                                 <div class="main-menu__volunteers-text-box">
-                                    <p class="main-menu__volunteers-text"><a href="{{route('volunteer')}}">Become
-                                            a <span class="text-primary">volunteers</span></a></p>
+                                    <p class="main-menu__volunteers-text"><a href="{{route('product')}}">Our
+                                             <span class="text-primary">Products</span></a></p>
                                 </div>
                             </div>
                         </div>

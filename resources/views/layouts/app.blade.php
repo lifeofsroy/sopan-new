@@ -24,6 +24,34 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
+    <link href="{{ asset('assets/main/vendors/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/animate/animate.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/animate/custom-animate.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/fontawesome/css/all.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/jarallax/jarallax.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/jquery-magnific-popup/jquery.magnific-popup.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/nouislider/nouislider.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/nouislider/nouislider.pips.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/odometer/odometer.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/swiper/swiper.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/oxpins-icons/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/main/vendors/tiny-slider/tiny-slider.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/reey-font/stylesheet.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/owl-carousel/owl.carousel.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/owl-carousel/owl.theme.default.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/bxslider/jquery.bxslider.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/bootstrap-select/css/bootstrap-select.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/vegas/vegas.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/jquery-ui/jquery-ui.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/timepicker/timePicker.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/vendors/nice-select/nice-select.css') }}" rel="stylesheet" />
+
+    <!-- template styles -->
+    <link href="{{ asset('assets/main/css/oxpins.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/css/oxpins-responsive.css') }}" rel="stylesheet" />
+    <link id="dark-css" href="{{ asset('assets/main/css/oxpins-dark.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/main/css/plugin.css') }}" rel="stylesheet" />
+
     <a class="dark_app btn-link" id="mode-btn" href="#">
         <img class="btn-image" id="mode-icon" src="{{ asset('assets/images/light.png') }}" style="width:42px">
     </a>
@@ -46,10 +74,7 @@
         </a>
     @endif
 
-    @include('partials.main.style')
-
-    <link id="dark-css" href="{{ asset('assets/main/css/oxpins-dark.css') }}" rel="stylesheet" />
-
+    
     @stack('main-style')
 </head>
 
@@ -78,7 +103,34 @@
 
     <a class="scroll-to-target scroll-to-top" data-target="html" href="#"><i class="icon-up-arrow"></i></a>
 
-    @include('partials.main.script')
+    <script src="{{ asset('assets/main/vendors/jquery/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/jarallax/jarallax.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/jquery-appear/jquery.appear.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/jquery-circle-progress/jquery.circle-progress.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/jquery-validate/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/nouislider/nouislider.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/odometer/odometer.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/swiper/swiper.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/tiny-slider/tiny-slider.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/wnumb/wNumb.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/wow/wow.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/isotope/isotope.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/countdown/countdown.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/owl-carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/bxslider/jquery.bxslider.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/bootstrap-select/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/vegas/vegas.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/jquery-ui/jquery-ui.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/timepicker/timePicker.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/circleType/jquery.circleType.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/circleType/jquery.lettering.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/nice-select/jquery.nice-select.min.js') }}"></script>
+    <!-- template js -->
+    <script src="{{ asset('assets/main/js/oxpins.js') }}"></script>
+
 
     @if ($plugin->is_tawk && !$plugin->is_whatsapp)
         <!--Start of Tawk.to Script-->
@@ -131,8 +183,6 @@
             }
         })
     </script>
-
-    @livewireScripts
 
     @stack('main-script')
 

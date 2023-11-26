@@ -183,7 +183,7 @@
                 <h3 class="become-volunteer-one__title">Join your hand with us for a <br> better life and future
                 </h3>
                 <div class="become-volunteer-one__btn-box">
-                    <a class="thm-btn become-volunteer-one__btn" href="{{route('volunteer')}}">Discover More</a>
+                    <a class="thm-btn become-volunteer-one__btn" href="{{route('volunteer')}}">Become a Volunteer</a>
                 </div>
             </div>
         </div>
@@ -666,1211 +666,212 @@
     </section>
     <!--Testimonial One End-->
 
-    <!--Gallery Page Start-->
-    <section class="gallery-carousel-page">
-        <div class="gallery-one__top">
-            <h3 class="gallery-one__top-title">Our photo gallery</h3>
-        </div>
+    <!--Urgent Cause Start-->
+    <section class="urgent-cause">
         <div class="container">
-            <div class="gallery-carousel thm-owl__carousel owl-theme owl-carousel carousel-dot-style"
-                data-owl-options='{
-                "items": 3,
-                "margin": 30,
-                "smartSpeed": 700,
-                "loop":true,
-                "autoplay": 6000,
-                "nav":false,
-                "dots":true,
-                "navText": ["<span class=\"fa fa-angle-left\"></span>","<span class=\"fa fa-angle-right\"></span>"],
-                "responsive":{
-                    "0":{
-                        "items":1
-                    },
-                    "768":{
-                        "items":2
-                    },
-                    "992":{
-                        "items": 3
-                    }
-                }
-            }'>
-                <!--Gallery Page Single Start-->
-                <div class="item">
-                    <div class="gallery-page__single">
-                        <div class="gallery-page__img">
-                            <img src="{{ asset('assets/main/images/gallery/gallery-page-1-1.jpg') }}" alt="">
-                            <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-1.jpg') }}"></a>
-                            <!-- /.img-popup -->
-                            <div class="gallery-page__content">
-                                <p class="gallery-page__sub-title">Charity</p>
-                                <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
-                            </div>
+            <div class="urgent-cause__inner wow fadeInUp" data-wow-delay="100ms">
+                <div class="urgent-cause-bg"
+                    style="background-image: url({{ asset('assets/main/images/backgrounds/urgent-cause-bg.jpg')}});"></div>
+                <div class="urgent-cause__top">
+                    <div class="urgent-cause__top-left">
+                        <div class="section-title text-left">
+                            <span class="section-title__tagline">Donate to urgent cause</span>
+                            <h2 class="section-title__title">Support for eating funds <br> for hungry people</h2>
                         </div>
                     </div>
-                </div>
-                <!--Gallery Page Single End-->
-                <!--Gallery Page Single Start-->
-                <div class="item">
-                    <div class="gallery-page__single">
-                        <div class="gallery-page__img">
-                            <img src="{{ asset('assets/main/images/gallery/gallery-page-1-2.jpg') }}" alt="">
-                            <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-2.jpg') }}"></a>
-                            <!-- /.img-popup -->
-                            <div class="gallery-page__content">
-                                <p class="gallery-page__sub-title">Charity</p>
-                                <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
-                            </div>
+                    <div class="urgent-cause__top-right">
+                        <p class="urgent-cause__top-text">if you want a detail for this click this button now</p>
+                        <div class="urgent-cause__btn">
+                            <a href="donate-now.html"> <span class="fa fa-heart"></span>Donate now</a>
                         </div>
+                        <p class="urgent-cause__date">10 July 2022</p>
                     </div>
                 </div>
-                <!--Gallery Page Single End-->
-                <!--Gallery Page Single Start-->
-                <div class="item">
-                    <div class="gallery-page__single">
-                        <div class="gallery-page__img">
-                            <img src="{{ asset('assets/main/images/gallery/gallery-page-1-3.jpg') }}" alt="">
-                            <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-3.jpg') }}"></a>
-                            <!-- /.img-popup -->
-                            <div class="gallery-page__content">
-                                <p class="gallery-page__sub-title">Charity</p>
-                                <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
-                            </div>
+                <div class="urgent-cause__progress">
+                    <div class="bar">
+                        <div class="bar-inner count-bar" data-percent="70%">
+                            <div class="count-text">70%</div>
                         </div>
                     </div>
-                </div>
-                <!--Gallery Page Single End-->
-                <!--Gallery Page Single Start-->
-                <div class="item">
-                    <div class="gallery-page__single">
-                        <div class="gallery-page__img">
-                            <img src="{{ asset('assets/main/images/gallery/gallery-page-1-4.jpg') }}" alt="">
-                            <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-4.jpg') }}"></a>
-                            <!-- /.img-popup -->
-                            <div class="gallery-page__content">
-                                <p class="gallery-page__sub-title">Charity</p>
-                                <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
-                            </div>
-                        </div>
+                    <div class="urgent-cause__goals">
+                        <p><span>$28,000.00</span> Donated</p>
+                        <p><span>$80,000.00</span> Goal</p>
                     </div>
                 </div>
-                <!--Gallery Page Single End-->
-                <!--Gallery Page Single Start-->
-                <div class="item">
-                    <div class="gallery-page__single">
-                        <div class="gallery-page__img">
-                            <img src="{{ asset('assets/main/images/gallery/gallery-page-1-5.jpg') }}" alt="">
-                            <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-5.jpg') }}"></a>
-                            <!-- /.img-popup -->
-                            <div class="gallery-page__content">
-                                <p class="gallery-page__sub-title">Charity</p>
-                                <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallery Page Single End-->
-                <!--Gallery Page Single Start-->
-                <div class="item">
-                    <div class="gallery-page__single">
-                        <div class="gallery-page__img">
-                            <img src="{{ asset('assets/main/images/gallery/gallery-page-1-6.jpg') }}" alt="">
-                            <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-6.jpg') }}"></a>
-                            <!-- /.img-popup -->
-                            <div class="gallery-page__content">
-                                <p class="gallery-page__sub-title">Charity</p>
-                                <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallery Page Single End-->
-                <!--Gallery Page Single Start-->
-                <div class="item">
-                    <div class="gallery-page__single">
-                        <div class="gallery-page__img">
-                            <img src="{{ asset('assets/main/images/gallery/gallery-page-1-7.jpg') }}" alt="">
-                            <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-7.jpg') }}"></a>
-                            <!-- /.img-popup -->
-                            <div class="gallery-page__content">
-                                <p class="gallery-page__sub-title">Charity</p>
-                                <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallery Page Single End-->
-                <!--Gallery Page Single Start-->
-                <div class="item">
-                    <div class="gallery-page__single">
-                        <div class="gallery-page__img">
-                            <img src="{{ asset('assets/main/images/gallery/gallery-page-1-8.jpg') }}" alt="">
-                            <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-8.jpg') }}"></a>
-                            <!-- /.img-popup -->
-                            <div class="gallery-page__content">
-                                <p class="gallery-page__sub-title">Charity</p>
-                                <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallery Page Single End-->
-                <!--Gallery Page Single Start-->
-                <div class="item">
-                    <div class="gallery-page__single">
-                        <div class="gallery-page__img">
-                            <img src="{{ asset('assets/main/images/gallery/gallery-page-1-9.jpg') }}" alt="">
-                            <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-9.jpg') }}"></a>
-                            <!-- /.img-popup -->
-                            <div class="gallery-page__content">
-                                <p class="gallery-page__sub-title">Charity</p>
-                                <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Gallery Page Single End-->
             </div>
         </div>
     </section>
-    <!--Gallery Page End-->
+    <!--Urgent Cause End-->
 
-    <!--Causse Two Start-->
-    <section class="causes-two" id="donations">
-        <div class="causes-two-shape-1" style="background-image: url({{ asset('assets/main/images/shapes/causes-two-shape-1.png') }});">
+    <!--Gallery One Start-->
+    <section class="gallery-one">
+        <div class="gallery-one__top">
+            <h3 class="gallery-one__top-title">Our photo gallery</h3>
         </div>
-        <div class="container">
-            <div class="causes-two__top">
-                <div class="row">
-                    <div class="col-xl-7 col-lg-6">
-                        <div class="causes-two-top__left">
-                            <div class="section-title text-left">
-                                <span class="section-title__tagline">Help & donate</span>
-                                <h2 class="section-title__title">Find the popular cause
-                                    and donate them</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-5 col-lg-6">
-                        <div class="causes-two-top__right">
-                            <p class="causes-two-top__text">Powerful corporate social responsibility,
-                                grantmaking, and employee engagement strategies. Our impact is about more than
-                                moving money to where it’s needed most. </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="causes-two__tab">
-                <div class="causes-two__tab-box tabs-box">
-                    <div class="row">
-                        <div class="col-xl-3 col-lg-3">
-                            <div class="causes-two__tab-btn-box">
-                                <ul class="tab-buttons clearfix list-unstyled">
-                                    <li class="tab-btn active-btn" data-tab="#all-causes"><span>All causes
-                                            <sup>6</sup> </span>
-                                    </li>
-                                    <li class="tab-btn" data-tab="#health"><span>Health <sup>3</sup></span>
-                                    </li>
-                                    <li class="tab-btn" data-tab="#education"><span>Education <sup>2</sup></span>
-                                    </li>
-                                    <li class="tab-btn" data-tab="#medical"><span>Medical <sup>1</sup></span></li>
-                                    <li class="tab-btn" data-tab="#food-water"><span>Food & water
-                                            <sup>2</sup></span></li>
-                                    <li class="tab-btn" data-tab="#charity"><span>Charity for poors
-                                            <sup>3</sup></span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-xl-9 col-lg-9">
-                            <div class="causes-two__tab-main-content">
-                                <div class="tabs-content">
-                                    <!--tab-->
-                                    <div class="tab active-tab" id="all-causes">
-                                        <div class="causes-two__inner-content">
-                                            <div class="causes-two__carousel owl-carousel owl-theme thm-owl__carousel"
-                                                data-owl-options='{
-                                                "loop": true,
-                                                "autoplay": true,
-                                                "margin": 30,
-                                                "nav": true,
-                                                "dots": false,
-                                                "smartSpeed": 500,
-                                                "autoplayTimeout": 10000,
-                                                "navText": ["<span class=\"fa fa-angle-left\"><p>Previous</p></span>",
-                                                "<span class=\"fa fa-angle-right\"><p>Next</p></span>"],
-                                                "responsive": {
-                                                    "0": {
-                                                        "items": 1
-                                                    },
-                                                    "768": {
-                                                        "items": 1
-                                                    },
-                                                    "992": {
-                                                        "items": 3
-                                                    },
-                                                    "1200": {
-                                                        "items": 3.181111
-                                                    }
-                                                }
-                                            }'>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-1.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Education</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">Let’s
-                                                                    education
-                                                                    for children get good life</a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-2.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Medical</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">It is a long
-                                                                    established fact that a reader
-                                                                </a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-3.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Food</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">There are many
-                                                                    variations of passages of
-                                                                </a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-1.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Food</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">There are many
-                                                                    variations of passages</a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--tab-->
-                                    <div class="tab" id="health">
-                                        <div class="causes-two__inner-content">
-                                            <div class="causes-two__carousel owl-carousel owl-theme thm-owl__carousel"
-                                                data-owl-options='{
-                                                "loop": true,
-                                                "autoplay": true,
-                                                "margin": 30,
-                                                "nav": true,
-                                                "dots": false,
-                                                "smartSpeed": 500,
-                                                "autoplayTimeout": 10000,
-                                                "navText": ["<span class=\"fa fa-angle-left\"><p>Previous</p></span>",
-                                                "<span class=\"fa fa-angle-right\"><p>Next</p></span>"],
-                                                "responsive": {
-                                                    "0": {
-                                                        "items": 1
-                                                    },
-                                                    "768": {
-                                                        "items": 1
-                                                    },
-                                                    "992": {
-                                                        "items": 3
-                                                    },
-                                                    "1200": {
-                                                        "items": 3.181111
-                                                    }
-                                                }
-                                            }'>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-1.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Education</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">Let’s
-                                                                    education
-                                                                    for children get good life</a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-2.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Medical</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">It is a long
-                                                                    established fact that a reader</a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-3.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Food</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">There are many
-                                                                    variations of passages of
-                                                                </a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-1.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Food</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">There are many
-                                                                    variations of passages of
-                                                                </a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--tab-->
-                                    <div class="tab" id="education">
-                                        <div class="causes-two__inner-content">
-                                            <div class="causes-two__carousel owl-carousel owl-theme thm-owl__carousel"
-                                                data-owl-options='{
-                                                "loop": true,
-                                                "autoplay": true,
-                                                "margin": 30,
-                                                "nav": true,
-                                                "dots": false,
-                                                "smartSpeed": 500,
-                                                "autoplayTimeout": 10000,
-                                                "navText": ["<span class=\"fa fa-angle-left\"><p>Previous</p></span>",
-                                                "<span class=\"fa fa-angle-right\"><p>Next</p></span>"],
-                                                "responsive": {
-                                                    "0": {
-                                                        "items": 1
-                                                    },
-                                                    "768": {
-                                                        "items": 1
-                                                    },
-                                                    "992": {
-                                                        "items": 3
-                                                    },
-                                                    "1200": {
-                                                        "items": 3.181111
-                                                    }
-                                                }
-                                            }'>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-1.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Education</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">Let’s
-                                                                    education
-                                                                    for children get good life</a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-2.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Medical</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">It is a long
-                                                                    established fact that a reader</a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-3.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Food</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">There are many
-                                                                    variations of passages of
-                                                                </a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-1.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Food</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">There are many
-                                                                    variations of passages of
-                                                                </a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--tab-->
-                                    <div class="tab" id="medical">
-                                        <div class="causes-two__inner-content">
-                                            <div class="causes-two__carousel owl-carousel owl-theme thm-owl__carousel"
-                                                data-owl-options='{
-                                                "loop": true,
-                                                "autoplay": true,
-                                                "margin": 30,
-                                                "nav": true,
-                                                "dots": false,
-                                                "smartSpeed": 500,
-                                                "autoplayTimeout": 10000,
-                                                "navText": ["<span class=\"fa fa-angle-left\"><p>Previous</p></span>",
-                                                "<span class=\"fa fa-angle-right\"><p>Next</p></span>"],
-                                                "responsive": {
-                                                    "0": {
-                                                        "items": 1
-                                                    },
-                                                    "768": {
-                                                        "items": 1
-                                                    },
-                                                    "992": {
-                                                        "items": 3
-                                                    },
-                                                    "1200": {
-                                                        "items": 3.181111
-                                                    }
-                                                }
-                                            }'>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-1.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Education</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">Let’s
-                                                                    education
-                                                                    for children get good life</a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-2.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Medical</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">It is a long
-                                                                    established fact that a reader</a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-3.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Food</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">There are many
-                                                                    variations of passages of
-                                                                </a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-1.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Food</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">There are many
-                                                                    variations of passages of
-                                                                </a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--tab-->
-                                    <div class="tab" id="food-water">
-                                        <div class="causes-two__inner-content">
-                                            <div class="causes-two__carousel owl-carousel owl-theme thm-owl__carousel"
-                                                data-owl-options='{
-                                                "loop": true,
-                                                "autoplay": true,
-                                                "margin": 30,
-                                                "nav": true,
-                                                "dots": false,
-                                                "smartSpeed": 500,
-                                                "autoplayTimeout": 10000,
-                                                "navText": ["<span class=\"fa fa-angle-left\"><p>Previous</p></span>",
-                                                "<span class=\"fa fa-angle-right\"><p>Next</p></span>"],
-                                                "responsive": {
-                                                    "0": {
-                                                        "items": 1
-                                                    },
-                                                    "768": {
-                                                        "items": 1
-                                                    },
-                                                    "992": {
-                                                        "items": 3
-                                                    },
-                                                    "1200": {
-                                                        "items": 3.181111
-                                                    }
-                                                }
-                                            }'>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-1.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Education</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">Let’s
-                                                                    education
-                                                                    for children get good life</a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-2.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Medical</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">It is a long
-                                                                    established fact that a reader
-                                                                </a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-3.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Food</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">There are many
-                                                                    variations of passages of
-                                                                </a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-1.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Food</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">There are many
-                                                                    variations of passages of
-                                                                </a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--tab-->
-                                    <div class="tab" id="charity">
-                                        <div class="causes-two__inner-content">
-                                            <div class="causes-two__carousel owl-carousel owl-theme thm-owl__carousel"
-                                                data-owl-options='{
-                                                "loop": true,
-                                                "autoplay": true,
-                                                "margin": 30,
-                                                "nav": true,
-                                                "dots": false,
-                                                "smartSpeed": 500,
-                                                "autoplayTimeout": 10000,
-                                                "navText": ["<span class=\"fa fa-angle-left\"><p>Previous</p></span>",
-                                                "<span class=\"fa fa-angle-right\"><p>Next</p></span>"],
-                                                "responsive": {
-                                                    "0": {
-                                                        "items": 1
-                                                    },
-                                                    "768": {
-                                                        "items": 1
-                                                    },
-                                                    "992": {
-                                                        "items": 3
-                                                    },
-                                                    "1200": {
-                                                        "items": 3.181111
-                                                    }
-                                                }
-                                            }'>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-1.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Education</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">Let’s
-                                                                    education
-                                                                    for children get good life</a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-2.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Medical</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">It is a long
-                                                                    established fact that a reader</a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-3.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Food</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">There are many
-                                                                    variations of passages of
-                                                                </a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="causes-one__single">
-                                                        <div class="causes-one__img">
-                                                            <img src="{{ asset('assets/main/images/resources/causes-1-1.jpg') }}" alt="">
-                                                            <div class="causes-one__cat">
-                                                                <p>Food</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="causes-one__content">
-                                                            <h3 class="causes-one__title"><a href="donation-details.html">There are many
-                                                                    variations of passages of
-                                                                </a>
-                                                            </h3>
-                                                            <p class="causes-one__text">There are many of lorem, but
-                                                                majori have
-                                                                suffered alteration in some form.</p>
-                                                            <div class="causes-one__progress">
-                                                                <div class="causes-one__progress-shape"
-                                                                    style="background-image: url({{ asset('assets/main/images/shapes/causes-one-progress-shape-1.png') }});">
-                                                                </div>
-                                                                <div class="bar">
-                                                                    <div class="bar-inner count-bar" data-percent="36%">
-                                                                        <div class="count-text">36%</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="causes-one__goals">
-                                                                    <p><span>$25,270</span> Raised</p>
-                                                                    <p><span>$30,000</span> Goal</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+        <div class="gallery-one__bottom">
+            <div class="container">
+                <div class="gallery-carousel thm-owl__carousel owl-theme owl-carousel carousel-dot-style"
+                    data-owl-options='{
+                    "items": 3,
+                    "margin": 30,
+                    "smartSpeed": 700,
+                    "loop":true,
+                    "autoplay": 6000,
+                    "nav":false,
+                    "dots":true,
+                    "navText": ["<span class=\"fa fa-angle-left\"></span>","<span class=\"fa fa-angle-right\"></span>"],
+                    "responsive":{
+                        "0":{
+                            "items":1
+                        },
+                        "768":{
+                            "items":2
+                        },
+                        "992":{
+                            "items": 3
+                        }
+                    }
+                }'>
+                    <!--Gallery Page Single Start-->
+                    <div class="item">
+                        <div class="gallery-page__single">
+                            <div class="gallery-page__img">
+                                <img src="{{ asset('assets/main/images/gallery/gallery-page-1-1.jpg') }}" alt="">
+                                <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-1.jpg') }}"></a>
+                                <!-- /.img-popup -->
+                                <div class="gallery-page__content">
+                                    <p class="gallery-page__sub-title">Charity</p>
+                                    <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!--Gallery Page Single End-->
+                    <!--Gallery Page Single Start-->
+                    <div class="item">
+                        <div class="gallery-page__single">
+                            <div class="gallery-page__img">
+                                <img src="{{ asset('assets/main/images/gallery/gallery-page-1-2.jpg') }}" alt="">
+                                <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-2.jpg') }}"></a>
+                                <!-- /.img-popup -->
+                                <div class="gallery-page__content">
+                                    <p class="gallery-page__sub-title">Charity</p>
+                                    <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Gallery Page Single End-->
+                    <!--Gallery Page Single Start-->
+                    <div class="item">
+                        <div class="gallery-page__single">
+                            <div class="gallery-page__img">
+                                <img src="{{ asset('assets/main/images/gallery/gallery-page-1-3.jpg') }}" alt="">
+                                <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-3.jpg') }}"></a>
+                                <!-- /.img-popup -->
+                                <div class="gallery-page__content">
+                                    <p class="gallery-page__sub-title">Charity</p>
+                                    <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Gallery Page Single End-->
+                    <!--Gallery Page Single Start-->
+                    <div class="item">
+                        <div class="gallery-page__single">
+                            <div class="gallery-page__img">
+                                <img src="{{ asset('assets/main/images/gallery/gallery-page-1-4.jpg') }}" alt="">
+                                <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-4.jpg') }}"></a>
+                                <!-- /.img-popup -->
+                                <div class="gallery-page__content">
+                                    <p class="gallery-page__sub-title">Charity</p>
+                                    <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Gallery Page Single End-->
+                    <!--Gallery Page Single Start-->
+                    <div class="item">
+                        <div class="gallery-page__single">
+                            <div class="gallery-page__img">
+                                <img src="{{ asset('assets/main/images/gallery/gallery-page-1-5.jpg') }}" alt="">
+                                <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-5.jpg') }}"></a>
+                                <!-- /.img-popup -->
+                                <div class="gallery-page__content">
+                                    <p class="gallery-page__sub-title">Charity</p>
+                                    <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Gallery Page Single End-->
+                    <!--Gallery Page Single Start-->
+                    <div class="item">
+                        <div class="gallery-page__single">
+                            <div class="gallery-page__img">
+                                <img src="{{ asset('assets/main/images/gallery/gallery-page-1-6.jpg') }}" alt="">
+                                <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-6.jpg') }}"></a>
+                                <!-- /.img-popup -->
+                                <div class="gallery-page__content">
+                                    <p class="gallery-page__sub-title">Charity</p>
+                                    <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Gallery Page Single End-->
+                    <!--Gallery Page Single Start-->
+                    <div class="item">
+                        <div class="gallery-page__single">
+                            <div class="gallery-page__img">
+                                <img src="{{ asset('assets/main/images/gallery/gallery-page-1-7.jpg') }}" alt="">
+                                <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-7.jpg') }}"></a>
+                                <!-- /.img-popup -->
+                                <div class="gallery-page__content">
+                                    <p class="gallery-page__sub-title">Charity</p>
+                                    <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Gallery Page Single End-->
+                    <!--Gallery Page Single Start-->
+                    <div class="item">
+                        <div class="gallery-page__single">
+                            <div class="gallery-page__img">
+                                <img src="{{ asset('assets/main/images/gallery/gallery-page-1-8.jpg') }}" alt="">
+                                <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-8.jpg') }}"></a>
+                                <!-- /.img-popup -->
+                                <div class="gallery-page__content">
+                                    <p class="gallery-page__sub-title">Charity</p>
+                                    <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Gallery Page Single End-->
+                    <!--Gallery Page Single Start-->
+                    <div class="item">
+                        <div class="gallery-page__single">
+                            <div class="gallery-page__img">
+                                <img src="{{ asset('assets/main/images/gallery/gallery-page-1-9.jpg') }}" alt="">
+                                <a class="img-popup" href="{{ asset('assets/main/images/gallery/gallery-page-1-9.jpg') }}"></a>
+                                <!-- /.img-popup -->
+                                <div class="gallery-page__content">
+                                    <p class="gallery-page__sub-title">Charity</p>
+                                    <h5 class="gallery-page__title"><a href="gallery.html">Education</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Gallery Page Single End-->
                 </div>
             </div>
         </div>
     </section>
-    <!--Causse Two End-->
+    <!--Gallery One End-->
 
     <!--FAQ One Start-->
     <section class="faq-one">
@@ -1888,7 +889,7 @@
                         <p class="faq-one__text-1">Proactively procrastinate cross-platform results via extensive
                             ideas distinctively underwhelm enterprise. Compellingly plagiarize value-added sources
                             with inexpensive schemas.</p>
-                        <a class="thm-btn faq-one__btn" href="faq.html">Learn how to get help</a>
+                        <a class="thm-btn faq-one__btn" href="{{route('faq')}}">Learn how to get help</a>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6">
@@ -1987,147 +988,177 @@
     </section>
     <!--Counter One End-->
 
-    <!--News One Start-->
-    <section class="news-one">
+    <!--News Two Start-->
+    <section class="news-two">
         <div class="container">
             <div class="section-title text-center">
                 <span class="section-title__tagline">News & articles</span>
-                <h2 class="section-title__title">Directly from the <br> latest news and articles
-                </h2>
+                <h2 class="section-title__title">Directly from the <br> latest news and articles</h2>
             </div>
             <div class="row">
-                <!--News One Single Start-->
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
-                    <div class="news-one__single">
-                        <div class="news-one__img">
-                            <img src="{{ asset('assets/main/images/blog/news-1-1.jpg') }}" alt="">
+                <div class="col-xl-6 col-lg-4">
+                    <div class="news-two__single">
+                        <div class="news-two__img-one">
+                            <img src="{{asset('assets/main/images/blog/news-2-1.jpg')}}" alt="">
+                            <div class="news-two__date-one">
+                                <p>23 May, 2022</p>
+                            </div>
                         </div>
-                        <div class="news-one__content-box">
-                            <div class="news-one__content-inner">
-                                <div class="news-one__content">
-                                    <ul class="list-unstyled news-one__meta">
-                                        <li><a href="news-details.html"><i class="far fa-user-circle"></i> Admin</a>
+                        <div class="news-two__content-one">
+                            <ul class="list-unstyled news-two__meta-one">
+                                <li><a href="news-details.html"><i class="far fa-user-circle"></i> By admin</a>
+                                </li>
+                                <li><a href="news-details.html"><i class="fas fa-comments"></i> 2
+                                        Comments</a>
+                                </li>
+                            </ul>
+                            <h3 class="news-two__title-one"><a href="news-details.html">How does the
+                                    malnutrition affect children?</a></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-8">
+                    <div class="news-two__single">
+                        <ul class="list-unstyled news-two__list">
+                            <li class="news-two__list-single">
+                                <div class="news-two__img-two">
+                                    <img src="{{asset('assets/main/images/blog/news-2-2.jpg')}}" alt="">
+                                    <div class="news-two__date-two">
+                                        <p>23 May, 2022</p>
+                                    </div>
+                                </div>
+                                <div class="news-two__content-two">
+                                    <ul class="list-unstyled news-two__meta-two">
+                                        <li><a href="news-details.html"><i class="far fa-user-circle"></i> By
+                                                admin</a>
                                         </li>
                                         <li><a href="news-details.html"><i class="fas fa-comments"></i> 2
                                                 Comments</a>
                                         </li>
                                     </ul>
-                                    <h3 class="news-one__title"><a href="news-details.html">How does the
-                                            malnutrition
-                                            affect children?</a></h3>
+                                    <h3 class="news-two__title-two"><a href="news-details.html">Donation is hope for
+                                            poor childrens in africa</a></h3>
                                 </div>
-                                <div class="news-one__bottom">
-                                    <div class="news-one__read-more">
-                                        <a href="news-details.html"> <span class="icon-right-arrow"></span> Read
-                                            More</a>
-                                    </div>
-                                    <div class="news-one__share">
-                                        <a href="#"><i class="fas fa-share-alt"></i></a>
+                            </li>
+                            <li class="news-two__list-single">
+                                <div class="news-two__img-two">
+                                    <img src="{{asset('assets/main/images/blog/news-2-3.jpg')}}" alt="">
+                                    <div class="news-two__date-two">
+                                        <p>23 May, 2022</p>
                                     </div>
                                 </div>
-                                <div class="news-one__social-box">
-                                    <ul class="list-unstyled news-one__social">
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="news-one__date">
-                                <p>23 May, 2022</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--News One Single End-->
-                <!--News One Single Start-->
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                    <div class="news-one__single">
-                        <div class="news-one__img">
-                            <img src="{{ asset('assets/main/images/blog/news-1-2.jpg') }}" alt="">
-                        </div>
-                        <div class="news-one__content-box">
-                            <div class="news-one__content-inner">
-                                <div class="news-one__content">
-                                    <ul class="list-unstyled news-one__meta">
-                                        <li><a href="news-details.html"><i class="far fa-user-circle"></i> Admin</a>
+                                <div class="news-two__content-two">
+                                    <ul class="list-unstyled news-two__meta-two">
+                                        <li><a href="news-details.html"><i class="far fa-user-circle"></i> By
+                                                admin</a>
                                         </li>
                                         <li><a href="news-details.html"><i class="fas fa-comments"></i> 2
                                                 Comments</a>
                                         </li>
                                     </ul>
-                                    <h3 class="news-one__title"><a href="news-details.html">Lorem Ipsum has been the
-                                            industry's standard</a></h3>
+                                    <h3 class="news-two__title-two"><a href="news-details.html">It has roots in a
+                                            piece of classical Latin</a></h3>
                                 </div>
-                                <div class="news-one__bottom">
-                                    <div class="news-one__read-more">
-                                        <a href="news-details.html"> <span class="icon-right-arrow"></span> Read
-                                            More</a>
+                            </li>
+                            <li class="news-two__list-single">
+                                <div class="news-two__img-two">
+                                    <img src="{{asset('assets/main/images/blog/news-2-4.jpg')}}" alt="">
+                                    <div class="news-two__date-two">
+                                        <p>23 May, 2022</p>
                                     </div>
-                                    <div class="news-one__share">
-                                        <a href="#"><i class="fas fa-share-alt"></i></a>
-                                    </div>
                                 </div>
-                                <div class="news-one__social-box">
-                                    <ul class="list-unstyled news-one__social">
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="news-one__date">
-                                <p>23 May, 2022</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--News One Single End-->
-                <!--News One Single Start-->
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
-                    <div class="news-one__single">
-                        <div class="news-one__img">
-                            <img src="{{ asset('assets/main/images/blog/news-1-3.jpg') }}" alt="">
-                        </div>
-                        <div class="news-one__content-box">
-                            <div class="news-one__content-inner">
-                                <div class="news-one__content">
-                                    <ul class="list-unstyled news-one__meta">
-                                        <li><a href="news-details.html"><i class="far fa-user-circle"></i> Admin</a>
+                                <div class="news-two__content-two">
+                                    <ul class="list-unstyled news-two__meta-two">
+                                        <li><a href="news-details.html"><i class="far fa-user-circle"></i> By
+                                                admin</a>
                                         </li>
                                         <li><a href="news-details.html"><i class="fas fa-comments"></i> 2
                                                 Comments</a>
                                         </li>
                                     </ul>
-                                    <h3 class="news-one__title"><a href="news-details.html">There are many
-                                            variations of passages of Lorem</a></h3>
+                                    <h3 class="news-two__title-two"><a href="news-details.html">randomised words
+                                            which don't look even</a></h3>
                                 </div>
-                                <div class="news-one__bottom">
-                                    <div class="news-one__read-more">
-                                        <a href="news-details.html"> <span class="icon-right-arrow"></span> Read
-                                            More</a>
-                                    </div>
-                                    <div class="news-one__share">
-                                        <a href="#"><i class="fas fa-share-alt"></i></a>
-                                    </div>
-                                </div>
-                                <div class="news-one__social-box">
-                                    <ul class="list-unstyled news-one__social">
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="news-one__date">
-                                <p>23 May, 2022</p>
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <!--News One Single End-->
             </div>
         </div>
     </section>
-    <!--News One End-->
+    <!--News Two End-->
+
+    <!--Brand One Start-->
+    <section class="brand-one brand-two">
+        <div class="brand-two-shape-1" style="background-image: url({{asset('assets/main/images/shapes/brand-two-shape-1.png')}});">
+        </div>
+        <div class="container">
+            <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 100, "slidesPerView": 5, "autoplay": { "delay": 5000 }, "breakpoints": {
+                        "0": {
+                            "spaceBetween": 30,
+                            "slidesPerView": 2
+                        },
+                        "375": {
+                            "spaceBetween": 30,
+                            "slidesPerView": 2
+                        },
+                        "575": {
+                            "spaceBetween": 30,
+                            "slidesPerView": 3
+                        },
+                        "767": {
+                            "spaceBetween": 50,
+                            "slidesPerView": 4
+                        },
+                        "991": {
+                            "spaceBetween": 50,
+                            "slidesPerView": 5
+                        },
+                        "1199": {
+                            "spaceBetween": 100,
+                            "slidesPerView": 6
+                        }
+                    }}'>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{{asset('assets/main/images/brand/brand-1-1.png')}}" alt="">
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img src="{{asset('assets/main/images/brand/brand-1-2.png')}}" alt="">
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img src="{{asset('assets/main/images/brand/brand-1-3.png')}}" alt="">
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img src="{{asset('assets/main/images/brand/brand-1-4.png')}}" alt="">
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img src="{{asset('assets/main/images/brand/brand-1-5.png')}}" alt="">
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img src="{{asset('assets/main/images/brand/brand-1-6.png')}}" alt="">
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img src="{{asset('assets/main/images/brand/brand-1-1.png')}}" alt="">
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img src="{{asset('assets/main/images/brand/brand-1-2.png')}}" alt="">
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img src="{{asset('assets/main/images/brand/brand-1-3.png')}}" alt="">
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img src="{{asset('assets/main/images/brand/brand-1-4.png')}}" alt="">
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img src="{{asset('assets/main/images/brand/brand-1-5.png')}}" alt="">
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img src="{{asset('assets/main/images/brand/brand-1-6.png')}}" alt="">
+                    </div><!-- /.swiper-slide -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Brand One End-->
 @endsection

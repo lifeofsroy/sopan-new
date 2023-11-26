@@ -5,13 +5,12 @@ namespace App\Http\Controllers\Main;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MainNewsController extends Controller
+class MainProductController extends Controller
 {
     public function index(){
-        return view('pages.main.news.index');
+        return view('pages.main.product.index');
     }
-
     public function deatil(){
-        return view('pages.main.news.detail');
+        return view('pages.main.product.detail');
     }
 }

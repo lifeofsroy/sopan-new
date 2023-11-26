@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 class MainProjectController extends Controller
 {
     public function index(){
-        return view('pages.main.project');
+        return view('pages.main.project.index');
+    }
+
+    public function deatil(){
+        return view('pages.main.project.detail');
     }
 }

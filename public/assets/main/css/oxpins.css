@@ -6226,7 +6226,8 @@ body.locked .page-wrapper {
 .urgent-cause {
   position: relative;
   display: block;
-  margin-top: -155px;
+  margin-top: 80px;
+  margin-bottom: 70px;
   z-index: 1;
 }
 
