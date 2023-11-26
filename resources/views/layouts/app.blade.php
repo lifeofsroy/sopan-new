@@ -74,7 +74,7 @@
         </a>
     @endif
 
-    
+
     @stack('main-style')
 </head>
 
@@ -165,21 +165,21 @@
             modeIcon.setAttribute("src", "{{ asset('assets/images/dark.png') }}");
         }
 
-        if (window.localStorage.getItem("store_mode") == 'dark') {
-            darkMode();
-        } else {
+        if (window.localStorage.getItem("store_mode") == 'light') {
             lightMode();
+        } else {
+            darkMode();
         }
 
         modeBtn.addEventListener('click', (e) => {
             e.preventDefault();
 
-            if (window.localStorage.getItem("store_mode") == 'dark') {
-                lightMode();
-                window.localStorage.setItem("store_mode", 'light');
-            } else {
+            if (window.localStorage.getItem("store_mode") == 'light') {
                 darkMode();
                 window.localStorage.setItem("store_mode", 'dark');
+            } else {
+                lightMode();
+                window.localStorage.setItem("store_mode", 'light');
             }
         })
     </script>

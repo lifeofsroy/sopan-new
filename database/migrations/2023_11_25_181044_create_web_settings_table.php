@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('logo');
             $table->string('favicon');
             $table->string('preloader');
+            $table->string('breadcrumb');
             $table->timestamps();
         });
     }

@@ -2904,7 +2904,7 @@ body.locked .page-wrapper {
 
 .main-slider-three__title {
   position: relative;
-  font-size: 90px;
+  font-size: 70px;
   color: var(--oxpins-white);
   font-weight: 900;
   line-height: 110px;
@@ -3807,7 +3807,7 @@ body.locked .page-wrapper {
 .feature-one__single {
   position: relative;
   display: block;
-  background-color: var(--oxpins-base);
+  background-color: #00715d52;
   border-radius: var(--oxpins-bdr-radius);
   padding: 50px 50px 50px;
   margin-bottom: 30px;
@@ -3946,7 +3946,7 @@ body.locked .page-wrapper {
 }
 
 .feature-one__single--two {
-  background-color: var(--oxpins-primary);
+  background-color: #ab934642;
 }
 
 .feature-one__top-icon--two {

@@ -17,6 +17,8 @@ use App\Http\Controllers\Main\MainVolunteerController;
 
 
 Route::get('/', [MainHomeController::class, 'index'])->name('home');
+Route::get('slider/{slug}', [MainHomeController::class, 'sliderDetail'])->name('home.slider.detail');
+Route::get('feature/{slug}', [MainHomeController::class, 'featureDetail'])->name('home.feature.detail');
 
 Route::get('about', [MainAboutController::class, 'index'])->name('about');
 Route::get('more-about-us', [MainAboutController::class, 'more'])->name('about.more');
