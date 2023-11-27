@@ -11,6 +11,7 @@
 
     <link type="image/icon" href="{{asset('assets/auth/images/favicon-16x16.html')}}" rel="shortcut icon" />
     <link href="{{asset('assets/auth/css/login3-style.css')}}" rel="stylesheet">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -28,7 +29,6 @@
     <script src="{{asset('assets/auth/js/jquery-2.2.4.min.js')}}"></script>
     <script src="{{asset('assets/auth/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/auth/js/custom.js')}}"></script>
-    <script src="{{ asset('assets/js/axios.min.js') }}"></script>
     @stack('auth-script')
 </body>
 

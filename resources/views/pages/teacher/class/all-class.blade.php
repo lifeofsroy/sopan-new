@@ -207,7 +207,7 @@
         let clipMsz = document.querySelector('#clipMsz');
     </script>
 
-    <script>
+    <script type="module">
         addLoding.style.display = 'none';
 
         let join_url;

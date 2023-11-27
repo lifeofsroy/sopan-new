@@ -41,52 +41,35 @@
         Sections
     </li>
 
-    {{-- <li class="sidebar-item {{Route::is('admin.setting*') ? 'active':''}}">
-        <a class="sidebar-link {{Route::is('admin.setting*') ? '':'collapsed'}}" data-bs-target="#appsetting" data-bs-toggle="collapse">
-            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Settings</span>
+    <li class="sidebar-item {{Route::is('admin.page*') ? 'active':''}}">
+        <a class="sidebar-link {{Route::is('admin.page*') ? '':'collapsed'}}" data-bs-target="#sitePages" data-bs-toggle="collapse">
+            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Pages</span>
         </a>
-        <ul class="sidebar-dropdown list-unstyled {{Route::is('admin.setting*') ? 'show':''}} collapse" id="appsetting" data-bs-parent="#sidebar">
-            <li class="sidebar-item {{Route::is('admin.setting.app') ? 'active':''}}">
-                <a class='sidebar-link' href='{{route('admin.setting.app')}}'>App Settings</a>
+        <ul class="sidebar-dropdown list-unstyled {{Route::is('admin.page*') ? 'show':''}} collapse" id="sitePages" data-bs-parent="#sidebar">
+            <li class="sidebar-item {{Route::is('admin.page.home') ? 'active':''}}">
+                <a class='sidebar-link' href='{{route('admin.page.home')}}'>Home Page</a>
+            </li>
+            <li class="sidebar-item {{Route::is('admin.page.about') ? 'active':''}}">
+                <a class='sidebar-link' href='{{route('admin.page.about')}}'>About Page</a>
+            </li>
+            <li class="sidebar-item {{Route::is('admin.page.project') ? 'active':''}}">
+                <a class='sidebar-link' href='{{route('admin.page.project')}}'>Project Page</a>
+            </li>
+            <li class="sidebar-item {{Route::is('admin.page.event') ? 'active':''}}">
+                <a class='sidebar-link' href='{{route('admin.page.event')}}'>Event Page</a>
+            </li>
+            <li class="sidebar-item {{Route::is('admin.page.news') ? 'active':''}}">
+                <a class='sidebar-link' href='{{route('admin.page.news')}}'>News Page</a>
+            </li>
+            <li class="sidebar-item {{Route::is('admin.page.contact') ? 'active':''}}">
+                <a class='sidebar-link' href='{{route('admin.page.contact')}}'>Contact Page</a>
             </li>
         </ul>
-    </li> --}}
+    </li>
 
     <li class="sidebar-item">
-        <a class="sidebar-link collapsed" data-bs-target="#multi" data-bs-toggle="collapse">
-            <i class="align-middle" data-feather="corner-right-down"></i> <span class="align-middle">Multi Level</span>
+        <a class='sidebar-link' href='{{route('logout')}}'>
+            <i class="align-middle" data-feather="log-out"></i> <span class="align-middle">Logout</span>
         </a>
-        <ul class="sidebar-dropdown list-unstyled collapse" id="multi" data-bs-parent="#sidebar">
-            <li class="sidebar-item">
-                <a class="sidebar-link collapsed" data-bs-target="#multi-2" data-bs-toggle="collapse">Two Levels</a>
-                <ul class="sidebar-dropdown list-unstyled collapse" id="multi-2">
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="#">Item 1</a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="#">Item 2</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="sidebar-item">
-                <a class="sidebar-link collapsed" data-bs-target="#multi-3" data-bs-toggle="collapse">Three Levels</a>
-                <ul class="sidebar-dropdown list-unstyled collapse" id="multi-3">
-                    <li class="sidebar-item">
-                        <a class="sidebar-link collapsed" data-bs-target="#multi-3-1" data-bs-toggle="collapse">Item 1</a>
-                        <ul class="sidebar-dropdown list-unstyled collapse" id="multi-3-1">
-                            <li class="sidebar-item">
-                                <a class="sidebar-link" href="#">Item 1</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a class="sidebar-link" href="#">Item 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="#">Item 2</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
     </li>
 </ul>
