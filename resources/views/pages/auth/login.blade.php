@@ -7,10 +7,10 @@
                 <div class="headline">
                     <!-- brand-logo -->
                     <div class="brand-logo">
-                        {{-- <img src="{{asset('assets/auth/images/brand-logo-white.png')}}" alt="brand-logo" width="150"> --}}
+                        <img src="{{ asset('storage') }}/{{ $setting->logo }}" alt="brand-logo" width="150">
                     </div>
 
-                    <p class="text-center">Login using social media 66666</p>
+                    <p class="text-center">Login using social media</p>
                     <div class="row social-buttons">
                         <div class="col-xs-4 col-sm-4 col-md-12">
                             <a class="btn btn-block btn-facebook" href="#">
@@ -187,7 +187,7 @@
         let forgot_email_error = forgotPassForm.querySelector('#email_error');
     </script>
 
-    <script>
+    <script type="module">
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
 

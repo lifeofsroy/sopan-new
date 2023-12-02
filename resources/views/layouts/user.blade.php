@@ -21,6 +21,7 @@
         }
     </style>
     @stack('user-style')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-layout="default">
@@ -51,7 +52,6 @@
     </div>
 
     <script src="{{asset('assets/admin/js/app.js')}}"></script>
-    <script src="{{ asset('assets/admin/js/axios.min.js') }}"></script>
     @stack('user-script')
 </body>
 
