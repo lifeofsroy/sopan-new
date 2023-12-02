@@ -14,13 +14,12 @@
 
     <ul class="navbar-nav d-none d-lg-flex">
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="resourcesDropdown" data-bs-toggle="dropdown" href="#" role="button"
-                aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" id="resourcesDropdown" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                aria-expanded="false">
                 Pages
             </a>
             <div class="dropdown-menu" aria-labelledby="resourcesDropdown">
-                <a class="dropdown-item" href="#" target="_blank"><i class="me-1 align-middle"
-                        data-feather="home"></i>
+                <a class="dropdown-item" href="#" target="_blank"><i class="me-1 align-middle" data-feather="home"></i>
                     Homepage</a>
             </div>
         </li>
@@ -121,7 +120,8 @@
                         <a class="list-group-item" href="#">
                             <div class="row g-0 align-items-center">
                                 <div class="col-2">
-                                    <img class="avatar img-fluid rounded-circle" src="{{asset('assets/admin/img/avatars/avatar-5.jpg')}}" alt="Vanessa Tucker">
+                                    <img class="avatar img-fluid rounded-circle" src="{{ asset('assets/admin/img/avatars/avatar-5.jpg') }}"
+                                        alt="Vanessa Tucker">
                                 </div>
                                 <div class="col-10 ps-2">
                                     <div class="text-dark">Vanessa Tucker</div>
@@ -133,7 +133,8 @@
                         <a class="list-group-item" href="#">
                             <div class="row g-0 align-items-center">
                                 <div class="col-2">
-                                    <img class="avatar img-fluid rounded-circle" src="{{asset('assets/admin/img/avatars/avatar-2.jpg')}}" alt="William Harris">
+                                    <img class="avatar img-fluid rounded-circle" src="{{ asset('assets/admin/img/avatars/avatar-2.jpg') }}"
+                                        alt="William Harris">
                                 </div>
                                 <div class="col-10 ps-2">
                                     <div class="text-dark">William Harris</div>
@@ -145,7 +146,8 @@
                         <a class="list-group-item" href="#">
                             <div class="row g-0 align-items-center">
                                 <div class="col-2">
-                                    <img class="avatar img-fluid rounded-circle" src="{{asset('assets/admin/img/avatars/avatar-4.jpg')}}" alt="Christina Mason">
+                                    <img class="avatar img-fluid rounded-circle" src="{{ asset('assets/admin/img/avatars/avatar-4.jpg') }}"
+                                        alt="Christina Mason">
                                 </div>
                                 <div class="col-10 ps-2">
                                     <div class="text-dark">Christina Mason</div>
@@ -157,7 +159,8 @@
                         <a class="list-group-item" href="#">
                             <div class="row g-0 align-items-center">
                                 <div class="col-2">
-                                    <img class="avatar img-fluid rounded-circle" src="{{asset('assets/admin/img/avatars/avatar-3.jpg')}}" alt="Sharon Lessman">
+                                    <img class="avatar img-fluid rounded-circle" src="{{ asset('assets/admin/img/avatars/avatar-3.jpg') }}"
+                                        alt="Sharon Lessman">
                                 </div>
                                 <div class="col-10 ps-2">
                                     <div class="text-dark">Sharon Lessman</div>
@@ -173,34 +176,19 @@
                 </div>
             </li>
 
-            {{-- language --}}
-            <li class="nav-item dropdown">
-                <a class="nav-flag dropdown-toggle" id="languageDropdown" data-bs-toggle="dropdown" href="#">
-                    <img src="{{asset('assets/admin/img/flags/us.png')}}" alt="English" />
+            {{-- online users --}}
+            <li class="nav-item">
+                <a class="nav-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" href="#"
+                    aria-controls="offcanvasWithBothOptions">
+                    <div class="position-relative">
+                        <i class="align-middle" data-feather="user-check"></i>
+                    </div>
                 </a>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-                    <a class="dropdown-item" href="#">
-                        <img class="me-1 align-middle" src="{{asset('assets/admin/img/flags/us.png')}}" alt="English" width="20" />
-                        <span class="align-middle">English</span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <img class="me-1 align-middle" src="{{asset('assets/admin/img/flags/es.png')}}" alt="Spanish" width="20" />
-                        <span class="align-middle">Spanish</span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <img class="me-1 align-middle" src="{{asset('assets/admin/img/flags/ru.png')}}" alt="Russian" width="20" />
-                        <span class="align-middle">Russian</span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <img class="me-1 align-middle" src="{{asset('assets/admin/img/flags/de.png')}}" alt="German" width="20" />
-                        <span class="align-middle">German</span>
-                    </a>
-                </div>
             </li>
 
             {{-- logout --}}
             <li class="nav-item">
-                <a class="nav-icon d-none d-lg-block" href="{{route('logout')}}">
+                <a class="nav-icon d-none d-lg-block" href="{{ route('logout') }}">
                     <div class="position-relative">
                         <i class="align-middle" data-feather="log-out"></i>
                     </div>
@@ -209,3 +197,49 @@
         </ul>
     </div>
 </nav>
+
+<div class="offcanvas offcanvas-end" id="offcanvasWithBothOptions" data-bs-scroll="true" aria-labelledby="offcanvasWithBothOptionsLabel"
+    tabindex="-1">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Online Users</h5>
+        <button class="btn-close text-reset" data-bs-dismiss="offcanvas" type="button" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="border-end list-group">
+
+            <a class="list-group-item list-group-item-action border-0" href="#">
+                <div class="d-flex align-items-start">
+                    <img class="rounded-circle me-1" src="{{ asset('assets/admin/img/avatars/avatar-5.jpg') }}" alt="Vanessa Tucker"
+                        width="40" height="40">
+                    <div class="flex-grow-1 ms-3">
+                        Vanessa Tucker
+                        <div class="small"><span class="fas fa-circle chat-online"></span> Online</div>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action border-0" href="#">
+                <div class="badge bg-success float-end">New</div>
+                <div class="d-flex align-items-start">
+                    <img class="rounded-circle me-1" src="{{ asset('assets/admin/img/avatars/avatar-2.jpg') }}" alt="William Harris"
+                        width="40" height="40">
+                    <div class="flex-grow-1 ms-3">
+                        William Harris
+                        <div class="small"><span class="fas fa-circle chat-online"></span> Online</div>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action border-0" href="#">
+                <div class="d-flex align-items-start">
+                    <img class="rounded-circle me-1" src="{{ asset('assets/admin/img/avatars/avatar-3.jpg') }}" alt="Sharon Lessman"
+                        width="40" height="40">
+                    <div class="flex-grow-1 ms-3">
+                        Sharon Lessman
+                        <div class="small"><span class="fas fa-circle chat-online"></span> Online</div>
+                    </div>
+                </div>
+            </a>
+
+            <hr class="d-block d-lg-none mb-0 mt-1" />
+        </div>
+    </div>
+</div>

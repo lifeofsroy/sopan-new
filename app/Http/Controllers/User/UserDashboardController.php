@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class UserDashboardController extends Controller
 {
-    public function dashboardPage(){
+    public function index(){
         return view('pages.user.dashboard');
     }
 }

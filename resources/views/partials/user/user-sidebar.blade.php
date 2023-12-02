@@ -37,6 +37,12 @@
         </a>
     </li>
 
+    <li class="sidebar-item {{ Route::is('user.chat.index') ? 'active' : '' }}">
+        <a class='sidebar-link' href='{{ route('user.chat.index') }}'>
+            <i class="align-middle" data-feather="codesandbox"></i> <span class="align-middle">Chat</span>
+        </a>
+    </li>
+
     <li class="sidebar-header">
         Sections
     </li>
