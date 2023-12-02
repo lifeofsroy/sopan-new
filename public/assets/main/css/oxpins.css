@@ -18,9 +18,12 @@
 # Common
 --------------------------------------------------------------*/
 :root {
-  --oxpins-font: 'Manrope', sans-serif;
-  --oxpins-font-two: 'Nunito', sans-serif;
-  --oxpins-font-three: 'Caveat', cursive;
+  --oxpins-font:
+  'Manrope', sans-serif;
+  --oxpins-font-two:
+  'Nunito', sans-serif;
+  --oxpins-font-three:
+  'Caveat', cursive;
   --oxpins-gray: #6f7775;
   --oxpins-gray-rgb: 111, 119, 117;
   --oxpins-white: #ffffff;
@@ -36,7 +39,6 @@
   --oxpins-bdr-color: #eee9db;
   --oxpins-bdr-color-rgb: 238, 233, 219;
   --oxpins-bdr-radius: 20px;
-
 }
 
 .row {
@@ -443,6 +445,10 @@ ul {
   transition: all 500ms ease;
   z-index: 99;
   position: relative;
+}
+
+.toggler-theme-color {
+  background-color: rgb(255, 255, 255);
 }
 
 .main-menu {

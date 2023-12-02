@@ -24,6 +24,11 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
+    <!-- PWA  -->
+    <meta name="theme-color" content="#6777ef" />
+    <link href="{{ asset('logo.png') }}" rel="apple-touch-icon">
+    <link href="{{ asset('manifest.json') }}" rel="manifest">
+
     <link href="{{ asset('assets/main/vendors/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/main/vendors/animate/animate.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/main/vendors/animate/custom-animate.css') }}" rel="stylesheet" />
@@ -44,7 +49,6 @@
     <link href="{{ asset('assets/main/vendors/vegas/vegas.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/main/vendors/jquery-ui/jquery-ui.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/main/vendors/timepicker/timePicker.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/main/vendors/nice-select/nice-select.css') }}" rel="stylesheet" />
 
     <!-- template styles -->
     <link href="{{ asset('assets/main/css/oxpins.css') }}" rel="stylesheet" />
@@ -76,7 +80,8 @@
 
 
     @stack('main-style')
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <script src="{{ mix('js/app.js') }}"></script>
 </head>
 
 <body class="custom-cursor">
@@ -128,9 +133,9 @@
     <script src="{{ asset('assets/main/vendors/timepicker/timePicker.js') }}"></script>
     <script src="{{ asset('assets/main/vendors/circleType/jquery.circleType.js') }}"></script>
     <script src="{{ asset('assets/main/vendors/circleType/jquery.lettering.min.js') }}"></script>
-    <script src="{{ asset('assets/main/vendors/nice-select/jquery.nice-select.min.js') }}"></script>
     <!-- template js -->
     <script src="{{ asset('assets/main/js/oxpins.js') }}"></script>
+    <script src="{{ asset('sw.js') }}"></script>
 
 
     @if ($plugin->is_tawk && !$plugin->is_whatsapp)
@@ -199,6 +204,15 @@
                 window.localStorage.setItem("store_mode", 'light');
             }
         });
+    </script>
+
+    <script>
+        if (!navigator.serviceWorker.controller) {
+            navigator.serviceWorker.register('/sw.js')
+                .then((reg) => {
+                    console.log(reg);
+                });
+        }
     </script>
 
     @stack('main-script')

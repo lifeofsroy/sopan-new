@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.gstatic.com/" rel="preconnect">
-    <link href="{{asset('assets/admin/img/icons/icon-48x48.png')}}" rel="shortcut icon" />
+    <link href="{{ asset('assets/admin/img/icons/icon-48x48.png') }}" rel="shortcut icon" />
 
     <title>{{ config('app.name') }}</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet">
 
-    <link href="{{asset('assets/admin/css/light.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/admin/css/light.css') }}" rel="stylesheet">
 
     <style>
         body {
@@ -21,7 +22,8 @@
         }
     </style>
     @stack('admin-style')
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <script src="{{ mix('js/app.js') }}"></script>
 </head>
 
 <body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-layout="default">
@@ -30,7 +32,7 @@
             <div class="sidebar-content js-simplebar">
                 <a class='sidebar-brand' href='index.html'>
                     <span class="sidebar-brand-text align-middle">
-                        {{config('app.name')}}
+                        {{ config('app.name') }}
                     </span>
                     <svg class="sidebar-brand-icon align-middle" style="margin-left: -3px" width="32px" height="32px" viewBox="0 0 24 24"
                         fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" color="#FFFFFF">
@@ -51,7 +53,7 @@
         </div>
     </div>
 
-    <script src="{{asset('assets/admin/js/app.js')}}"></script>
+    <script src="{{ asset('assets/admin/js/app.js') }}"></script>
     @stack('admin-script')
 </body>
 

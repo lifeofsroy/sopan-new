@@ -15,11 +15,11 @@
                         <div class="main-menu__right-top-left">
                             <div class="main-menu__volunteers">
                                 <div class="main-menu__volunteers-icon">
-                                    <img src="{{ asset('assets/main/images/icon/main-menu-heart-icon.png') }}" alt="">
+                                    <img src="{{ asset('assets/images/product.gif') }}" alt="">
                                 </div>
                                 <div class="main-menu__volunteers-text-box">
                                     <p class="main-menu__volunteers-text"><a href="{{ route('product') }}">Our
-                                            <span class="text-primary">Products</span></a></p>
+                                            <span class="text-info">Products</span></a></p>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +66,9 @@
                     </div>
                     <div class="main-menu__right-bottom">
                         <div class="main-menu__main-menu-box">
-                            <a class="mobile-nav__toggler" href="#"><i class="fa fa-bars"></i></a>
+                            <div class="toggler-theme-color">
+                                <a class="mobile-nav__toggler" href="#"><i class="fa fa-bars"></i></a>
+                            </div>
                             <ul class="main-menu__list">
                                 <li class="{{ Route::is('home') ? 'current' : '' }}">
                                     <a href="{{ route('home') }}">Home</a>

@@ -24,7 +24,9 @@ body.boxed-wrapper .page-wrapper {
     background-color: var(--oxpins-black);
 }
 
-
+.toggler-theme-color {
+    background-color: var(--oxpins-black);
+}
 
 
 .main-menu__volunteers-text a,
