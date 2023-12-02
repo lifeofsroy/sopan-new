@@ -11,6 +11,8 @@
 
     @stack('title')
 
+    @laravelPWA
+
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/" rel="preconnect">
 
@@ -23,11 +25,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-
-    <!-- PWA  -->
-    <meta name="theme-color" content="#6777ef" />
-    <link href="{{ asset('logo.png') }}" rel="apple-touch-icon">
-    <link href="{{ asset('manifest.json') }}" rel="manifest">
 
     <link href="{{ asset('assets/main/vendors/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/main/vendors/animate/animate.min.css') }}" rel="stylesheet" />
@@ -77,7 +74,6 @@
             <img class="btn-image" src="{{ asset('assets/images/chat.gif') }}" style="width:50px">
         </a>
     @endif
-
 
     @stack('main-style')
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
@@ -135,7 +131,6 @@
     <script src="{{ asset('assets/main/vendors/circleType/jquery.lettering.min.js') }}"></script>
     <!-- template js -->
     <script src="{{ asset('assets/main/js/oxpins.js') }}"></script>
-    <script src="{{ asset('sw.js') }}"></script>
 
 
     @if ($plugin->is_tawk && !$plugin->is_whatsapp)
@@ -204,15 +199,6 @@
                 window.localStorage.setItem("store_mode", 'light');
             }
         });
-    </script>
-
-    <script>
-        if (!navigator.serviceWorker.controller) {
-            navigator.serviceWorker.register('/sw.js')
-                .then((reg) => {
-                    console.log(reg);
-                });
-        }
     </script>
 
     @stack('main-script')
