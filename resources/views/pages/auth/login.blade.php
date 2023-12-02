@@ -87,9 +87,7 @@
                             <strong class="checkbox text-danger" id="register_error_message"></strong>
 
                             <form id="registerForm">
-                                <x-auth.form-input name="fname" type="text" placeholder="First Name" error="fname_error" />
-
-                                <x-auth.form-input name="lname" type="text" placeholder="Last Name" error="lname_error" />
+                                <x-auth.form-input name="name" type="text" placeholder="Full Name" error="name_error" />
 
                                 <x-auth.form-input name="email" type="email" placeholder="Email address" error="email_error" />
 
@@ -169,8 +167,7 @@
 
         // registration
         let registerForm = document.querySelector('#registerForm');
-        let reg_fname_input = registerForm.querySelector('[name="fname"]');
-        let reg_lname_input = registerForm.querySelector('[name="lname"]');
+        let reg_name_input = registerForm.querySelector('[name="name"]');
         let reg_email_input = registerForm.querySelector('[name="email"]');
         let reg_password_input = registerForm.querySelector('[name="password"]');
         let reg_cpassword_input = registerForm.querySelector('[name="password_confirmation"]');
@@ -249,8 +246,7 @@
                         'X-Requested-With': 'XMLHttpRequest',
                         'X-CSRF-TOKEN': csrf_token.content,
                     },
-                    fname: reg_fname_input.value,
-                    lname: reg_lname_input.value,
+                    name: reg_name_input.value,
                     email: reg_email_input.value,
                     password: reg_password_input.value,
                     password_confirmation: reg_cpassword_input.value,
@@ -258,8 +254,7 @@
                 })
                 .then(function(res) {
                     reg_button.innerText = 'Sign Up';
-                    reg_fname_error.style.display = 'none';
-                    reg_lname_error.style.display = 'none';
+                    reg_name_error.style.display = 'none';
                     reg_email_error.style.display = 'none';
                     reg_password_error.style.display = 'none';
                     reg_type_error.style.display = 'none';
@@ -273,11 +268,7 @@
                 .catch(function(error) {
                     reg_button.innerText = 'Sign Up';
                     if (error.response.data.errors) {
-                        error.response.data.errors.fname == undefined ? reg_fname_error.style.display = 'none' : reg_fname_error.style
-                            .display =
-                            'block';
-
-                        error.response.data.errors.lname == undefined ? reg_lname_error.style.display = 'none' : reg_lname_error.style
+                        error.response.data.errors.name == undefined ? reg_name_error.style.display = 'none' : reg_name_error.style
                             .display =
                             'block';
 
@@ -293,8 +284,7 @@
                             .style
                             .display = 'block';
 
-                        reg_fname_error.innerText = error.response.data.errors.fname;
-                        reg_lname_error.innerText = error.response.data.errors.lname;
+                        reg_name_error.innerText = error.response.data.errors.name;
                         reg_email_error.innerText = error.response.data.errors.email;
                         reg_password_error.innerText = error.response.data.errors.password;
                         reg_type_error.innerText = error.response.data.errors.type;

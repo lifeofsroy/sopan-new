@@ -21,8 +21,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
-        'fname',
-        'lname',
+        'name',
         'email',
         'password',
         'type',
@@ -57,12 +56,12 @@ class User extends Authenticatable implements MustVerifyEmail
         );
     }
 
-    protected function name(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value, $attribute) => $attribute['fname'] . ' ' . $attribute['lname']
-        );
-    }
+    // protected function name(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn ($value, $attribute) => $attribute['fname'] . ' ' . $attribute['lname']
+    //     );
+    // }
 
     public function otp()
     {

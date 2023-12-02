@@ -48,8 +48,7 @@ class AuthLoginController extends Controller
     public function registerPost(Request $request)
     {
         $credentials = $request->validate([
-            'fname' => ['required'],
-            'lname' => ['required'],
+            'name' => ['required'],
             'email' => ['required', 'email', 'unique:users,email'],
             'password' => ['required', 'confirmed', Password::defaults()],
             'type' => ['required'],

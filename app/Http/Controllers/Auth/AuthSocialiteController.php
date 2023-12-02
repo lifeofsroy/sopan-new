@@ -26,13 +26,12 @@ class AuthSocialiteController extends Controller
                 Auth::login($findUser);
                 return redirect()->route('dashboard');
             } else {
-                $name = explode(' ', $user->name, 2);
-                $fname = $name[0];
-                $lname = !empty($name[1]) ? $name[1] : '';
+                // $name = explode(' ', $user->name, 2);
+                // $fname = $name[0];
+                // $lname = !empty($name[1]) ? $name[1] : '';
 
                 $addUser = User::create([
-                    'fname' => $fname,
-                    'lname' => $lname,
+                    'name' => $user->name,
                     'email' => $user->email,
                     'password' => encrypt('userpassword'),
                     'provider' => 'Google',
