@@ -52,9 +52,9 @@
     <link id="dark-css" href="{{ asset('assets/main/css/oxpins-dark.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/main/css/plugin.css') }}" rel="stylesheet" />
 
-    <a class="dark_app btn-link" id="mode-btn" href="#">
+    <p class="dark_app btn-link" id="mode-btn" href="#" role="button">
         <img class="btn-image" id="mode-icon" src="{{ asset('assets/images/light.png') }}" style="width:42px">
-    </a>
+    </p>
 
     @if ($plugin->is_phone)
         <a class="ph-float btn-link" href="tel:91{{ $plugin->phone_no }}" target="_blank">
@@ -70,7 +70,7 @@
 
     @if ($plugin->is_tawk && !$plugin->is_whatsapp)
         <a class="wh-float" href="javascript:void(Tawk_API.toggle())">
-            <img class="btn-image" src="{{ asset('assets/images/chat.png') }}" style="width:50px">
+            <img class="btn-image" src="{{ asset('assets/images/chat.gif') }}" style="width:50px">
         </a>
     @endif
 
@@ -171,6 +171,22 @@
             darkMode();
         }
 
+        modeBtn.addEventListener('mouseover', () => {
+            if (window.localStorage.getItem("store_mode") == 'light') {
+                modeIcon.setAttribute("src", "{{ asset('assets/images/dark.gif') }}");
+            } else {
+                modeIcon.setAttribute("src", "{{ asset('assets/images/light.gif') }}");
+            }
+        });
+
+        modeBtn.addEventListener('mouseout', (e) => {
+            if (window.localStorage.getItem("store_mode") == 'light') {
+                modeIcon.setAttribute("src", "{{ asset('assets/images/dark.png') }}");
+            } else {
+                modeIcon.setAttribute("src", "{{ asset('assets/images/light.png') }}");
+            }
+        });
+
         modeBtn.addEventListener('click', (e) => {
             e.preventDefault();
 
@@ -181,7 +197,7 @@
                 lightMode();
                 window.localStorage.setItem("store_mode", 'light');
             }
-        })
+        });
     </script>
 
     @stack('main-script')

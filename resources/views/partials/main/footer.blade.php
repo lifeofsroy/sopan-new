@@ -24,16 +24,16 @@
                                 <a href="{{ route('home') }}" style="{{ Route::is('home') ? 'color: #fff;' : '' }}">Home</a>
                             </li>
                             <li>
-                                <a href="{{ route('about') }}" style="{{ Route::is('about') ? 'color: #fff;' : '' }}">About Us</a>
+                                <a href="{{ route('about') }}" style="{{ Route::is('about*') ? 'color: #fff;' : '' }}">About Us</a>
                             </li>
                             <li>
-                                <a href="{{ route('project') }}" style="{{ Route::is('project') ? 'color: #fff;' : '' }}">Projects</a>
+                                <a href="{{ route('project') }}" style="{{ Route::is('project*') ? 'color: #fff;' : '' }}">Projects</a>
                             </li>
                             <li>
-                                <a href="{{ route('event') }}" style="{{ Route::is('event') ? 'color: #fff;' : '' }}">Events</a>
+                                <a href="{{ route('event') }}" style="{{ Route::is('event*') ? 'color: #fff;' : '' }}">Events</a>
                             </li>
                             <li>
-                                <a href="{{ route('news') }}" style="{{ Route::is('news') ? 'color: #fff;' : '' }}">News</a>
+                                <a href="{{ route('news') }}" style="{{ Route::is('news*') ? 'color: #fff;' : '' }}">News</a>
                             </li>
                         </ul>
                     </div>

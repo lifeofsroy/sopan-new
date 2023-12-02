@@ -77,4 +77,12 @@ class User extends Authenticatable implements MustVerifyEmail
     public function classes(){
         return $this->hasMany(ZoomClass::class);
     }
+
+    public function comments(){
+        return $this->hasMany(ProjectComment::class);
+    }
+
+    public function profile(){
+        return $this->hasOne(Profile::class);
+    }
 }

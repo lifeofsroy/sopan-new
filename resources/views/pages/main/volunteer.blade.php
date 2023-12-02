@@ -26,7 +26,7 @@
         <div class="container">
             <div class="section-title text-center">
                 <span class="section-title__tagline">Register yourself with us</span>
-                <h2 class="section-title__title">Let’s join our community to <br> become a volunteer</h2>
+                <h2 class="section-title__title">Let's join our community to <br> become a volunteer</h2>
             </div>
             <div class="row">
                 <div class="col-xl-6 col-lg-6">

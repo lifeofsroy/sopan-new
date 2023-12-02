@@ -4,7 +4,7 @@
             <div class="main-menu__wrapper-inner">
                 <div class="main-menu__left">
                     <div class="main-menu__logo">
-                        <a href="index.html"><img src="{{ asset('storage') }}/{{ $setting->logo }}" alt="{{ $setting->app_name }}"></a>
+                        <a href="{{route('home')}}"><img src="{{ asset('storage') }}/{{ $setting->logo }}" alt="{{ $setting->app_name }}"></a>
                     </div>
                     <div class="main-menu__shape-1 float-bob-x">
                         <img src="{{ asset('assets/main/images/shapes/main-menu-shape-1.png') }}" alt="">
@@ -71,16 +71,16 @@
                                 <li class="{{ Route::is('home') ? 'current' : '' }}">
                                     <a href="{{ route('home') }}">Home</a>
                                 </li>
-                                <li class="{{ Route::is('about') ? 'current' : '' }}">
+                                <li class="{{ Route::is('about*') ? 'current' : '' }}">
                                     <a href="{{ route('about') }}">About Us</a>
                                 </li>
-                                <li class="{{ Route::is('project') ? 'current' : '' }}">
+                                <li class="{{ Route::is('project*') ? 'current' : '' }}">
                                     <a href="{{ route('project') }}">Projects</a>
                                 </li>
-                                <li class="{{ Route::is('event') ? 'current' : '' }}">
+                                <li class="{{ Route::is('event*') ? 'current' : '' }}">
                                     <a href="{{ route('event') }}">Events</a>
                                 </li>
-                                <li class="{{ Route::is('news') ? 'current' : '' }}">
+                                <li class="{{ Route::is('news*') ? 'current' : '' }}">
                                     <a href="{{ route('news') }}">News</a>
                                 </li>
                                 <li class="{{ Route::is('contact') ? 'current' : '' }}">

@@ -3327,7 +3327,7 @@ body.locked .page-wrapper {
   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
   border-bottom-left-radius: var(--oxpins-bdr-radius);
   border-bottom-right-radius: var(--oxpins-bdr-radius);
-  border: 1px solid var(--oxpins-bdr-color);
+  /* border: 1px solid var(--oxpins-bdr-color); */
   padding: 22px 30px 30px;
   border-top: 0;
 }
@@ -5486,7 +5486,7 @@ body.locked .page-wrapper {
   top: 0;
   left: -60px;
   content: "";
-  height: 330px;
+  height: 552px;
   width: 30px;
   border-radius: 15px;
   background-image: -moz-linear-gradient(90deg, rgb(251, 212, 90) 0%, rgb(0, 113, 93) 100%);
@@ -5506,8 +5506,8 @@ body.locked .page-wrapper {
 
 .about-two__img-two {
   position: absolute;
-  bottom: -30px;
-  left: -60px;
+  bottom: -23px;
+  left: -15px;
 }
 
 .about-two__img-two img {
@@ -5523,7 +5523,7 @@ body.locked .page-wrapper {
 
 .about-two__left-title {
   font-size: 60px;
-  color: var(--oxpins-primary);
+  color: #4af5ff;
   font-weight: 700;
   font-family: var(--oxpins-font-three);
   line-height: 60px;
@@ -5551,8 +5551,8 @@ body.locked .page-wrapper {
 
 .about-two__shape-3 {
   position: absolute;
-  right: 35px;
-  bottom: -55px;
+  right: 4px;
+  bottom: 60px;
 }
 
 .about-two__shape-3 img {
@@ -5985,7 +5985,7 @@ body.locked .page-wrapper {
 .testimonial-two {
   position: relative;
   display: block;
-  padding: 120px 0 140px;
+  padding: 120px 140px 40px;
 }
 
 .testimonial-two__carousel {
@@ -6048,7 +6048,7 @@ body.locked .page-wrapper {
 
 .testimonial-two__text {
   font-size: 18px;
-  line-height: 40px;
+  line-height: 26px;
 }
 
 .testimonial-two__client-info {
@@ -6495,7 +6495,7 @@ body.locked .page-wrapper {
 }
 
 .team-one__sub-title {
-  font-size: 16px;
+  font-size: 19px;
   color: var(--oxpins-primary);
   font-weight: 700;
   font-family: var(--oxpins-font-three);
@@ -7021,8 +7021,8 @@ body.locked .page-wrapper {
   display: block;
   background-color: var(--oxpins-base);
   padding-left: 60px;
-  padding-top: 51px;
-  padding-bottom: 50px;
+  padding-top: 18px;
+  padding-bottom: 24px;
   z-index: 1;
 }
 
@@ -7039,7 +7039,7 @@ body.locked .page-wrapper {
 
 .make-donation__btn-box {
   position: absolute;
-  bottom: 50px;
+  bottom: 11px;
   right: 0;
 }
 
@@ -7081,7 +7081,7 @@ body.locked .page-wrapper {
   font-size: 16px;
   color: #89d3c6;
   padding-top: 10px;
-  padding-bottom: 31px;
+  padding-bottom: 25px;
 }
 
 .make-donation__raised-goal {
@@ -7105,8 +7105,8 @@ body.locked .page-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
-  width: 60px;
+  height: 45px;
+  width: 45px;
   background-color: var(--oxpins-black);
   border-radius: 50%;
   -webkit-transition: all 500ms ease;
@@ -8310,7 +8310,7 @@ body.locked .page-wrapper {
 }
 
 .sidebar__post-image>img {
-  width: 70px;
+  width: 90px;
   border-radius: 7px;
 }
 
@@ -8829,7 +8829,7 @@ body.locked .page-wrapper {
   margin: 0;
   color: var(--oxpins-black);
   font-size: 30px;
-  margin-bottom: 51px;
+  margin-bottom: 30px;
   font-weight: 900;
   letter-spacing: -0.04em;
 }
@@ -8838,9 +8838,9 @@ body.locked .page-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-bottom: 1px solid var(--oxpins-bdr-color);
-  padding-bottom: 60px;
-  margin-bottom: 60px;
+  /* border-bottom: 1px solid var(--oxpins-bdr-color); */
+  padding-bottom: 40px;
+  /* margin-bottom: 60px; */
 }
 
 .comment-one__content {
@@ -8851,8 +8851,8 @@ body.locked .page-wrapper {
 .comment-one__content h3 {
   margin: 0;
   font-size: 22px;
-  color: var(--oxpins-black);
-  margin-bottom: 26px;
+  color: #0d6755;
+  /* margin-bottom: 26px; */
   font-weight: 900;
   letter-spacing: -0.04em;
 }
@@ -10812,7 +10812,7 @@ body.locked .page-wrapper {
 .contact-three {
   position: relative;
   display: block;
-  background-color: #e9e8e5;
+  /* background-color: #e9e8e5; */
   padding: 120px 0 180px;
   z-index: 1;
 }
@@ -11511,6 +11511,7 @@ body.boxed-wrapper {
   display: block;
   max-width: 340px;
   width: 100%;
+  /* margin-left: 50px; */
 }
 
 .product__showing-sort .select-box .nice-select {
