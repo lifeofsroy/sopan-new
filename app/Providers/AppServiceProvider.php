@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind('zoom', function(){
+        $this->app->bind('zoom', function () {
             return new Zoom();
         });
     }
