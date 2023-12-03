@@ -6256,7 +6256,7 @@ body.locked .page-wrapper {
   background-size: cover;
   background-position: center;
   border-radius: 30px;
-  opacity: .10;
+  opacity: 0.2;
   z-index: -1;
 }
 

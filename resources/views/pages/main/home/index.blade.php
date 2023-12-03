@@ -117,7 +117,7 @@
         </div>
     </section>
 
-    <!--Events-->
+    <!--Projects-->
     <section class="events-one">
         <div class="events-one-shape-1" style="background-image: url({{ asset('assets/main/images/shapes/events-one-shape-1.png') }})">
         </div>
@@ -126,12 +126,10 @@
                 <div class="col-xl-4 col-lg-4">
                     <div class="events-one__left">
                         <div class="section-title text-left">
-                            <span class="section-title__tagline">Upcoming events</span>
-                            <h2 class="section-title__title">Join our latest upcoming events</h2>
+                            <span class="section-title__tagline">Recent Projcts</span>
+                            <h2 class="section-title__title">Join our latest and upcoming projects</h2>
                         </div>
-                        <p class="events-one__text-1">There are many variations of passages of lorem ipsum available
-                            but the majority have suffered.</p>
-                        <a class="thm-btn events-one__btn" href="event-details.html">Discover More</a>
+                        <a class="thm-btn events-one__btn" href="{{ route('project') }}">Discover More</a>
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-8">
@@ -161,128 +159,24 @@
                                 }
                             }
                         }'>
-                            <div class="item">
-                                <!--Events One Single Start-->
-                                <div class="events-one__single">
-                                    <div class="events-one__img">
-                                        <img src="{{ asset('assets/main/images/events/events-1-1.jpg') }}" alt="">
-                                        <div class="events-one__date">
-                                            <p>23 May, 2022</p>
-                                        </div>
-                                        <div class="events-one__content">
-                                            <ul class="list-unstyled events-one__meta">
-                                                <li><i class="fas fa-clock"></i>8:00pm</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>New York</li>
-                                            </ul>
-                                            <h3 class="events-one__title"><a href="event-details.html">Play for the
-                                                    world
-                                                    with us</a></h3>
+                            @foreach ($projects as $project)
+                                <div class="item">
+                                    <!--Events One Single Start-->
+                                    <div class="events-one__single">
+                                        <div class="events-one__img">
+                                            <img src="{{ asset('storage') }}/{{ $project->thumbnail }}" alt="{{ $project->title }}">
+                                            <div class="events-one__date">
+                                                <p>{{ $project->category->name }}</p>
+                                            </div>
+                                            <div class="events-one__content">
+                                                <h3 class="events-one__title"><a
+                                                        href="{{ route('project.detail', $project->slug) }}">{{ $project->title }}</a></h3>
+                                            </div>
                                         </div>
                                     </div>
+                                    <!--Events One Single End-->
                                 </div>
-                                <!--Events One Single End-->
-                            </div>
-                            <div class="item">
-                                <!--Events One Single Start-->
-                                <div class="events-one__single">
-                                    <div class="events-one__img">
-                                        <img src="{{ asset('assets/main/images/events/events-1-2.jpg') }}" alt="">
-                                        <div class="events-one__date">
-                                            <p>23 May, 2022</p>
-                                        </div>
-                                        <div class="events-one__content">
-                                            <ul class="list-unstyled events-one__meta">
-                                                <li><i class="fas fa-clock"></i>8:00pm</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>New York</li>
-                                            </ul>
-                                            <h3 class="events-one__title"><a href="event-details.html">Contrary to
-                                                    popular belief</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Events One Single End-->
-                            </div>
-                            <div class="item">
-                                <!--Events One Single Start-->
-                                <div class="events-one__single">
-                                    <div class="events-one__img">
-                                        <img src="{{ asset('assets/main/images/events/events-1-3.jpg') }}" alt="">
-                                        <div class="events-one__date">
-                                            <p>23 May, 2022</p>
-                                        </div>
-                                        <div class="events-one__content">
-                                            <ul class="list-unstyled events-one__meta">
-                                                <li><i class="fas fa-clock"></i>8:00pm</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>New York</li>
-                                            </ul>
-                                            <h3 class="events-one__title"><a href="event-details.html">There are
-                                                    many variations of</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Events One Single End-->
-                            </div>
-                            <div class="item">
-                                <!--Events One Single Start-->
-                                <div class="events-one__single">
-                                    <div class="events-one__img">
-                                        <img src="{{ asset('assets/main/images/events/events-1-1.jpg') }}" alt="">
-                                        <div class="events-one__date">
-                                            <p>23 May, 2022</p>
-                                        </div>
-                                        <div class="events-one__content">
-                                            <ul class="list-unstyled events-one__meta">
-                                                <li><i class="fas fa-clock"></i>8:00pm</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>New York</li>
-                                            </ul>
-                                            <h3 class="events-one__title"><a href="event-details.html">Play for the
-                                                    world
-                                                    with us</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Events One Single End-->
-                            </div>
-                            <div class="item">
-                                <!--Events One Single Start-->
-                                <div class="events-one__single">
-                                    <div class="events-one__img">
-                                        <img src="{{ asset('assets/main/images/events/events-1-2.jpg') }}" alt="">
-                                        <div class="events-one__date">
-                                            <p>23 May, 2022</p>
-                                        </div>
-                                        <div class="events-one__content">
-                                            <ul class="list-unstyled events-one__meta">
-                                                <li><i class="fas fa-clock"></i>8:00pm</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>New York</li>
-                                            </ul>
-                                            <h3 class="events-one__title"><a href="event-details.html">Contrary to
-                                                    popular belief</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Events One Single End-->
-                            </div>
-                            <div class="item">
-                                <!--Events One Single Start-->
-                                <div class="events-one__single">
-                                    <div class="events-one__img">
-                                        <img src="{{ asset('assets/main/images/events/events-1-3.jpg') }}" alt="">
-                                        <div class="events-one__date">
-                                            <p>23 May, 2022</p>
-                                        </div>
-                                        <div class="events-one__content">
-                                            <ul class="list-unstyled events-one__meta">
-                                                <li><i class="fas fa-clock"></i>8:00pm</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>New York</li>
-                                            </ul>
-                                            <h3 class="events-one__title"><a href="event-details.html">There are
-                                                    many variations of</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Events One Single End-->
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -414,32 +308,27 @@
     <!--Upcoming Event-->
     <section class="urgent-cause">
         <div class="container">
-            <div class="urgent-cause__inner wow fadeInUp" data-wow-delay="100ms">
-                <div class="urgent-cause-bg" style="background-image: url({{ asset('assets/main/images/backgrounds/urgent-cause-bg.jpg') }});"></div>
+            <div class="urgent-cause__inner wow fadeInUp" data-wow-delay="100ms" style="padding: 50px 100px 60px;">
+                <div class="urgent-cause-bg" style="background-image: url({{ asset('assets/main/images/backgrounds/main-slider-3-1.jpg') }});"></div>
                 <div class="urgent-cause__top">
                     <div class="urgent-cause__top-left">
                         <div class="section-title text-left">
-                            <span class="section-title__tagline">Donate to urgent cause</span>
-                            <h2 class="section-title__title">Support for eating funds <br> for hungry people</h2>
+                            <span class="section-title__tagline">Our Upcoming Event</span>
+                            <h2 class="section-title__title">{{ $event->title }}</h2>
+                            <p class="make-donation__text pb-0" style="font-size: 21px;">{{ $event->overview }}</p>
+                            <a class="text-warning" href="{{ route('event.detail', $event->slug) }}">Read More</a>
                         </div>
                     </div>
                     <div class="urgent-cause__top-right">
-                        <p class="urgent-cause__top-text">if you want a detail for this click this button now</p>
                         <div class="urgent-cause__btn">
-                            <a href="donate-now.html"> <span class="fa fa-heart"></span>Donate now</a>
+                            <a href="#"> <span class="fa fa-heart"></span>Register Now</a>
                         </div>
-                        <p class="urgent-cause__date">10 July 2022</p>
                     </div>
                 </div>
                 <div class="urgent-cause__progress">
-                    <div class="bar">
-                        <div class="bar-inner count-bar" data-percent="70%">
-                            <div class="count-text">70%</div>
-                        </div>
-                    </div>
                     <div class="urgent-cause__goals">
-                        <p><span>$28,000.00</span> Donated</p>
-                        <p><span>$80,000.00</span> Goal</p>
+                        <p><i class="fas fa-calendar-alt"></i> Left {{ Carbon\Carbon::parse($event->happen_at)->diffForHumans() }}</p>
+                        <p><i class="fas fa-map-marker-alt"></i> {{ $event->location }}</p>
                     </div>
                 </div>
             </div>
@@ -721,87 +610,33 @@
                 <div class="col-xl-6 col-lg-4">
                     <div class="news-two__single">
                         <div class="news-two__img-one">
-                            <img src="{{ asset('assets/main/images/blog/news-2-1.jpg') }}" alt="">
+                            <img src="{{ asset('storage') }}/{{ $news_first->image }}" alt="">
                             <div class="news-two__date-one">
-                                <p>23 May, 2022</p>
+                                <p>{{ Carbon\Carbon::parse($news_first->created_at)->diffForHumans() }}</p>
                             </div>
                         </div>
                         <div class="news-two__content-one">
-                            <ul class="list-unstyled news-two__meta-one">
-                                <li><a href="news-details.html"><i class="far fa-user-circle"></i> By admin</a>
-                                </li>
-                                <li><a href="news-details.html"><i class="fas fa-comments"></i> 2
-                                        Comments</a>
-                                </li>
-                            </ul>
-                            <h3 class="news-two__title-one"><a href="news-details.html">How does the
-                                    malnutrition affect children?</a></h3>
+                            <h3 class="news-two__title-one"><a href="{{ route('news.detail', $news_first->slug) }}">{{ $news_first->title }}</a></h3>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-xl-6 col-lg-8">
                     <div class="news-two__single">
                         <ul class="list-unstyled news-two__list">
-                            <li class="news-two__list-single">
-                                <div class="news-two__img-two">
-                                    <img src="{{ asset('assets/main/images/blog/news-2-2.jpg') }}" alt="">
-                                    <div class="news-two__date-two">
-                                        <p>23 May, 2022</p>
+                            @foreach ($news_others as $news)
+                                <li class="news-two__list-single">
+                                    <div class="news-two__img-two">
+                                        <img src="{{ asset('storage') }}/{{ $news->image }}" alt="{{ $news->title }}">
+                                        <div class="news-two__date-two">
+                                            <p>{{ Carbon\Carbon::parse($news->created_at)->diffForHumans() }}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="news-two__content-two">
-                                    <ul class="list-unstyled news-two__meta-two">
-                                        <li><a href="news-details.html"><i class="far fa-user-circle"></i> By
-                                                admin</a>
-                                        </li>
-                                        <li><a href="news-details.html"><i class="fas fa-comments"></i> 2
-                                                Comments</a>
-                                        </li>
-                                    </ul>
-                                    <h3 class="news-two__title-two"><a href="news-details.html">Donation is hope for
-                                            poor childrens in africa</a></h3>
-                                </div>
-                            </li>
-                            <li class="news-two__list-single">
-                                <div class="news-two__img-two">
-                                    <img src="{{ asset('assets/main/images/blog/news-2-3.jpg') }}" alt="">
-                                    <div class="news-two__date-two">
-                                        <p>23 May, 2022</p>
+                                    <div class="news-two__content-two">
+                                        <h3 class="news-two__title-two"><a href="{{ route('news.detail', $news->slug) }}">{{ $news->title }}</a></h3>
                                     </div>
-                                </div>
-                                <div class="news-two__content-two">
-                                    <ul class="list-unstyled news-two__meta-two">
-                                        <li><a href="news-details.html"><i class="far fa-user-circle"></i> By
-                                                admin</a>
-                                        </li>
-                                        <li><a href="news-details.html"><i class="fas fa-comments"></i> 2
-                                                Comments</a>
-                                        </li>
-                                    </ul>
-                                    <h3 class="news-two__title-two"><a href="news-details.html">It has roots in a
-                                            piece of classical Latin</a></h3>
-                                </div>
-                            </li>
-                            <li class="news-two__list-single">
-                                <div class="news-two__img-two">
-                                    <img src="{{ asset('assets/main/images/blog/news-2-4.jpg') }}" alt="">
-                                    <div class="news-two__date-two">
-                                        <p>23 May, 2022</p>
-                                    </div>
-                                </div>
-                                <div class="news-two__content-two">
-                                    <ul class="list-unstyled news-two__meta-two">
-                                        <li><a href="news-details.html"><i class="far fa-user-circle"></i> By
-                                                admin</a>
-                                        </li>
-                                        <li><a href="news-details.html"><i class="fas fa-comments"></i> 2
-                                                Comments</a>
-                                        </li>
-                                    </ul>
-                                    <h3 class="news-two__title-two"><a href="news-details.html">randomised words
-                                            which don't look even</a></h3>
-                                </div>
-                            </li>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

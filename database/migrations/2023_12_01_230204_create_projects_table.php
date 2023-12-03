@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->mediumText('overview');
+            $table->string('thumbnail');
             $table->string('image');
             $table->text('description');
             $table->integer('goal')->nullable();

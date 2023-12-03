@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta name="id" content="{{ $id }}">
+    {{-- <meta name="id" content="{{ $id }}"> --}}
     <link href='https://unpkg.com/nprogress@0.2.0/nprogress.css' rel='stylesheet' />
     <meta name="url" data-user="{{ Auth::user()->id }}" content="{{ url('') . '/user/chat' }}">
 
