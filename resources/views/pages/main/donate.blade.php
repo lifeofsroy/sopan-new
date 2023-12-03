@@ -158,7 +158,7 @@
                                     transaction.</p>
                                 <h5 class="causes-one__text">Name : Jaugram Sopan</h5>
                                 <p>
-                                    {{ \QrCode::format('png')->merge('logo.png', 0.5, true)->size(500)->errorCorrection('H')->generate('A simple example of QR code!') }}
+                                    {{ \QrCode::generate('A simple example of QR code!') }}
                                 </p>
                             </div>
                         </div>
