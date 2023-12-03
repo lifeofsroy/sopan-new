@@ -26,7 +26,7 @@
 
                         <div class="donate-now__personal-info-box">
                             <h3 class="donate-now__title">Personal info</h3>
-                            <form class="donate-now__personal-info-form">
+                            <form class="donate-now__personal-info-form" id='showDonateDetail'>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="donate-now__personal-info-input">
@@ -71,6 +71,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <button class="thm-btn donate-now__payment-info-btn mt-4" type="submit">Submit Here</button>
                             </form>
                         </div>
 
@@ -121,20 +123,21 @@
                             </form>
                         </div> --}}
 
-                        <button class="thm-btn donate-now__payment-info-btn" type="button">Next</button>
+                        
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-5">
+
+                <div class="col-xl-4 col-lg-5 d-none" id="depositDetail">
                     <div class="donate-now__right">
                         <div class="causes-one__single">
                             <div class="causes-one__content" style="border-radius: 15px;">
                                 <h3 class="causes-one__title mb-3"><a href="donation-details.html">Bank Details :</a>
                                 </h3>
-                                <h5 class="causes-one__text">Name : Jaugram Sopan</h5>
-                                <h5 class="causes-one__text">Bank : Bank of India</h5>
-                                <h5 class="causes-one__text">Branch : Jaugram Branch</h5>
-                                <h5 class="causes-one__text">A/C No. : 420410100012943</h5>
-                                <h5 class="causes-one__text">IFSC Code : BKID0004204</h5>
+                                <h5 class="causes-one__text pt-0 pb-1">Name : Jaugram Sopan</h5>
+                                <h5 class="causes-one__text pt-0 pb-1">Bank : Bank of India</h5>
+                                <h5 class="causes-one__text pt-0 pb-1">Branch : Jaugram Branch</h5>
+                                <h5 class="causes-one__text pt-0 pb-1">A/C No. : 420410100012943</h5>
+                                <h5 class="causes-one__text pt-0 pb-1">IFSC Code : BKID0004204</h5>
                             </div>
                         </div>
 
@@ -142,11 +145,11 @@
                             <div class="causes-one__content" style="border-radius: 15px;">
                                 <h3 class="causes-one__title mb-3"><a href="donation-details.html">Cheque or Draft Details :</a>
                                 </h3>
-                                <h5 class="causes-one__text">Jaugram Sopan</h5>
-                                <h5 class="causes-one__text">Village - Badpur </h5>
-                                <h5 class="causes-one__text">Post - Jaugram</h5>
-                                <h5 class="causes-one__text">District - Purba Bardhaman</h5>
-                                <h5 class="causes-one__text">Pin - 713166</h5>
+                                <h5 class="causes-one__text pt-0 pb-1">Jaugram Sopan</h5>
+                                <h5 class="causes-one__text pt-0 pb-1">Village - Badpur </h5>
+                                <h5 class="causes-one__text pt-0 pb-1">Post - Jaugram</h5>
+                                <h5 class="causes-one__text pt-0 pb-1">District - Purba Bardhaman</h5>
+                                <h5 class="causes-one__text pt-0 pb-1">Pin - 713166</h5>
                             </div>
                         </div>
 
@@ -154,12 +157,10 @@
                             <div class="causes-one__content" style="border-radius: 15px;">
                                 <h3 class="causes-one__title"><a href="donation-details.html">UPI Details :</a>
                                 </h3>
-                                <p class="causes-one__text pe-3" style="line-height: 20px; color:brown">Please verify the details given below before
+                                <p class="causes-one__text pe-3 pb-0" style="line-height: 20px; color:brown">Please verify the details given below before
                                     transaction.</p>
-                                <h5 class="causes-one__text">Name : Jaugram Sopan</h5>
-                                <p>
-                                    {{ \QrCode::generate('A simple example of QR code!') }}
-                                </p>
+                                <h5 class="causes-one__text">Name : Suman Roy</h5>
+                                {{ \QrCode::size(150)->backgroundColor(255, 255, 0)->color(0, 0, 255)->margin(1)->generate('lifeofsroy@pingpay') }}
                             </div>
                         </div>
 
@@ -170,3 +171,15 @@
     </section>
     <!--Donate Now End-->
 @endsection
+
+@push('main-script')
+    <script>
+        let depositDetail = document.querySelector('#depositDetail');
+        let donateDetailForm = document.querySelector('#showDonateDetail');
+
+        donateDetailForm.addEventListener('submit', (e)=>{
+            e.preventDefault();
+            depositDetail.classList.remove('d-none');
+        })
+    </script>
+@endpush
