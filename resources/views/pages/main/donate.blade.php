@@ -154,8 +154,12 @@
                             <div class="causes-one__content" style="border-radius: 15px;">
                                 <h3 class="causes-one__title"><a href="donation-details.html">UPI Details :</a>
                                 </h3>
-                                <p class="causes-one__text pe-3" style="line-height: 20px; color:brown">Please verify the details given below before transaction.</p>
+                                <p class="causes-one__text pe-3" style="line-height: 20px; color:brown">Please verify the details given below before
+                                    transaction.</p>
                                 <h5 class="causes-one__text">Name : Jaugram Sopan</h5>
+                                <p>
+                                    {{ \QrCode::format('png')->merge('logo.png', 0.5, true)->size(500)->errorCorrection('H')->generate('A simple example of QR code!') }}
+                                </p>
                             </div>
                         </div>
 

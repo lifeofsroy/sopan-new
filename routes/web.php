@@ -45,10 +45,3 @@ Route::get('privacy-policy', [MainPolicyController::class, 'privacy'])->name('po
 Route::get('cookie-policy', [MainPolicyController::class, 'cookie'])->name('policy.cookie');
 
 
-
-
-
-
-
-
-
