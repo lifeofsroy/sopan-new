@@ -33,7 +33,7 @@
                                 <div class="col-xl-12">
                                     <div class="main-slider-three__content">
                                         <p class="main-slider-three__sub-title">{{ $slider->subtitle }}</p>
-                                        <h2 class="main-slider-three__title">{{ $slider->title }}</h2>
+                                        <h2 class="main-slider-three__title" style="font-size: 60px;">{{ $slider->title }}</h2>
                                         <div class="main-slider-three__btn-box">
                                             <a class="thm-btn main-slider-three__btn" href="{{ route('home.slider.detail', $slider->slug) }}">Discover
                                                 more</a>
@@ -306,7 +306,7 @@
     </section>
 
     <!--Upcoming Event-->
-    <section class="urgent-cause">
+    <section class="urgent-cause" style="margin-top: 50px; margin-bottom: 50px;">
         <div class="container">
             <div class="urgent-cause__inner wow fadeInUp" data-wow-delay="100ms" style="padding: 50px 100px 60px;">
                 <div class="urgent-cause-bg" style="background-image: url({{ asset('assets/main/images/backgrounds/main-slider-3-1.jpg') }});"></div>

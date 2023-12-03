@@ -5,21 +5,7 @@
 
 @section('main-section')
     <!--Page Header Start-->
-    <section class="page-header">
-        <div class="page-header-bg" style="background-image: url({{ asset('assets/main/images/backgrounds/page-header-bg.jpg') }})">
-        </div>
-        <div class="container">
-            <div class="page-header__inner">
-                <ul class="thm-breadcrumb list-unstyled">
-                    <li><a href="index.html">Home</a></li>
-                    <li><span>/</span></li>
-                    <li class="active">Contact</li>
-                </ul>
-                <h2>Contact us</h2>
-            </div>
-        </div>
-    </section>
-    <!--Page Header End-->
+    <x-main.breadcrumb-section title="Contact Us" link="Contacts" />
 
     <!--Contact Three Start-->
     <section class="contact-three">
@@ -29,37 +15,39 @@
                 <span class="section-title__tagline">Contact with us</span>
                 <h2 class="section-title__title">Feel free to write us <br> anytime</h2>
             </div>
-            <div class="contact-page__form-box">
-                <form class="contact-page__form contact-form-validated" action="#" novalidate="novalidate">
+            <div class="comment-form">
+                <form action="https://layerdrops.com/oxpinshtml/main-html/assets/inc/sendemail.php" class="comment-one__form contact-form-validated" novalidate="novalidate">
                     <div class="row">
                         <div class="col-xl-6">
-                            <div class="contact-form__input-box">
-                                <input name="name" type="text" placeholder="Your name">
+                            <div class="comment-form__input-box">
+                                <input type="text" placeholder="Your name" name="name">
                             </div>
                         </div>
                         <div class="col-xl-6">
-                            <div class="contact-form__input-box">
-                                <input name="email" type="email" placeholder="Email address">
+                            <div class="comment-form__input-box">
+                                <input type="email" placeholder="Email address" name="email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="comment-form__input-box">
+                                <input type="text" placeholder="Your name" name="name">
                             </div>
                         </div>
                         <div class="col-xl-6">
-                            <div class="contact-form__input-box">
-                                <input name="phone" type="text" placeholder="Phone">
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="contact-form__input-box">
-                                <input name="subject" type="text" placeholder="Subject">
+                            <div class="comment-form__input-box">
+                                <input type="email" placeholder="Email address" name="email">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xl-12">
-                            <div class="contact-form__input-box text-message-box">
+                            <div class="comment-form__input-box text-message-box">
                                 <textarea name="message" placeholder="Write a message"></textarea>
                             </div>
-                            <div class="contact-form__btn-box">
-                                <button class="thm-btn contact-form__btn" type="submit">Send a message</button>
+                            <div class="comment-form__btn-box">
+                                <button type="submit" class="thm-btn contact-form__btn">Send a message</button>
                             </div>
                         </div>
                     </div>
@@ -122,4 +110,8 @@
         <iframe class="google-map__one" src="{{ $contact->mapurl }}" allowfullscreen></iframe>
     </section>
     <!--Google Map End-->
+
+    <div class="comment-form__input-box text-message-box mt-4 px-4">
+        <textarea name="message" placeholder="{{ $contact->route }}" style="font-size: 30px; font-weight: 800; color: #067559; background-color: #cfcfcd00;"></textarea>
+    </div>
 @endsection

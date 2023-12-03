@@ -22,9 +22,9 @@
                         </div>
                         <div class="col-xl-8 col-lg-6">
                             <div class="make-donation__right">
-                                <div class="make-donation__content">
+                                <div class="make-donation__content" style="padding-top: 20px; padding-bottom: 18px;">
                                     <div class="make-donation__btn-box">
-                                        <a class="thm-btn make-donation__btn" href="#">Register now</a>
+                                        <a class="thm-btn make-donation__btn" href="#" id="eventModalBtn" role="button">Register now</a>
                                     </div>
                                     <ul class="list-unstyled make-donation__meta">
                                         <li><a href="#"> <i class="fas fa-calendar-alt"></i> Left
@@ -34,11 +34,12 @@
                                     <a href="{{ route('event.detail', $upcoming->slug) }}">
                                         <h3 class="make-donation__title">{{ $upcoming->title }}</h3>
                                     </a>
-                                    
-                                    <p class="make-donation__text">{{ $upcoming->overview }}... <a class="text-warning" href="{{ route('event.detail', $upcoming->slug) }}">Read More</a></p>
+
+                                    <p class="make-donation__text">{{ $upcoming->overview }}... <a class="text-warning"
+                                            href="{{ route('event.detail', $upcoming->slug) }}">Read More</a></p>
                                     <ul class="list-unstyled make-donation__raised-goal">
                                         <li>
-                                            <div class="icon">
+                                            <div class="icon" style="height: 45px; width: 45px;">
                                                 <i class="fas fa-calendar-times"></i>
                                             </div>
                                             <div class="content">
@@ -46,7 +47,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="icon">
+                                            <div class="icon" style="height: 45px; width: 45px;">
                                                 <i class="fas fa-clock"></i>
                                             </div>
                                             <div class="content">
@@ -61,6 +62,9 @@
                 </div>
             </div>
         </section>
+
+        <!-- Modal -->
+        <x-main.event-register-form :model="$upcoming"/>
     @endif
 
     <!--Events-->

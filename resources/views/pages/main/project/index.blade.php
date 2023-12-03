@@ -27,7 +27,7 @@
                                         </div>
                                         <h3 class="donations-list__title"><a
                                                 href="{{ route('project.detail', $project->slug) }}">{{ $project->title }}</a></h3>
-                                        <p class="donations-list__text">{{ Str::limit($project->overview, 190, '...') }}</p>
+                                        <p class="donations-list__text">{{ Str::limit($project->overview, 180, '...') }} <a class="text-warning" href="{{ route('project.detail', $project->slug) }}">Read More</a></p>
 
                                         {{-- <div class="donations-list__progress">
                                             <div class="donations-list__progress-shape"

@@ -5,21 +5,7 @@
 
 @section('main-section')
     <!--Page Header Start-->
-    <section class="page-header">
-        <div class="page-header-bg" style="background-image: url({{asset('assets/main/images/backgrounds/page-header-bg.jpg')}})">
-        </div>
-        <div class="container">
-            <div class="page-header__inner">
-                <ul class="thm-breadcrumb list-unstyled">
-                    <li><a href="index.html">Home</a></li>
-                    <li><span>/</span></li>
-                    <li class="active">Pages</li>
-                </ul>
-                <h2>Become a volunteer</h2>
-            </div>
-        </div>
-    </section>
-    <!--Page Header End-->
+    <x-main.breadcrumb-section title="Become a volunteer" link="Volunteer" />
 
     <!--Become Volunteer Page Start-->
     <section class="become-volunteer-page">
@@ -32,7 +18,7 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="become-volunteer-page__left">
                         <div class="become-volunteer-page__img">
-                            <img src="{{asset('assets/main/images/team/become-volunteer-img-1.jpg')}}" alt="">
+                            <img src="{{asset('storage')}}/{{$parallax->image}}" alt="">
                         </div>
                         <div class="become-volunteer-page__content">
                             <h3 class="become-volunteer-page__title">Requirements</h3>
@@ -63,8 +49,8 @@
                                 <span class="icon-chat"></span>
                             </div>
                             <div class="become-volunteer__call-content">
-                                <span>Call Anytime</span>
-                                <p><a href="tel:980009630">+98 (000) - 9630</a></p>
+                                <span>Contact For More Information</span>
+                                <p><a href="tel:{{ explode(',', $contact->phone)[0] }}">{{ explode(',', $contact->phone)[0] }}</a></p>
                             </div>
                         </div>
                     </div>

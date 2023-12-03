@@ -59,7 +59,7 @@
                             <div class="about-two__shape-2 rotate-me">
                                 <img src="{{ asset('assets/main/images/shapes/about-two-shape-2.png') }}" alt="">
                             </div>
-                            <div class="about-two__shape-3 float-bob-y">
+                            <div class="about-two__shape-3 float-bob-y" style="bottom: 50px;">
                                 <img src="{{ asset('assets/main/images/shapes/about-two-shape-3.png') }}" alt="">
                             </div>
                         </div>
@@ -136,7 +136,7 @@
     </section>
 
     <!--Expert Team-->
-    <section class="team-one">
+    <section class="team-one" style="padding: 10px 0 90px;">
         <div class="container">
             <div class="section-title text-center">
                 <span class="section-title__tagline">Our expert team</span>

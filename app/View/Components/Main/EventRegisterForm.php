@@ -6,14 +6,14 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class NoticeBoard extends Component
+class EventRegisterForm extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct()
-    {
-        //
+    public $upcoming;
+    public function __construct($model) {
+        $this->upcoming = $model;
     }
 
     /**
@@ -21,6 +21,6 @@ class NoticeBoard extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.main.notice-board');
+        return view('components.main.event-register-form');
     }
 }

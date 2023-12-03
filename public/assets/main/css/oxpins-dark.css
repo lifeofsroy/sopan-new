@@ -44,7 +44,25 @@ body.boxed-wrapper .page-wrapper {
     color: var(--oxpins-white);
 }
 
+.news-two__title-two a {
+    color: var(--oxpins-white);
+}
 
+.about-two__text-1 {
+    color: var(--oxpins-white);
+}
+
+.event-details__title {
+    color: var(--oxpins-white);
+}
+
+.news-sidebar__title a {
+    color: var(--oxpins-white);
+}
+
+.donation-details__title {
+    color: var(--oxpins-white);
+}
 
 .main-menu__right-top-address-list li .content p,
 .about-one__text,

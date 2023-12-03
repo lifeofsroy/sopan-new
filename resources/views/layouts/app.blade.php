@@ -106,7 +106,7 @@
     <a class="scroll-to-target scroll-to-top" data-target="html" href="#"><i class="icon-up-arrow"></i></a>
 
     <script src="{{ asset('assets/main/vendors/jquery/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ asset('assets/main/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/main/vendors/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/main/vendors/jarallax/jarallax.min.js') }}"></script>
     <script src="{{ asset('assets/main/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js') }}"></script>
     <script src="{{ asset('assets/main/vendors/jquery-appear/jquery.appear.min.js') }}"></script>
