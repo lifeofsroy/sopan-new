@@ -321,7 +321,7 @@
                     </div>
                     <div class="urgent-cause__top-right">
                         <div class="urgent-cause__btn">
-                            <a href="#"> <span class="fa fa-heart"></span>Register Now</a>
+                            <a href="#" id="eventModalBtn">Register Now</a>
                         </div>
                     </div>
                 </div>
@@ -334,6 +334,9 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal -->
+    <x-main.event-register-form :model="$event"/>
 
     <!--Gallery-->
     <section class="gallery-one">
