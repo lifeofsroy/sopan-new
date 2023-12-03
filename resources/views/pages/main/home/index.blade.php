@@ -341,7 +341,10 @@
     <!--Gallery-->
     <section class="gallery-one">
         <div class="gallery-one__top">
-            <h3 class="gallery-one__top-title">Our photo gallery</h3>
+            <div class="section-title mb-0">
+                <span class="section-title__tagline">Click below to see all photos</span>
+                <h2 class="section-title__title"><a href="{{route('gallery')}}">Our Memories</a></h2>
+            </div>
         </div>
         <div class="gallery-one__bottom">
             <div class="container">
